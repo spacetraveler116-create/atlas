@@ -258,6 +258,10 @@ table.qt{min-width:820px}.qt .qin{width:56px}.qt .qin.w{width:80px}.qt .qin.t{mi
 .qwrap{grid-template-columns:1fr 290px}
 @media(max-width:1000px){.qwrap{grid-template-columns:1fr}}
 
+.syncind{padding:4px 10px 8px;font-size:12px}.syl{display:flex;align-items:center;gap:8px;color:var(--ink-3)}.sd{width:7px;height:7px;border-radius:50%;background:var(--ink-3)}
+.syl.ok .sd{background:var(--ok)}.syl.syncing .sd{background:var(--info)}.syl.error .sd,.syl.conflict .sd{background:var(--bad)}.syl.offline .sd{background:var(--warn)}
+.ol{margin-bottom:18px}
+
 </style>
 </head>
 <body>
@@ -266,6 +270,7 @@ table.qt{min-width:820px}.qt .qin{width:56px}.qt .qin.w{width:80px}.qt .qin.t{mi
     <div class="brand"><div class="logo" id="logo">A</div><span id="brandName">Atlas</span></div>
     <nav class="nav" id="nav"></nav>
     <div class="sp"></div>
+    <div id="syncInd" class="syncind"></div>
     <button class="nav" style="text-align:left" id="themeBtn" aria-label="Toggle dark mode"><a style="cursor:pointer"><span id="themeIcon"></span><span id="themeLbl">Dark mode</span></a></button>
   </aside>
   <main>
@@ -340,12 +345,12 @@ const ic=n=>raw(`<svg class="i" viewBox="0 0 24 24" aria-hidden="true">${P[n]||'
 const KEY='atlas-db-v3';
 const DEFAULT_TERMS='Pricing is valid for 30 days. Work begins after the first payment is received. Changes to scope may change the price. Equipment remains our property until paid in full.';
 const blank=()=>({v:3,settings:{company:{name:'',email:'',phone:'',address:'',website:'',logoText:'A'},user:{name:'You'},taxRate:6.5,taxLabor:false,laborRate:125,laborCost:45,markup:90,catMarkup:{},terms:DEFAULT_TERMS,currency:'USD',showLinePrices:true},
- accounts:[],opps:[],quotes:[],projects:[],pos:[],stock:[],catalog:[],invoices:[],time:[],calls:[],contracts:[],todos:[],events:[],users:[],pm:{},snap:null,seq:{},cloud:{},meta:{demo:false,welcomed:false}});
+ accounts:[],opps:[],quotes:[],projects:[],pos:[],stock:[],catalog:[],invoices:[],time:[],calls:[],contracts:[],todos:[],events:[],users:[],pm:{},snap:null,seq:{},meta:{demo:false,welcomed:false}});
 let DB=null,MEM=false;
 function migrate(){const b=blank();for(const k in b){if(DB[k]===undefined)DB[k]=b[k]}for(const k in b.settings){if(DB.settings[k]===undefined)DB.settings[k]=b.settings[k]}for(const k in b.settings.company){if(DB.settings.company[k]===undefined)DB.settings.company[k]=b.settings.company[k]}}
 function loadDB(){try{const t=localStorage.getItem(KEY);if(t){DB=JSON.parse(t);migrate();return true}}catch(e){MEM=true}DB=blank();return false}
 let saveT;
-function save(){clearTimeout(saveT);saveT=setTimeout(persist,120)}
+function save(){clearTimeout(saveT);saveT=setTimeout(persist,120);if(window.cloudDirty)cloudDirty()}
 function persist(){try{DB.meta.updated=Date.now();localStorage.setItem(KEY,JSON.stringify(DB))}catch(e){toast('Browser storage is full or blocked. Download a backup in Settings.')}}
 function nextId(p){DB.seq[p]=(DB.seq[p]||0)+1;return p+'-'+DB.seq[p]}
 function PM(pid){if(!DB.pm[pid])DB.pm[pid]={hill:0,tasks:[],posts:[],files:[],checkins:[{id:1,q:'What did you finish today?',ans:[]}],chat:[],activity:[]};return DB.pm[pid]}
@@ -693,7 +698,7 @@ function todoDone(id,v){const x=by('todos',id);x.done=v;save();go()}
 /* ============ settings ============ */
 function sv(path,val,rerender){const k=path.split('.');let o=DB.settings;for(let i=0;i<k.length-1;i++)o=o[k[i]];o[k[k.length-1]]=val;save();if(rerender)go()}
 const sfield=(l,path,v,type,extra)=>H`<div class="fld"><label>${l}</label><input type="${type||'text'}" value="${v}" ${type==='number'?raw('step="any"'):''} onchange="sv('${path}',${type==='number'?'num(this.value)':'this.value'}${extra?',true':''})"></div>`;
-const SET_TABS=['Company','Pricing & tax','Proposals','Data & backup','Install'];
+const SET_TABS=['Company','Pricing & tax','Proposals','Sync devices','Data & backup','Install'];
 V.settings=()=>{const S=DB.settings,c=S.company,t=ST.setTab;let body;
  if(t==='Company')body=H`<div class="h2">Company</div>${sfield('Company name','company.name',c.name)}${sfield('Logo letter(s)','company.logoText',c.logoText)}${sfield('Email','company.email',c.email,'email')}${sfield('Phone','company.phone',c.phone,'tel')}${sfield('Address','company.address',c.address)}${sfield('Website','company.website',c.website)}<div class="h2" style="margin-top:22px">You</div>${sfield('Your name (shown on messages and time entries)','user.name',S.user.name)}`;
  else if(t==='Pricing & tax')body=H`<div class="h2">Pricing</div>${sfield('Default markup % over dealer cost','markup',S.markup,'number',1)}<div class="mut sm" style="margin-bottom:12px">Sell price = dealer cost × (1 + markup). Override per category below.</div>
@@ -702,7 +707,8 @@ V.settings=()=>{const S=DB.settings,c=S.company,t=ST.setTab;let body;
   <div class="h2" style="margin-top:22px">Tax and currency</div>${sfield('Sales tax rate %','taxRate',S.taxRate,'number',1)}<label class="chk0"><input type="checkbox" ${S.taxLabor?raw('checked'):''} onchange="sv('taxLabor',this.checked,true)"> Charge tax on labor too</label>
   <div class="fld" style="margin-top:12px"><label>Currency</label><select onchange="sv('currency',this.value,true)">${['USD','CAD','GBP','EUR','AUD'].map(x=>H`<option ${x===S.currency?raw('selected'):''}>${x}</option>`)}</select></div><label class="chk0"><input type="checkbox" ${S.showLinePrices?raw('checked'):''} onchange="sv('showLinePrices',this.checked)"> Show each line price on proposals</label>`;
  else if(t==='Proposals')body=H`<div class="h2">Terms shown on every proposal</div><div class="fld"><textarea rows="7" style="max-width:100%" onchange="sv('terms',this.value)">${S.terms}</textarea></div><div class="h2" style="margin-top:22px">Default payment schedule</div>${(S.payDefault||defPay()).map((r,i)=>H`<div class="row" style="margin-bottom:8px"><input value="${r.name}" style="flex:1;max-width:260px" class="qin w" onchange="payDef(${i},'name',this.value)"><input class="qin" type="number" value="${r.pct}" onchange="payDef(${i},'pct',num(this.value))"><span class="mut">%</span></div>`)}${btn('Add payment','payDefAdd()','','plus')}`;
- else if(t==='Data & backup')body=H`<div class="h2">Backup</div><p class="mut" style="margin-bottom:12px">Your data lives in this browser on this device. Download a backup regularly. To move your data to another device (for example your phone), download a backup here and restore it there. Project files are stored on this device only and are not included in the backup.</p><div class="row">${btn('Download backup (JSON)','backup()','p','dl')}${btn('Restore from backup','restore()','','up')}</div>
+ else if(t==='Sync devices')body=syncPanel();
+ else if(t==='Data & backup')body=H`<div class="h2">Backup</div><p class="mut" style="margin-bottom:12px">Your data lives in this browser. Turn on Sync devices to keep your phone and computer matching, and still download a backup now and then. Project files are stored on this device only and are not included in the backup.</p><div class="row">${btn('Download backup (JSON)','backup()','p','dl')}${btn('Restore from backup','restore()','','up')}</div>
   <div class="h2" style="margin-top:26px">Export to spreadsheet</div><div class="row">${[['accounts','Accounts'],['opps','Opportunities'],['quotes','Quotes'],['projects','Projects'],['invoices','Invoices'],['time','Time']].map(([k,l])=>btn(l,`exportColl('${k}')`,'','dl'))}</div>
   <div class="h2" style="margin-top:26px">Sample data and reset</div><div class="row">${btn('Load sample data','loadDemo()')}${btn('Erase everything','eraseAll()','dng','trash')}</div><div class="mut sm" style="margin-top:8px">Sample data is fictional. Erase removes all records in this browser.</div>`;
  else body=H`<div class="h2">Install on your phone or computer</div><ol class="ol"><li><b>iPhone:</b> open the site in Safari, tap Share, then Add to Home Screen.</li><li><b>Android:</b> open in Chrome, tap the menu, then Install app.</li><li><b>Computer:</b> in Chrome or Edge, click the install icon in the address bar.</li></ol><div class="h2" style="margin-top:22px">Hosting</div><p class="mut">This site is static files on GitHub Pages. To update it, upload the new files to the repository and commit. Your data is not affected by updates.</p><p class="mut" style="margin-top:10px">Version 3 · ${DB.meta.demo?'Sample data loaded':'Your data'}</p>`;
@@ -834,6 +840,68 @@ function bulkPhotos(){pickFile(async fs=>{let ok=0,miss=[];const idx=new Map(DB.
  for(const f of fs){const base=f.name.replace(/\.[^.]+$/,'').toLowerCase().trim();const p=idx.get(base)||idx.get(base.replace(/[-_ ]\d+$/,''));if(!p){miss.push(f.name);continue}try{await setPhoto(p,f);ok++}catch(e){miss.push(f.name)}}
  go();toast(ok+' photos matched by file name'+(miss.length?', '+miss.length+' not matched':''),4000)},'image/*',true)}
 
+/* ============ device sync (your own private GitHub repository) ============ */
+const SYNK='atlas-sync';
+let SY=null;try{SY=JSON.parse(localStorage.getItem(SYNK))}catch(e){}
+const syPersist=()=>{try{localStorage.setItem(SYNK,JSON.stringify(SY))}catch(e){}};
+let syStatus=SY?'idle':'off',syMsg='',syBusy=false,syTimer=null,syConflict=false,syLast=SY&&SY.last||0;
+const FILES={core:'atlas-data.json',cat:'atlas-catalog.json'};
+const b64e=s=>btoa(unescape(encodeURIComponent(s)));
+const b64d=s=>decodeURIComponent(escape(atob(s.replace(/\s/g,''))));
+const shash=s=>{let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return (h>>>0).toString(36)+':'+s.length};
+const gh=(path,opt)=>{opt=opt||{};return fetch('https://api.github.com/repos/'+SY.owner+'/'+SY.repo+(path?'/contents/'+path:''),Object.assign({},opt,{headers:Object.assign({Authorization:'Bearer '+SY.token,'X-GitHub-Api-Version':'2022-11-28',Accept:'application/vnd.github+json'},opt.headers||{})}))};
+function syParts(){const c=Object.assign({},DB);delete c.catalog;delete c.cloud;c.meta=Object.assign({},DB.meta);delete c.meta.updated;delete c.meta.clock;return{core:JSON.stringify(c),cat:JSON.stringify(DB.catalog)}}
+function syEnsure(){SY.st=SY.st||{core:{},cat:{}};SY.photos=SY.photos||{}}
+function syUI(){const e=$('#syncInd');if(!e)return;if(!SY){e.innerHTML='';return}
+ const m={idle:'Sync ready',syncing:'Syncing…',ok:'Synced'+(syLast?' '+new Date(syLast).toLocaleTimeString([],{hour:'numeric',minute:'2-digit'}):''),error:'Sync problem',conflict:'Sync needs attention',offline:'Offline, will sync later'}[syStatus]||'';
+ e.innerHTML=`<a href="#settings" onclick="ST.setTab='Sync devices'" class="syl ${syStatus}"><i class="sd"></i>${esc(m)}</a>`}
+function cloudDirty(){if(!SY||syConflict)return;clearTimeout(syTimer);syTimer=setTimeout(syNow,3500)}
+async function syNow(manual){if(!SY||syBusy)return;if(!navigator.onLine){syStatus='offline';syUI();return}
+ syBusy=true;syStatus='syncing';syUI();syEnsure();let changed=false;
+ try{changed=await syPull();if(!syConflict){await syPush();await syPhotos();syStatus='ok';syLast=SY.last=Date.now();syMsg=''}else syStatus='conflict'}
+ catch(e){syStatus='error';syMsg=String(e.message||e);if(manual)toast('Sync problem: '+syMsg,5000)}
+ finally{syBusy=false;syPersist();syUI();const pg=$('#page');if(changed&&!$('#drawer.on')&&!(document.activeElement&&['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName)))go();else if(location.hash==='#settings'&&ST.setTab==='Sync devices'&&!$('#drawer.on'))go();if(syConflict&&!$('#drawer.on'))syConflictUI();if(manual&&syStatus==='ok')toast('Synced')}}
+async function syPull(){let changed=false;const hasLocal=()=>DB.accounts.length+DB.opps.length+DB.projects.length+DB.quotes.length+DB.catalog.length>0;
+ for(const k of ['core','cat']){const st=SY.st[k],h={};if(st.etag)h['If-None-Match']=st.etag;
+  const r=await gh(FILES[k],{headers:h,cache:'no-store'});if(r.status===304)continue;if(r.status===404)continue;if(r.status===401||r.status===403)throw new Error('GitHub rejected the token. Check it has Contents read and write access to the repository.');if(!r.ok)throw new Error('GitHub error '+r.status);
+  const j=await r.json();if(j.sha===st.sha){st.etag=r.headers.get('etag');continue}
+  let txt;if(j.content&&j.encoding==='base64')txt=b64d(j.content);else{const rr=await gh(FILES[k],{headers:{Accept:'application/vnd.github.raw+json'}});if(!rr.ok)throw new Error('Could not read '+FILES[k]);txt=await rr.text()}
+  const cur=syParts()[k],localChanged=st.sha?shash(cur)!==st.hash:(k==='core'?hasLocal():DB.catalog.length>0);
+  if(localChanged&&!SY.forceCloud){syConflict=true;SY.pending={k,sha:j.sha};syPersist();continue}
+  if(k==='core'){const d=JSON.parse(txt),clk=DB.meta.clock;d.catalog=DB.catalog;DB=d;migrate();DB.meta.clock=clk}else DB.catalog=JSON.parse(txt);
+  persist();SY.st[k]={sha:j.sha,hash:shash(syParts()[k]),etag:r.headers.get('etag')};changed=true}
+ SY.forceCloud=false;if(changed)await syPullPhotos();return changed}
+async function syPush(){const p=syParts();for(const k of ['core','cat']){const st=SY.st[k],hs=shash(p[k]);if(st.hash===hs&&st.sha)continue;
+  if(k==='cat'&&!DB.catalog.length&&!st.sha)continue;
+  const body={message:'Atlas sync',content:b64e(p[k])};if(st.sha)body.sha=st.sha;
+  const r=await gh(FILES[k],{method:'PUT',body:JSON.stringify(body)});
+  if(r.status===409||r.status===422){syConflict=true;await syFindRemoteSha(k);syPersist();return}
+  if(r.status===401||r.status===403||r.status===404)throw new Error(r.status===404?'Repository not found. Check the owner and repository name.':'GitHub rejected the token. It needs Contents read and write access.');
+  if(!r.ok)throw new Error('GitHub error '+r.status);const j=await r.json();SY.st[k]={sha:j.content.sha,hash:hs,etag:null}}}
+async function syFindRemoteSha(k){const r=await gh(FILES[k],{cache:'no-store'});if(r.ok){const j=await r.json();SY.pending={k,sha:j.sha}}}
+async function syPhotos(){for(const c of DB.catalog){if(!c.img||SY.photos[c.img])continue;let b;try{b=await fget(c.img)}catch(e){}if(!b)continue;
+  const data=await new Promise(res=>{const f=new FileReader();f.onload=()=>res(String(f.result).split(',')[1]);f.readAsDataURL(b)});
+  const r=await gh('photos/'+c.img+'.jpg',{method:'PUT',body:JSON.stringify({message:'photo',content:data})});if(r.ok||r.status===422)SY.photos[c.img]=1}}
+async function syPullPhotos(){for(const c of DB.catalog){if(!c.img)continue;let have=null;try{have=await fget(c.img)}catch(e){}if(have){SY.photos[c.img]=1;continue}
+  const r=await gh('photos/'+c.img+'.jpg',{headers:{Accept:'application/vnd.github.raw+json'}});if(r.ok){try{await fput(c.img,await r.blob());SY.photos[c.img]=1}catch(e){}}}}
+function syConflictUI(){openDrawer(H`<div class="row sb2" style="margin-bottom:14px"><b style="font-size:17px">Two versions found</b><button class="btn ic" onclick="closeDrawer()" aria-label="Close">${ic('x')}</button></div><p class="mut" style="margin-bottom:16px">This device and the cloud copy both have changes. Pick which one to keep. Nothing is lost until you choose, so download a backup first if you are unsure.</p><div class="row" style="flex-direction:column;align-items:stretch;gap:10px">${btn('Keep the cloud copy (replace this device)','syResolve(\'cloud\')','p','cloud')}${btn('Keep this device (replace the cloud copy)','syResolve(\'device\')','','up')}${btn('Download a backup first','backup()','','dl')}</div>`)}
+async function syResolve(w){closeDrawer();syConflict=false;syBusy=false;syEnsure();
+ if(w==='cloud'){SY.forceCloud=true;SY.st={core:{},cat:{}}}
+ else{for(const k of ['core','cat']){const r=await gh(FILES[k],{cache:'no-store'}).catch(()=>null);if(r&&r.ok){const j=await r.json();SY.st[k]={sha:j.sha,hash:'',etag:null}}else SY.st[k]={}}}
+ syPersist();await syNow(true);go()}
+function syncPanel(){
+ if(!SY)return H`<div class="h2">Sync your phone and computer</div><p class="mut" style="margin-bottom:12px">Your data is saved to a private repository in your own GitHub account, so every device you connect shows the same quotes, projects and photos. One-time setup, about 3 minutes.</p>
+ <ol class="ol"><li>On GitHub, create a new <b>private</b> repository, for example <b>atlas-data</b>. Tick "Add a README" so it is not empty.</li><li>Open <a class="lnk" target="_blank" rel="noopener" href="https://github.com/settings/personal-access-tokens/new">github.com/settings/personal-access-tokens/new</a>. Name it Atlas, pick an expiry, under Repository access choose <b>Only select repositories</b> and pick atlas-data. Under Permissions, set <b>Contents</b> to Read and write. Create the token and copy it.</li><li>Enter your GitHub username, the repository name and the token below. Repeat on your phone with the same three values.</li></ol>
+ <div class="fld"><label>GitHub username</label><input id="sy_o" autocapitalize="off" autocomplete="off"></div><div class="fld"><label>Repository name</label><input id="sy_r" value="atlas-data" autocapitalize="off" autocomplete="off"></div><div class="fld"><label>Access token</label><input id="sy_t" type="password" autocomplete="off" placeholder="github_pat_…"></div>${btn('Connect','syConnect()','p','cloud')}
+ <div class="mut sm" style="margin-top:14px">The token stays in this browser only and is never written into your backups. Photos sync too. Project files (PDFs and plans added under Files) stay on the device where you added them.</div>`;
+ return H`<div class="h2">Device sync</div><div class="kv"><span>Repository</span><b>${SY.owner}/${SY.repo}</b></div><div class="kv"><span>Status</span><b>${({idle:'Ready',syncing:'Syncing…',ok:'Up to date',error:'Problem',conflict:'Needs your choice',offline:'Offline',off:'Off'})[syStatus]}${syLast?' · last '+new Date(syLast).toLocaleString([],{month:'short',day:'numeric',hour:'numeric',minute:'2-digit'}):''}</b></div>${syMsg?H`<div class="banner" style="margin-top:12px;background:rgba(220,38,38,.08);color:var(--bad)">${syMsg}</div>`:''}
+ <div class="row" style="margin-top:16px">${btn('Sync now','syNow(true)','p','cloud')}${syConflict?btn('Resolve conflict','syConflictUI()','','edit'):''}${btn('Disconnect this device','syDisconnect()','dng')}</div><div class="mut sm" style="margin-top:14px">Changes upload a few seconds after you make them and download when you open or return to the app. Disconnecting keeps this device's data and leaves the cloud copy untouched.</div>`}
+async function syConnect(){const o=$('#sy_o').value.trim(),r=$('#sy_r').value.trim(),t=$('#sy_t').value.trim();if(!o||!r||!t)return toast('Fill in all three fields');
+ SY={owner:o,repo:r,token:t,st:{core:{},cat:{}},photos:{}};try{const x=await gh('');if(x.status===404||x.status===401||x.status===403){SY=null;return toast(x.status===404?'Repository not found, or the token cannot see it.':'GitHub rejected the token.',5000)}const j=await x.json();if(j.private===false){SY=null;return toast('That repository is public. Use a private repository.',5000)}}catch(e){SY=null;return toast('Could not reach GitHub')}
+ syPersist();syStatus='idle';syUI();await syNow(true);go();if(syConflict)syConflictUI()}
+function syDisconnect(){if(!confirm('Disconnect sync on this device? Your data here stays, and the cloud copy is not changed.'))return;SY=null;syStatus='off';syConflict=false;try{localStorage.removeItem(SYNK)}catch(e){}syUI();go()}
+function syInit(){syUI();if(!SY)return;syNow();document.addEventListener('visibilitychange',()=>{if(!document.hidden)syNow()});setInterval(()=>{if(!document.hidden)syNow()},45000);window.addEventListener('online',()=>syNow())}
+
 /* ============ sample data ============ */
 function loadDemo(){if((DB.accounts.length||DB.opps.length)&&!confirm('Add sample data alongside your existing records?'))return;
  const D=n=>addDays(n),mk=(c,o)=>{const r=Object.assign({id:nextId({accounts:'A',opps:'O',projects:'P',quotes:'Q',invoices:'I',pos:'PO',calls:'S',contracts:'SC',todos:'D',events:'E',time:'T',stock:'STK',catalog:'C'}[c]),created:todayISO()},o);DB[c].push(r);return r};
@@ -894,7 +962,7 @@ const _go=go;go=function(){_go();brand();hydrateImgs()};
  window.addEventListener('beforeunload',()=>{clearTimeout(saveT);persist()});
  document.addEventListener('visibilitychange',()=>{if(document.hidden){clearTimeout(saveT);persist()}});
  if(MEM)setTimeout(()=>toast('This browser is blocking storage. Your changes will not be kept after you close the tab.',6000),500);
- go();
+ go();syInit();
  if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
 })();
 
