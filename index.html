@@ -2,9 +2,16 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Atlas — Integrator Workspace</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Atlas</title>
+<meta name="theme-color" content="#0f766e">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Atlas">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon.svg">
 <style>
+
 :root{
   --bg:#fafaf9;--surface:#fff;--ink:#111827;--ink-2:#4b5563;--ink-3:#9ca3af;
   --line:#e5e7eb;--line-2:#f1f1ef;--hover:#f4f4f2;--accent:#0f766e;--accent-ink:#fff;
@@ -195,16 +202,71 @@ tbody tr:hover{background:var(--hover);cursor:pointer}
 select.pill{padding-right:8px}
 .drop{border:1.5px dashed var(--line);border-radius:12px;padding:22px;text-align:center;color:var(--ink-2);cursor:pointer}
 .drop:hover{border-color:var(--accent);background:var(--accent-soft)}
+/* ===== v3 additions ===== */
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.tw{overflow-x:auto}.sm{font-size:12px}.nw{white-space:nowrap}.bad{color:var(--bad)}
+.btn.sm0{height:28px;padding:0 10px;font-size:13px}.btn.ic.sm0{width:28px;padding:0}.btn[disabled]{opacity:.45;cursor:default}
+.btn.dng{color:var(--bad)}.btn.dng:hover{background:rgba(220,38,38,.08)}
+.dh{font-size:20px;letter-spacing:-.02em;font-weight:650}
+.kv{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line-2)}.kv span{color:var(--ink-3)}
+.li{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--line-2)}.li:last-child{border:0}
+.empty.sm{padding:20px;font-size:12px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}.step{display:flex;flex-direction:column;gap:8px;align-items:flex-start;padding:14px;border:1px solid var(--line);border-radius:10px}
+.chk0{display:flex;align-items:center;gap:10px;margin:6px 0 14px}.chk0 input{width:16px;height:16px;accent-color:var(--accent)}
+.fld input[type=checkbox]{width:auto}
+.fld textarea{width:100%;max-width:380px;border:1px solid var(--line);border-radius:8px;padding:9px 11px;background:var(--surface);resize:vertical;font:inherit}
+.fld input:focus,.fld select:focus,.fld textarea:focus{outline:2px solid var(--accent-soft);border-color:var(--accent)}
+.qname{width:100%;border:0;background:none;font-size:22px;font-weight:650;letter-spacing:-.02em;padding:4px 0}
+.qin.t{width:100%;min-width:170px;text-align:left}
+table.qt{min-width:980px}.optrow td{background:var(--accent-soft)}
+.pad2{padding:22px 32px}.brandmark{width:44px;height:44px;border-radius:12px;background:var(--ink);color:var(--surface);display:grid;place-items:center;font-weight:700;font-size:18px}
+.sigline{margin-top:28px;color:var(--ink-3);display:none}
+.reply{margin-top:8px;padding:8px 12px;border-radius:8px;background:var(--hover);font-size:13px}
+.ol{padding-left:20px;line-height:1.9}
+.cal .day{cursor:pointer}.cal .dn{display:block;font-weight:600;margin-bottom:2px}.cal .oth{background:var(--line-2);min-height:92px}
+.ev{cursor:pointer}.ev.t{background:var(--hover);color:var(--ink-2)}.ev.s{background:#fff3e0;color:#b45309}.ev.b{background:#e8f0fe;color:#1d4ed8}
+.pimg{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:8px;background:var(--line-2);color:var(--ink-3);overflow:hidden;flex:none}
+.pimg img{width:100%;height:100%;object-fit:contain;background:#fff}.pimg svg{width:20px;height:20px}
+.pimg.sm{width:32px;height:32px}.pimg.lg{width:72px;height:72px}
+.sg nav a{cursor:pointer}
+@media print{
+ .sb,.top,.bnav,.noprint,.ov,.drawer,.toast,.pal{display:none!important}
+ .app{display:block}body{background:#fff;color:#000}.page{padding:0;max-width:none}
+ .card{border:0!important;box-shadow:none}.prop{max-width:none}.sigline{display:block}
+ :root{--bg:#fff;--surface:#fff;--ink:#111;--line:#ddd}
+}
+
+.prop.clean{max-width:860px;margin:0 auto;overflow:hidden}
+.prop.clean .cover{padding:40px 44px 34px;border-bottom:1px solid var(--line)}
+.kicker{font-size:11px;letter-spacing:.12em;color:var(--ink-3);font-weight:600;margin:26px 0 8px}
+.prop.clean h2{font-size:34px;letter-spacing:-.03em;margin:4px 0 6px;line-height:1.15}
+.cover-total{margin-top:26px;display:inline-flex;flex-direction:column;padding:14px 20px;border-radius:12px;background:var(--hover)}.cover-total b{font-size:26px;letter-spacing:-.02em}
+.room{padding:26px 44px 8px}.room h3{font-size:19px;letter-spacing:-.02em;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.pitem{display:flex;align-items:center;gap:18px;padding:12px 0;border-bottom:1px solid var(--line-2)}.pitem:last-child{border:0}
+.pitem .pimg.xl{width:88px;height:88px;border-radius:12px;border:1px solid var(--line-2)}
+.pi-main{flex:1;min-width:0}.pi-main b{font-weight:600;font-size:15px}.pi-q{color:var(--ink-3);min-width:44px;text-align:right}.pi-p{min-width:96px;text-align:right;font-weight:600}
+.pitem.lab{padding:10px 0}.pitem.lab b{color:var(--ink-2);font-weight:500}
+.opt2{cursor:pointer}.opt2 input{width:18px;height:18px;accent-color:var(--accent)}
+.totals{padding:24px 44px;max-width:420px;margin-left:auto}.kv.grand{font-size:22px;border:0;padding-top:14px}.kv.grand span{color:var(--ink)}
+.prop.clean .pad2{padding:22px 44px}.signbox{border-top:1px solid var(--line);background:var(--line-2)}
+.pimg.xl svg{width:30px;height:30px}
+@media(max-width:700px){.prop.clean .cover,.prop.clean .pad2,.room{padding-left:20px;padding-right:20px}.prop.clean h2{font-size:26px}.pitem{gap:12px}.pitem .pimg.xl{width:64px;height:64px}.pi-p{min-width:70px}}
+@media print{.prop.clean{max-width:none}.pitem,.room h3{break-inside:avoid}}
+
+.qwrap>*,.grid2>*,.grid3>*,.sg>*{min-width:0}
+table.qt{min-width:820px}.qt .qin{width:56px}.qt .qin.w{width:80px}.qt .qin.t{min-width:150px;width:100%}
+.qwrap{grid-template-columns:1fr 290px}
+@media(max-width:1000px){.qwrap{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
 <div class="app">
   <aside class="sb" id="sb">
-    <div class="brand"><div class="logo">A</div>Atlas</div>
+    <div class="brand"><div class="logo" id="logo">A</div><span id="brandName">Atlas</span></div>
     <nav class="nav" id="nav"></nav>
     <div class="sp"></div>
-    <button class="nav" style="text-align:left" id="themeBtn"><a style="cursor:pointer"><span id="themeIcon"></span><span id="themeLbl">Dark mode</span></a></button>
-    <div class="me"><div class="av">AG</div><div>Armando<small>Administrator</small></div></div>
+    <button class="nav" style="text-align:left" id="themeBtn" aria-label="Toggle dark mode"><a style="cursor:pointer"><span id="themeIcon"></span><span id="themeLbl">Dark mode</span></a></button>
   </aside>
   <main>
     <div class="top">
@@ -217,14 +279,30 @@ select.pill{padding-right:8px}
   </main>
 </div>
 <div class="ov" id="ov"></div>
-<aside class="drawer" id="drawer"></aside>
-<div class="pal" id="pal"><input id="palIn" placeholder="Jump to…"><div id="palList"></div></div>
-<div class="toast" id="toast"></div>
+<aside class="drawer" id="drawer" aria-live="polite"></aside>
+<div class="pal" id="pal"><input id="palIn" placeholder="Search pages, clients, quotes, products…" aria-label="Search"><div id="palList"></div></div>
+<div class="toast" id="toast" role="status"></div>
 <nav class="bnav" id="bnav"></nav>
 <input type="file" id="fileIn" hidden>
-
 <script>
-/* ---------- icons ---------- */
+'use strict';
+/* ============ safe templating ============ */
+class Safe{constructor(s){this.s=s}toString(){return this.s}}
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const raw=s=>new Safe(s);
+const part=v=>v instanceof Safe?v.s:Array.isArray(v)?v.map(part).join(''):(v===null||v===undefined||v===false||v===true)?'':esc(v);
+const H=(s,...v)=>new Safe(s.reduce((a,x,i)=>a+x+(i<v.length?part(v[i]):''),''));
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const sum=(a,f)=>a.reduce((x,y)=>x+(+f(y)||0),0);
+const iso=d=>{const z=new Date(d.getTime()-d.getTimezoneOffset()*6e4);return z.toISOString().slice(0,10)};
+const todayISO=()=>iso(new Date());
+const addDays=(n,from)=>{const d=from?new Date(from+'T00:00:00'):new Date();d.setDate(d.getDate()+n);return iso(d)};
+const fmtD=s=>{if(!s)return '—';const d=new Date(s+'T00:00:00');return isNaN(d)?s:d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:d.getFullYear()===new Date().getFullYear()?undefined:'numeric'})};
+const money=n=>new Intl.NumberFormat('en-US',{style:'currency',currency:(DB&&DB.settings.currency)||'USD',maximumFractionDigits:0}).format(+n||0);
+const money2=n=>new Intl.NumberFormat('en-US',{style:'currency',currency:(DB&&DB.settings.currency)||'USD'}).format(+n||0);
+const num=v=>{const n=parseFloat(String(v).replace(/[$,]/g,''));return isNaN(n)?0:n};
+
+/* ============ icons ============ */
 const P={
  dash:'<rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/>',
  cal:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>',
@@ -247,351 +325,579 @@ const P={
  box:'<path d="M21 8l-9-5-9 5v8l9 5 9-5z"/><path d="M3 8l9 5 9-5M12 13v8"/>'
 };
 P.pin='<path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>';P.chat='<path d="M21 12a8 8 0 0 1-11.5 7.2L3 21l1.8-5.5A8 8 0 1 1 21 12z"/>';P.file='<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/>';P.up='<path d="M12 16V4M7 9l5-5 5 5M4 20h16"/>';P.cam='<path d="M4 7h3l2-3h6l2 3h3v13H4z"/><circle cx="12" cy="13" r="4"/>';
-const ic=(n)=>`<svg class="i" viewBox="0 0 24 24">${P[n]}</svg>`;
-const $=(s,r=document)=>r.querySelector(s);
-const money=n=>'$'+Math.round(n).toLocaleString('en-US');
-const money2=n=>'$'+n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
 
-/* ---------- sample data (fictional) ---------- */
-const seed={
- opps:[
-  {id:'O-31',name:'Lakeview Theater Room',acct:'Harper Residence',stage:'New',val:48200},
-  {id:'O-32',name:'Whole-Home Wi-Fi Upgrade',acct:'Delgado Home',stage:'New',val:6400},
-  {id:'O-33',name:'Lighting Control Retrofit',acct:'Pine Ridge Cabin',stage:'Quoting',val:23400},
-  {id:'O-34',name:'Pool Deck Audio',acct:'Harper Residence',stage:'Quoting',val:9100},
-  {id:'O-29',name:'Media Room Refresh',acct:'Okafor Home',stage:'On Hold',val:14800},
-  {id:'O-27',name:'Smart Shades, Main Floor',acct:'Delgado Home',stage:'Won',val:12750},
-  {id:'O-25',name:'Security Camera Install',acct:'Brooks Lodge',stage:'Won',val:7300}
- ],
- projects:[
-  {id:'P-121',name:'Ridge Ave Wiring',acct:'Brooks Lodge',stage:'New',val:1860},
-  {id:'P-119',name:'Cabin Upgrades',acct:'Pine Ridge Cabin',stage:'New',val:9505},
-  {id:'P-118',name:'Whole-Home Audio',acct:'Harper Residence',stage:'In Progress',val:31200},
-  {id:'P-114',name:'Invisible Speakers',acct:'Okafor Home',stage:'Completed',val:2338},
-  {id:'P-112',name:'Great Room AV',acct:'Okafor Home',stage:'Completed',val:11662}
- ],
- accounts:[
-  {id:'A-43',name:'Harper Residence',contact:'Jordan Harper',email:'jordan@example.com',type:'Client',rep:'Armando G.',status:'Active'},
-  {id:'A-44',name:'Delgado Home',contact:'Maria Delgado',email:'maria@example.com',type:'Client',rep:'Armando G.',status:'Active'},
-  {id:'A-45',name:'Pine Ridge Cabin',contact:'Sam Lee',email:'sam@example.com',type:'Client',rep:'Armando G.',status:'Active'},
-  {id:'A-46',name:'Okafor Home',contact:'Chidi Okafor',email:'chidi@example.com',type:'Client',rep:'Armando G.',status:'Active'},
-  {id:'A-47',name:'Brooks Lodge',contact:'Pat Brooks',email:'pat@example.com',type:'Builder',rep:'Armando G.',status:'Inactive'}
- ],
- quotes:[
-  {id:'Q-183',v:2,name:'System Bandaid',opp:'Pine Ridge Cabin',total:9421,date:'Oct 14, 2026',stage:'Draft'},
-  {id:'Q-182',v:1,name:'System Lighting Upgrade',opp:'Pine Ridge Cabin',total:23455,date:'Oct 14, 2026',stage:'Draft'},
-  {id:'Q-177',v:1,name:'Theater Remote',opp:'Harper Residence',total:2306,date:'Aug 25, 2026',stage:'Draft'},
-  {id:'Q-165',v:1,name:'Wi-Fi Upgrade',opp:'Delgado Home',total:4517,date:'Jul 15, 2026',stage:'Presented'}
- ],
- items:[
-  {loc:'Rack',name:'Rackmount UPS 2000 VA',sku:'UPS-2000',qty:1,labor:1,cost:1070,price:2059},
-  {loc:'Rack',name:'Core Controller',sku:'CTRL-CORE5',qty:1,labor:20,cost:2080,price:4160},
-  {loc:'Utility',name:'Managed 24-Port PoE Switch',sku:'SW-24P',qty:1,labor:3,cost:620,price:1190},
-  {loc:'Utility',name:'Wireless Access Point',sku:'AP-WIFI6',qty:3,labor:1.5,cost:190,price:360},
-  {loc:'Utility',name:'Cat6 Cable, 1000 ft',sku:'CAT6-1K',qty:1,labor:4,cost:210,price:390}
- ],
- pos:[
-  {id:'PO-212',vendor:'Northwind Distribution',status:'Ordered',amt:6820,date:'Oct 20'},
-  {id:'PO-211',vendor:'Summit AV Supply',status:'Partially received',amt:2140,date:'Oct 12'},
-  {id:'PO-209',vendor:'Northwind Distribution',status:'Received',amt:11960,date:'Sep 30'}
- ],
- stock:[
-  {sku:'CAT6-1K',name:'Cat6 Cable, 1000 ft',loc:'Warehouse',qty:6,min:3,cost:210},
-  {sku:'AP-WIFI6',name:'Wireless Access Point',loc:'Warehouse',qty:2,min:4,cost:190},
-  {sku:'KEYPAD-6',name:'6-Button Keypad',loc:'Van 1',qty:9,min:4,cost:95},
-  {sku:'HDMI-15',name:'HDMI Cable, 15 ft',loc:'Warehouse',qty:1,min:5,cost:18}
- ],
- catalog:[
-  {sku:'UPS-2000R',name:'Rackmount UPS 2000 VA',brand:'PowerGuard',cat:'Power',cost:1070,msrp:2059,hrs:1},
-  {sku:'CTRL-CORE5',name:'Core Home Controller',brand:'Nexa',cat:'Control',cost:2080,msrp:4160,hrs:20},
-  {sku:'SW-24P',name:'Managed 24-Port PoE Switch',brand:'Linkwell',cat:'Networking',cost:620,msrp:1190,hrs:3},
-  {sku:'AP-WIFI6',name:'Wi-Fi 6 Access Point',brand:'Linkwell',cat:'Networking',cost:190,msrp:360,hrs:1.5},
-  {sku:'CAT6-1K',name:'Cat6 Cable, 1000 ft',brand:'WireWorks',cat:'Cable',cost:210,msrp:390,hrs:4},
-  {sku:'KEYPAD-6',name:'6-Button Keypad',brand:'Lumen',cat:'Lighting',cost:95,msrp:180,hrs:.5},
-  {sku:'DIM-SMART',name:'Smart Dimmer',brand:'Lumen',cat:'Lighting',cost:88,msrp:165,hrs:.5},
-  {sku:'SPK-CEIL6',name:'6.5in In-Ceiling Speaker',brand:'Soundcraft',cat:'Audio',cost:240,msrp:450,hrs:1},
-  {sku:'AMP-8CH',name:'8-Channel Amplifier',brand:'Soundcraft',cat:'Audio',cost:980,msrp:1850,hrs:2},
-  {sku:'STRM-4K',name:'4K Media Streamer',brand:'Nexa',cat:'Video',cost:310,msrp:590,hrs:1},
-  {sku:'CAM-4K',name:'4K Outdoor Camera',brand:'Sentry',cat:'Security',cost:260,msrp:480,hrs:2},
-  {sku:'HDMI-15',name:'HDMI Cable, 15 ft',brand:'WireWorks',cat:'Cable',cost:18,msrp:45,hrs:.25}
- ],
- pm:{
-  hill:62,
-  tasks:[
-   {t:'Pull Cat6 to media room',list:'Rough-in',who:'Tech A',due:'Nov 4',done:true},
-   {t:'Mount in-ceiling speakers',list:'Rough-in',who:'Tech A',due:'Nov 6',done:false},
-   {t:'Install rack and UPS',list:'Equipment',who:'Armando G.',due:'Nov 8',done:false},
-   {t:'Program controller',list:'Commissioning',who:'Armando G.',due:'Nov 12',done:false},
-   {t:'Client walkthrough and training',list:'Commissioning',who:'Armando G.',due:'Nov 14',done:false}
-  ],
-  posts:[
-   {who:'Armando G.',when:'Today, 9:12 AM',title:'Rough-in plan for this week',body:'Cat6 first, then speaker cut-ins. Builder confirmed the ceiling is open until Thursday.',replies:2},
-   {who:'Tech A',when:'Yesterday',title:'Panel location changed',body:'Electrician moved the panel to the garage wall. Updated the floor plan in Files.',replies:1}
-  ],
-  files:[{name:'Floor plan v3.pdf',kind:'PDF',size:'2.1 MB',by:'Armando G.'},{name:'Rack elevation.png',kind:'Image',size:'640 KB',by:'Tech A'},{name:'Signed proposal.pdf',kind:'PDF',size:'310 KB',by:'Client'}],
-  checkins:[{q:'What did you finish today?',ans:[{who:'Tech A',a:'Cat6 pulled to 4 of 6 drops.'},{who:'Armando G.',a:'Ordered speakers and amp.'}]}],
-  chat:[{who:'Tech A',m:'On site, starting rough-in.'},{who:'Armando G.',m:'Great. Send photos of the rack wall when done.'}],
-  activity:['Tech A completed Pull Cat6 to media room','Armando G. posted Rough-in plan for this week','Client approved proposal Q-183']
- }
-,
- invoices:[
-  {ms:'Deposit',acct:'Harper Residence',proj:'Whole-Home Audio',due:'Nov 02',amt:15600,status:'Not invoiced'},
-  {ms:'Rough-in complete',acct:'Okafor Home',proj:'Great Room AV',due:'Oct 28',amt:5831,status:'Sent'},
-  {ms:'Final',acct:'Okafor Home',proj:'Invisible Speakers',due:'Oct 14',amt:1169,status:'Paid'},
-  {ms:'Deposit',acct:'Pine Ridge Cabin',proj:'Cabin Upgrades',due:'Nov 10',amt:4752,status:'Draft'}
- ],
- time:[
-  {who:'Armando G.',type:'Project',date:'Oct 22, 2026',start:'9:00 AM',end:'4:00 PM',hrs:7,cost:0},
-  {who:'Tech A',type:'Project',date:'Oct 21, 2026',start:'8:00 AM',end:'2:30 PM',hrs:6.5,cost:325}
- ],
- calls:[
-  {id:'S-31',acct:'Harper Residence',issue:'Keypad not responding',pri:'High',status:'Open',when:'Nov 02'},
-  {id:'S-30',acct:'Delgado Home',issue:'Wi-Fi dead zone upstairs',pri:'Normal',status:'Scheduled',when:'Nov 04'}
- ],
- todos:[
-  {t:'Send revised quote to Pine Ridge Cabin',due:'Today',done:false},
-  {t:'Order access points (low stock)',due:'Today',done:false},
-  {t:'Schedule rough-in walkthrough, Harper',due:'This week',done:false},
-  {t:'Close out Okafor invisible speakers',due:'Done',done:true}
- ],
- events:{3:'Site visit: Delgado',7:'Install: Harper',12:'Quote review',15:'Install: Harper',22:'Service call: S-31',27:'Walkthrough'}
+Object.assign(P,{
+ plus:'<path d="M12 5v14M5 12h14"/>',x:'<path d="M18 6L6 18M6 6l12 12"/>',trash:'<path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14M10 11v6M14 11v6"/>',
+ edit:'<path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/>',dl:'<path d="M12 4v12M7 11l5 5 5-5M4 20h16"/>',print:'<path d="M6 9V3h12v6M6 18H4v-7h16v7h-2M6 14h12v7H6z"/>',
+ mail:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>',copy:'<rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/>',
+ check:'<path d="M5 12l5 5 9-10"/>',cloud:'<path d="M7 18a4 4 0 0 1-.5-8A6 6 0 0 1 18 9a4.5 4.5 0 0 1 0 9z"/>',users:'<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/>',
+ chev:'<path d="M9 6l6 6-6 6"/>',left:'<path d="M15 6l-6 6 6 6"/>',link:'<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>',
+ pen:'<path d="M3 21l3-1L19 7l-2-2L4 18z"/>',more:'<circle cx="5" cy="12" r="1.2"/><circle cx="12" cy="12" r="1.2"/><circle cx="19" cy="12" r="1.2"/>'
+});
+const ic=n=>raw(`<svg class="i" viewBox="0 0 24 24" aria-hidden="true">${P[n]||''}</svg>`);
+
+/* ============ data ============ */
+const KEY='atlas-db-v3';
+const DEFAULT_TERMS='Pricing is valid for 30 days. Work begins after the first payment is received. Changes to scope may change the price. Equipment remains our property until paid in full.';
+const blank=()=>({v:3,settings:{company:{name:'',email:'',phone:'',address:'',website:'',logoText:'A'},user:{name:'You'},taxRate:6.5,taxLabor:false,laborRate:125,laborCost:45,markup:90,catMarkup:{},terms:DEFAULT_TERMS,currency:'USD',showLinePrices:true},
+ accounts:[],opps:[],quotes:[],projects:[],pos:[],stock:[],catalog:[],invoices:[],time:[],calls:[],contracts:[],todos:[],events:[],users:[],pm:{},snap:null,seq:{},cloud:{},meta:{demo:false,welcomed:false}});
+let DB=null,MEM=false;
+function migrate(){const b=blank();for(const k in b){if(DB[k]===undefined)DB[k]=b[k]}for(const k in b.settings){if(DB.settings[k]===undefined)DB.settings[k]=b.settings[k]}for(const k in b.settings.company){if(DB.settings.company[k]===undefined)DB.settings.company[k]=b.settings.company[k]}}
+function loadDB(){try{const t=localStorage.getItem(KEY);if(t){DB=JSON.parse(t);migrate();return true}}catch(e){MEM=true}DB=blank();return false}
+let saveT;
+function save(){clearTimeout(saveT);saveT=setTimeout(persist,120)}
+function persist(){try{DB.meta.updated=Date.now();localStorage.setItem(KEY,JSON.stringify(DB))}catch(e){toast('Browser storage is full or blocked. Download a backup in Settings.')}}
+function nextId(p){DB.seq[p]=(DB.seq[p]||0)+1;return p+'-'+DB.seq[p]}
+function PM(pid){if(!DB.pm[pid])DB.pm[pid]={hill:0,tasks:[],posts:[],files:[],checkins:[{id:1,q:'What did you finish today?',ans:[]}],chat:[],activity:[]};return DB.pm[pid]}
+function logAct(pid,t){if(!pid)return;const p=PM(pid);p.activity.unshift({t,on:new Date().toISOString()});p.activity=p.activity.slice(0,60)}
+const by=(c,id)=>DB[c].find(x=>x.id===id);
+const acctName=id=>{const a=by('accounts',id);return a?a.name:'—'};
+const projName=id=>{const a=by('projects',id);return a?a.name:'—'};
+const oppName=id=>{const a=by('opps',id);return a?a.name:'—'};
+const me=()=>DB.settings.user.name||'You';
+const co=()=>DB.settings.company;
+
+/* ============ pricing + quote math ============ */
+const priceOf=p=>{const m=(DB.settings.catMarkup||{})[p.cat];const pct=(m===undefined||m==='')?DB.settings.markup:+m;return Math.round(p.cost*(1+pct/100)*100)/100};
+const qItems=q=>q.items.filter(i=>!i.optional||i.sel);
+function qCalc(q){const S=DB.settings,a=by('accounts',q.acctId),its=qItems(q);
+ const prod=sum(its,i=>i.price*i.qty),hrs=sum(its,i=>i.labor*i.qty),lab=hrs*S.laborRate,adj=+q.adjust||0;
+ const taxable=prod+(S.taxLabor?lab:0),tax=(a&&a.taxExempt)?0:Math.max(0,taxable+adj*(S.taxLabor?1:0))*S.taxRate/100;
+ const sub=prod+lab+adj,total=sub+tax,cost=sum(its,i=>i.cost*i.qty)+hrs*S.laborCost,profit=sub-cost;
+ return{prod,hrs,lab,adj,sub,tax,total,cost,profit,margin:sub?profit/sub*100:0,opt:sum(q.items.filter(i=>i.optional&&!i.sel),i=>i.price*i.qty)}}
+const oppValue=o=>{const qs=DB.quotes.filter(q=>q.oppId===o.id&&q.stage!=='Declined');if(qs.length)return qCalc(qs[qs.length-1]).total;return +o.budget||0};
+
+/* ============ files (IndexedDB) ============ */
+const idb=()=>new Promise((res,rej)=>{try{const r=indexedDB.open('atlas-files',1);r.onupgradeneeded=()=>r.result.createObjectStore('f');r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)}catch(e){rej(e)}});
+async function fput(id,blob){const d=await idb();return new Promise((res,rej)=>{const t=d.transaction('f','readwrite');t.objectStore('f').put(blob,id);t.oncomplete=res;t.onerror=()=>rej(t.error)})}
+async function fget(id){const d=await idb();return new Promise((res,rej)=>{const r=d.transaction('f').objectStore('f').get(id);r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)})}
+async function fdel(id){try{const d=await idb();d.transaction('f','readwrite').objectStore('f').delete(id)}catch(e){}}
+function download(name,data,type){const b=data instanceof Blob?data:new Blob([data],{type:type||'text/plain'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},500)}
+function pickFile(cb,accept,multi){const f=$('#fileIn');f.accept=accept||'';f.multiple=!!multi;f.value='';f.onchange=()=>{if(f.files.length)cb(multi?[...f.files]:f.files[0])};f.click()}
+async function addProjectFile(pid,file,kind){const id='f'+Date.now()+Math.random().toString(36).slice(2,6);try{await fput(id,file)}catch(e){toast('Could not store file in this browser');return}
+ PM(pid).files.unshift({id,name:file.name,kind:kind||(file.type.startsWith('image/')?'Image':'File'),size:file.size,by:me(),on:todayISO()});logAct(pid,me()+' added '+file.name);save()}
+window.openFile=async id=>{try{const b=await fget(id);if(!b)return toast('File not found on this device');const u=URL.createObjectURL(b);window.open(u,'_blank');setTimeout(()=>URL.revokeObjectURL(u),60000)}catch(e){toast('Could not open file')}};
+const fsize=n=>n>1048576?(n/1048576).toFixed(1)+' MB':Math.max(1,Math.round(n/1024))+' KB';
+
+/* ============ ui primitives ============ */
+function toast(m,ms){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(toast.h);toast.h=setTimeout(()=>t.classList.remove('on'),ms||2200)}
+function openDrawer(content){$('#drawer').innerHTML=content.s;$('#ov').classList.add('on');$('#drawer').classList.add('on');setTimeout(()=>{const f=$('#drawer input:not([type=hidden]),#drawer select,#drawer textarea');f&&f.focus()},60)}
+function closeDrawer(){$('#ov').classList.remove('on');$('#drawer').classList.remove('on');$('#pal').classList.remove('on')}
+const colors={New:'#d97706',Quoting:'#2563eb','On Hold':'#9ca3af',Won:'#16a34a',Lost:'#dc2626','In Progress':'#2563eb',Completed:'#16a34a',Draft:'#9ca3af',Presented:'#d97706',Approved:'#16a34a',Declined:'#dc2626',Paid:'#16a34a',Sent:'#2563eb','Not invoiced':'#9ca3af',Ordered:'#2563eb','Partially received':'#d97706',Received:'#16a34a',Open:'#dc2626',Scheduled:'#2563eb',Done:'#16a34a',Active:'#16a34a',Inactive:'#9ca3af',Pending:'#d97706',Expired:'#dc2626',Canceled:'#9ca3af',Overdue:'#dc2626'};
+const tag=s=>H`<span class="tag"><i class="dot" style="background:${colors[s]||'#9ca3af'}"></i>${s}</span>`;
+const kpi=(l,v,s)=>H`<div class="card kpi"><span>${l}</span><strong>${v}</strong>${s?H`<em>${s}</em>`:''}</div>`;
+const empty=(t,btn)=>H`<div class="empty">${t}${btn?H`<div style="margin-top:12px">${btn}</div>`:''}</div>`;
+const btn=(label,onclick,cls,icon)=>H`<button class="btn ${cls||''}" onclick="${raw(esc(onclick))}">${icon?ic(icon):''}${label}</button>`;
+const sq=ph=>H`<label class="search">${ic('search')}<input placeholder="${ph}" data-filter aria-label="${ph}"></label>`;
+const table=(heads,rows,right=[])=>H`<div class="tw"><table><thead><tr>${heads.map((h,i)=>H`<th class="${right.includes(i)?'r':''}">${h}</th>`)}</tr></thead><tbody>${rows}</tbody></table></div>`;
+const tr=(cells,right=[],click)=>H`<tr ${click?raw(`onclick="${esc(click)}" tabindex="0"`):''}>${cells.map((c,i)=>H`<td class="${right.includes(i)?'r':''}">${c}</td>`)}</tr>`;
+const seg=(opts,cur,fn)=>H`<div class="seg">${opts.map(o=>H`<button class="${o===cur?'on':''}" data-v="${o}" onclick="${raw(fn)}(this.dataset.v)">${o}</button>`)}</div>`;
+
+/* ============ schemas + generic forms ============ */
+const F=(k,l,t,o)=>({k,l,t:t||'text',o});
+const SCH={
+ accounts:{coll:'accounts',pre:'A',label:'Account',def:{type:'Client',status:'Active'},f:[F('name','Name','text',{req:1}),F('type','Type','select',['Client','Builder','Designer','Vendor','Lead']),F('contact','Contact name'),F('email','Email','email'),F('phone','Phone','tel'),F('address','Address'),F('rep','Salesperson'),F('status','Status','select',['Active','Inactive']),F('taxExempt','Tax-exempt','check'),F('notes','Notes','textarea')]},
+ opps:{coll:'opps',pre:'O',label:'Opportunity',def:{stage:'New',prob:50},f:[F('name','Name','text',{req:1}),F('acctId','Account','acct',{req:1}),F('stage','Stage','select',['New','Quoting','On Hold','Won','Lost']),F('budget','Budget','number'),F('close','Estimated close','date'),F('prob','Probability %','number'),F('source','Lead source','select',['','Referral','Former client','Website','Builder','Designer','Other']),F('notes','Notes','textarea')]},
+ projects:{coll:'projects',pre:'P',label:'Project',def:{stage:'New'},f:[F('name','Name','text',{req:1}),F('acctId','Account','acct',{req:1}),F('stage','Stage','select',['New','In Progress','On Hold','Completed']),F('value','Value','number'),F('start','Start date','date'),F('address','Job site address'),F('notes','Notes','textarea')]},
+ pos:{coll:'pos',pre:'PO',label:'Purchase order',def:{status:'Draft',vendor:'Snap One',date:null},f:[F('vendor','Vendor','text',{req:1}),F('projectId','Project','proj'),F('status','Status','select',['Draft','Ordered','Partially received','Received']),F('date','Order date','date'),F('notes','Notes','textarea')]},
+ stock:{coll:'stock',pre:'STK',label:'Inventory item',def:{qty:0,min:0,cost:0,loc:'Warehouse'},f:[F('sku','SKU','text',{req:1}),F('name','Name','text',{req:1}),F('loc','Location'),F('qty','On hand','number'),F('min','Minimum','number'),F('cost','Unit cost','number')]},
+ catalog:{coll:'catalog',pre:'C',label:'Product',def:{hrs:1,cat:'General'},f:[F('sku','SKU / part number','text',{req:1}),F('name','Name','text',{req:1}),F('brand','Brand'),F('cat','Category'),F('cost','Dealer cost','number',{req:1}),F('msrp','MSRP','number'),F('hrs','Labor hours each','number'),F('url','Product link','url'),F('imgUrl','Photo link (optional)','url')]},
+ invoices:{coll:'invoices',pre:'I',label:'Invoice',def:{status:'Draft'},f:[F('projectId','Project','proj',{req:1}),F('name','Milestone or description','text',{req:1}),F('amt','Amount','number',{req:1}),F('due','Due date','date'),F('status','Status','select',['Not invoiced','Draft','Sent','Paid']),F('notes','Notes','textarea')]},
+ time:{coll:'time',pre:'T',label:'Time entry',def:{type:'Project'},f:[F('who','Resource','text',{req:1}),F('projectId','Project','proj'),F('date','Date','date',{req:1}),F('hours','Hours','number',{req:1}),F('note','Notes')]},
+ calls:{coll:'calls',pre:'S',label:'Service call',def:{pri:'Normal',status:'Open'},f:[F('acctId','Account','acct',{req:1}),F('issue','Issue','text',{req:1}),F('pri','Priority','select',['Low','Normal','High']),F('status','Status','select',['Open','Scheduled','Done']),F('when','Scheduled date','date'),F('tech','Technician'),F('notes','Notes','textarea')]},
+ contracts:{coll:'contracts',pre:'SC',label:'Service contract',def:{status:'Pending'},f:[F('acctId','Account','acct',{req:1}),F('name','Plan name','text',{req:1}),F('status','Status','select',['Pending','Active','Expired','Canceled']),F('start','Start date','date'),F('end','End date','date'),F('amt','Amount per year','number')]},
+ todos:{coll:'todos',pre:'D',label:'To do',def:{done:false},f:[F('t','To do','text',{req:1}),F('due','Due date','date'),F('projectId','Project','proj'),F('who','Assigned to')]},
+ events:{coll:'events',pre:'E',label:'Event',def:{},f:[F('title','Title','text',{req:1}),F('date','Date','date',{req:1}),F('time','Time','time'),F('projectId','Project','proj'),F('notes','Notes','textarea')]},
+ users:{coll:'users',pre:'U',label:'Team member',def:{role:'Technician'},f:[F('name','Name','text',{req:1}),F('email','Email','email'),F('role','Role','select',['Administrator','Sales','Project manager','Technician'])]}
 };
-let S;
-try{S=JSON.parse(localStorage.getItem('atlas-v2'))||structuredClone(seed)}catch(e){S=structuredClone(seed)}
-S.markup=S.markup||90;
-const save=()=>{try{localStorage.setItem('atlas-v2',JSON.stringify(S))}catch(e){}};
-const toast=m=>{const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(toast.h);toast.h=setTimeout(()=>t.classList.remove('on'),1800)};
+function fieldHTML(f,v){const id='f_'+f.k,L=f.o&&f.o.req?f.l+' *':f.l;let inner;
+ if(f.t==='textarea')inner=H`<textarea id="${id}" name="${f.k}" rows="3">${v||''}</textarea>`;
+ else if(f.t==='check')return H`<label class="chk0"><input type="checkbox" name="${f.k}" ${v?raw('checked'):''}> ${f.l}</label>`;
+ else if(['select','acct','proj'].includes(f.t)){let opts=f.t==='acct'?[['','Choose account']].concat(DB.accounts.map(a=>[a.id,a.name])):f.t==='proj'?[['','None']].concat(DB.projects.map(p=>[p.id,p.name])):f.o.map?f.o.map(x=>[x,x||'None']):[];
+  inner=H`<select id="${id}" name="${f.k}">${opts.map(o=>H`<option value="${o[0]}" ${String(v??'')===String(o[0])?raw('selected'):''}>${o[1]}</option>`)}</select>`}
+ else inner=H`<input id="${id}" name="${f.k}" type="${f.t}" value="${v??''}" ${f.t==='number'?raw('step="any"'):''} ${f.o&&f.o.req?raw('required'):''}>`;
+ return H`<div class="fld"><label for="${id}">${L}</label>${inner}</div>`}
+let formCb=null;
+function openForm(ent,id,pre,cb){const s=SCH[ent],rec=id?by(s.coll,id):Object.assign({},s.def,pre||{});if(id&&!rec)return;formCb=cb||null;
+ openDrawer(H`<form onsubmit="return saveForm(event,'${ent}','${id||''}')"><div class="row sb2" style="margin-bottom:18px"><b style="font-size:17px">${id?'Edit':'New'} ${s.label.toLowerCase()}</b><button type="button" class="btn ic" onclick="closeDrawer()" aria-label="Close">${ic('x')}</button></div>
+ ${ent==='catalog'&&id?photoCtl(id):''}${s.f.map(f=>fieldHTML(f,rec[f.k]))}<div class="row" style="margin-top:8px"><button class="btn p" type="submit">Save</button>${id?H`<button type="button" class="btn dng" onclick="delRec('${ent}','${id}')">${ic('trash')}Delete</button>`:''}</div></form>`)}
+function saveForm(e,ent,id){e.preventDefault();const s=SCH[ent],fd=new FormData(e.target),isNew=!id;let rec=isNew?{}:by(s.coll,id);
+ s.f.forEach(f=>{let v=f.t==='check'?fd.has(f.k):fd.get(f.k);if(f.t==='number')v=v===''||v===null?'':num(v);if(typeof v==='string')v=v.trim();rec[f.k]=v});
+ if(isNew){Object.assign(rec,{id:nextId(s.pre),created:todayISO()});DB[s.coll].push(rec)}
+ const hook=HOOKS[ent];if(hook)hook(rec,isNew);save();closeDrawer();toast(s.label+(isNew?' created':' saved'));const cb=formCb;formCb=null;if(cb)cb(rec);else go();return false}
+const HOOKS={
+ opps:(r,isNew)=>{if(r.stage==='Won'&&!r.wonOn)r.wonOn=todayISO();if(r.stage!=='Won')r.wonOn=null},
+ projects:(r,isNew)=>{if(r.stage==='Completed'&&!r.doneOn)r.doneOn=todayISO();if(r.stage!=='Completed')r.doneOn=null;if(isNew)PM(r.id)},
+ pos:(r,isNew)=>{if(isNew&&!r.date)r.date=todayISO();if(isNew&&!r.lines)r.lines=[]},
+ invoices:(r)=>{if(r.status==='Paid'&&!r.paidOn)r.paidOn=todayISO();if(r.status!=='Paid')r.paidOn=null;if(r.amt==='')r.amt=0},
+ time:(r)=>{r.cost=(+r.hours||0)*DB.settings.laborCost},
+ catalog:(r)=>{if(r.msrp==='')r.msrp=r.cost*2}
+};
+function delRec(ent,id){const s=SCH[ent],r=by(s.coll,id);if(!r||!confirm('Delete this '+s.label.toLowerCase()+'? This cannot be undone.'))return;
+ DB[s.coll]=DB[s.coll].filter(x=>x.id!==id);
+ if(ent==='projects'){delete DB.pm[id]}
+ save();closeDrawer();toast(s.label+' deleted');if(['projects'].includes(ent)&&location.hash.startsWith('#project/'))location.hash='projects';else go()}
 
-/* ---------- helpers ---------- */
-const stageColor={New:'#d97706',Quoting:'#2563eb','On Hold':'#9ca3af',Won:'#16a34a','In Progress':'#2563eb',Completed:'#16a34a',Draft:'#9ca3af',Presented:'#d97706',Paid:'#16a34a',Sent:'#2563eb','Not invoiced':'#9ca3af',Ordered:'#2563eb','Partially received':'#d97706',Received:'#16a34a',Open:'#dc2626',Scheduled:'#2563eb',Active:'#16a34a',Inactive:'#9ca3af'};
-const tag=s=>`<span class="tag"><i class="dot" style="background:${stageColor[s]||'#9ca3af'}"></i>${s}</span>`;
-const kpi=(l,v,s='')=>`<div class="card kpi"><span>${l}</span><strong>${v}</strong>${s?`<em>${s}</em>`:''}</div>`;
-const sum=(a,f)=>a.reduce((x,y)=>x+f(y),0);
-const table=(heads,rows,right=[])=>`<table><thead><tr>${heads.map((h,i)=>`<th class="${right.includes(i)?'r':''}">${h}</th>`).join('')}</tr></thead><tbody>${rows.join('')}</tbody></table>`;
-const tr=(cells,right=[],attr='')=>`<tr ${attr}>${cells.map((c,i)=>`<td class="${right.includes(i)?'r':''}">${c}</td>`).join('')}</tr>`;
-const filters=l=>`<div class="row" style="margin:0 0 16px">${l.map(x=>`<button class="pill">${x[0]}: <b>${x[1]}</b></button>`).join('')}</div>`;
-const sq=(ph)=>`<label class="search">${ic('search')}<input placeholder="${ph}" data-filter></label>`;
+/* ============ router ============ */
+const routes=[['dashboard','Dashboard','dash'],['calendar','Calendar','cal'],['opportunities','Opportunities','opp'],['projects','Projects','proj'],['service','Service','svc'],['procurement','Procurement','proc'],['inventory','Inventory','inv'],['catalog','Catalog','cat'],['accounts','Accounts','acc'],['billing','Billing','bill'],['time','Time Entries','time'],['field','Field','pin'],['reports','Reports','rep'],['todos','To Dos','todo'],['settings','Settings','set']];
+const V={},AFTER={};
+const parent={quote:'opportunities',proposal:'opportunities',project:'projects',invoice:'billing'};
+const ST={oppView:'Board',projView:'Board',svcTab:'Calls',pmTab:'Overview',clientView:false,calY:new Date().getFullYear(),calM:new Date().getMonth(),setTab:'Company',fieldPid:null,billTab:'Milestones',oppTab:'Board',qTab:'Items'};
+function go(){const[r,arg]=(location.hash.slice(1)||'dashboard').split('/');const fn=V[r]||V.dashboard;
+ let t;try{t=fn(arg)}catch(err){console.error(err);t=H`<div class="empty">Something went wrong loading this page.<br><small>${String(err.message||err)}</small></div>`}
+ const route=routes.find(x=>x[0]===r),titles={quote:'Quote',proposal:'Proposal',project:(by('projects',arg)||{}).name||'Project',invoice:'Invoice'};
+ $('#title').textContent=titles[r]||(route?route[1]:'Dashboard');document.title=($('#title').textContent)+' · Atlas';
+ const keep=$('#page').scrollTop;$('#page').innerHTML=t.s;
+ const cur=parent[r]||r;$$('#nav a').forEach(a=>a.classList.toggle('on',a.dataset.r===cur));
+ $('#bnav').innerHTML=[['dashboard','Home','dash'],['opportunities','Pipeline','opp'],['projects','Projects','proj'],['catalog','Catalog','cat'],['field','Field','pin']].map(x=>`<a href="#${x[0]}" class="${cur===x[0]?'on':''}">${ic(x[2]).s}${x[1]}</a>`).join('');
+ $('#sb').classList.remove('on');bindPage();if(AFTER[r])AFTER[r](arg)}
+function bindPage(){
+ $$('.kc[draggable]').forEach(c=>{c.ondragstart=e=>e.dataTransfer.setData('text/plain',c.dataset.ent+'|'+c.dataset.id)});
+ $$('.col').forEach(col=>{col.ondragover=e=>{e.preventDefault();col.classList.add('over')};col.ondragleave=()=>col.classList.remove('over');
+  col.ondrop=e=>{e.preventDefault();col.classList.remove('over');const[t,id]=e.dataTransfer.getData('text/plain').split('|');if(t&&id)setStage(t,id,col.dataset.stage)}});
+ $$('[data-filter]').forEach(inp=>inp.oninput=()=>{const v=inp.value.toLowerCase();$$('.frow').forEach(el=>el.style.display=el.textContent.toLowerCase().includes(v)?'':'none')});
+ $$('tr[tabindex]').forEach(r=>r.onkeydown=e=>{if(e.key==='Enter')r.click()})}
+function setStage(ent,id,stage){const r=by(ent,id);if(!r||r.stage===stage)return;r.stage=stage;
+ if(ent==='opps'){HOOKS.opps(r);if(stage==='Won'){const has=DB.projects.some(p=>p.oppId===r.id);save();go();if(!has&&confirm('Marked as won. Create a project for "'+r.name+'" now?'))oppToProject(r.id);return}}
+ if(ent==='projects')HOOKS.projects(r);
+ save();go();toast('Moved to '+stage)}
+function oppToProject(oid){const o=by('opps',oid);if(!o)return;let p=DB.projects.find(x=>x.oppId===oid);if(p){location.hash='project/'+p.id;return}
+ p={id:nextId('P'),name:o.name,acctId:o.acctId,oppId:o.id,stage:'New',value:oppValue(o),created:todayISO()};DB.projects.push(p);PM(p.id);logAct(p.id,'Project created from opportunity '+o.id);save();toast('Project '+p.id+' created');location.hash='project/'+p.id}
 
-/* ---------- routes ---------- */
-const routes=[
- ['dashboard','Dashboard','dash'],['calendar','Calendar','cal'],['opportunities','Opportunities','opp'],['projects','Projects','proj'],
- ['service','Service','svc'],['procurement','Procurement','proc'],['inventory','Inventory','inv'],['catalog','Catalog','cat'],
- ['accounts','Accounts','acc'],['billing','Billing','bill'],['time','Time Entries','time'],['field','Field','pin'],['reports','Reports','rep'],['todos','To Dos','todo'],['settings','Settings','set']
-];
-const view={};
+/* ============ csv ============ */
+function parseCSV(t){t=t.replace(/^﻿/,'');const delim=(t.split('\n')[0].match(/\t/g)||[]).length>(t.split('\n')[0].match(/,/g)||[]).length?'\t':(t.split('\n')[0].match(/;/g)||[]).length>(t.split('\n')[0].match(/,/g)||[]).length?';':',';
+ const rows=[];let r=[],c='',q=false;for(let i=0;i<t.length;i++){const ch=t[i];if(q){if(ch=='"'){if(t[i+1]=='"'){c+='"';i++}else q=false}else c+=ch}else if(ch=='"')q=true;else if(ch==delim){r.push(c);c=''}else if(ch=='\n'||ch=='\r'){if(ch=='\r'&&t[i+1]=='\n')i++;r.push(c);c='';if(r.some(x=>x.trim()))rows.push(r);r=[]}else c+=ch}
+ if(c||r.length){r.push(c);if(r.some(x=>x.trim()))rows.push(r)}return rows}
+const csvCell=v=>{v=v===null||v===undefined?'':String(v);return /[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v};
+const toCSV=(heads,rows)=>[heads.map(csvCell).join(',')].concat(rows.map(r=>r.map(csvCell).join(','))).join('\n');
 
-view.dashboard=()=>{
- const won=S.opps.filter(o=>o.stage==='Won'),open=S.opps.filter(o=>o.stage!=='Won');
- const stages=['New','Quoting','On Hold','Won'];
- const max=Math.max(...stages.map(s=>sum(S.opps.filter(o=>o.stage===s),o=>o.val)),1);
- return `<div class="row" style="margin-bottom:6px"><div style="flex:1;color:var(--ink-2)">Good evening, Armando.</div><div class="seg"><button class="on">All</button><button>Mine</button></div></div>
- <div class="kpis" style="margin-top:14px">${kpi('Open pipeline',money(sum(open,o=>o.val)))}${kpi('Won this month',money(sum(won,o=>o.val)))}${kpi('Closing ratio',Math.round(won.length/S.opps.length*100)+'%')}${kpi('Closing this week',S.opps.filter(o=>o.stage==='Quoting').length)}</div>
+/* ============ dashboard ============ */
+V.dashboard=()=>{
+ const O=DB.opps,open=O.filter(o=>!['Won','Lost'].includes(o.stage)),m=todayISO().slice(0,7),wk=addDays(7);
+ const wonM=O.filter(o=>o.stage==='Won'&&(o.wonOn||'').startsWith(m)),decided=O.filter(o=>['Won','Lost'].includes(o.stage));
+ const ratio=decided.length?Math.round(O.filter(o=>o.stage==='Won').length/decided.length*100):0;
+ const closing=open.filter(o=>o.close&&o.close>=todayISO()&&o.close<=wk);
+ const stages=['New','Quoting','On Hold','Won'],tot=s=>sum(O.filter(o=>o.stage===s),oppValue),mx=Math.max(...stages.map(tot),1);
+ const openQ=DB.quotes.filter(q=>['Draft','Presented'].includes(q.stage)),todos=DB.todos.filter(t=>!t.done).sort((a,b)=>(a.due||'9').localeCompare(b.due||'9')).slice(0,5);
+ const dueInv=DB.invoices.filter(i=>i.status==='Sent'),overdue=dueInv.filter(i=>i.due&&i.due<todayISO());
+ const lowStock=DB.stock.filter(s=>s.qty<s.min).length;
+ const fresh=!DB.accounts.length&&!DB.opps.length&&!DB.catalog.length;
+ return H`${fresh?H`<div class="card pad" style="margin-bottom:16px"><div class="h2" style="font-size:15px;color:var(--ink)">Get started</div><div class="steps">
+  <div class="step"><b>1. Add your company</b><span class="mut">Name, logo letter, tax and labor rates, proposal terms.</span>${btn('Open settings','location.hash=\'settings\'','', 'set')}</div>
+  <div class="step"><b>2. Import your Snap One price file</b><span class="mut">Download it from snapav.com, then import the CSV.</span>${btn('Open catalog','location.hash=\'catalog\'','','up')}</div>
+  <div class="step"><b>3. Add a client</b><span class="mut">Then log an opportunity and build a quote.</span>${btn('New account','openForm(\'accounts\')','p','plus')}</div></div>
+  <div class="mut" style="margin-top:14px;font-size:13px">Want to look around first? ${btn('Load sample data','loadDemo()','','')}</div></div>`:''}
+ <div class="kpis">${kpi('Open pipeline',money(sum(open,oppValue)),open.length+' opportunities')}${kpi('Won this month',money(sum(wonM,oppValue)))}${kpi('Win rate',ratio+'%',decided.length?'of '+decided.length+' decided':'')}${kpi('Closing this week',closing.length)}</div>
  <div class="grid2"><div class="card pad"><div class="h2">Pipeline by stage<a href="#opportunities">Open board</a></div>
- <div class="bars">${stages.map(s=>{const v=sum(S.opps.filter(o=>o.stage===s),o=>o.val);return `<div class="bar ${s==='Won'?'':'alt'}"><i style="height:${Math.max(v/max*100,3)}%"></i></div>`}).join('')}</div>
- <div class="bl">${stages.map(s=>`<span>${s}<br><b style="color:var(--ink)">${money(sum(S.opps.filter(o=>o.stage===s),o=>o.val))}</b></span>`).join('')}</div></div>
- <div class="card pad"><div class="h2">To dos<a href="#todos">View all</a></div>${S.todos.filter(t=>!t.done).slice(0,4).map(t=>`<div style="padding:8px 0;border-bottom:1px solid var(--line-2)">${t.t}<div class="mut" style="font-size:12px">${t.due}</div></div>`).join('')||'<div class="empty">Nothing due.</div>'}</div></div>
- <div class="card" style="margin-top:16px"><div class="pad" style="padding-bottom:6px"><div class="h2" style="margin:0">Open quotes</div></div>
- ${table(['Quote','Account','Total','Created','Stage'],S.quotes.map(q=>tr([`<b>${q.name}</b><div class="mut" style="font-size:12px">${q.id} · v${q.v}</div>`,q.opp,money(q.total),q.date,tag(q.stage)],[2],`onclick="location.hash='quote/${q.id}'"`)),[2])}</div>`;
-};
+  <div class="bars">${stages.map(s=>H`<div class="bar ${s==='Won'?'':'alt'}"><i style="height:${Math.max(tot(s)/mx*100,2)}%"></i></div>`)}</div>
+  <div class="bl">${stages.map(s=>H`<span>${s}<br><b style="color:var(--ink)">${money(tot(s))}</b></span>`)}</div></div>
+ <div class="card pad"><div class="h2">To dos<a href="#todos">View all</a></div>${todos.length?todos.map(t=>H`<div class="li"><span>${t.t}</span><small class="${t.due&&t.due<todayISO()?'bad':'mut'}">${t.due?fmtD(t.due):''}</small></div>`):empty('Nothing due.',btn('Add a to do','openForm(\'todos\')','','plus'))}</div></div>
+ <div class="kpis" style="margin-top:16px">${kpi('Invoices awaiting payment',money(sum(dueInv,i=>i.amt)),overdue.length?overdue.length+' overdue':'')}${kpi('Items to reorder',lowStock)}${kpi('Open service calls',DB.calls.filter(c=>c.status!=='Done').length)}${kpi('Active projects',DB.projects.filter(p=>p.stage==='In Progress').length)}</div>
+ <div class="card" style="margin-top:16px"><div class="pad" style="padding-bottom:6px"><div class="h2" style="margin:0">Open quotes<a href="#opportunities">All quotes</a></div></div>
+ ${openQ.length?table(['Quote','Account','Total','Created','Stage'],openQ.map(q=>tr([H`<b>${q.name}</b><div class="mut sm">${q.id} · v${q.v}</div>`,acctName(q.acctId),money(qCalc(q).total),fmtD(q.created),tag(q.stage)],[2],`location.hash='quote/${q.id}'`)),[2]):empty('No open quotes yet.')}</div>`};
 
-view.calendar=()=>{
- const d=new Date(),y=d.getFullYear(),m=d.getMonth(),first=new Date(y,m,1).getDay(),days=new Date(y,m+1,0).getDate();
- let h=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].map(x=>`<div class="hd">${x}</div>`).join('');
- for(let i=0;i<first;i++)h+='<div></div>';
- for(let i=1;i<=days;i++)h+=`<div class="${i===d.getDate()?'td':''}">${i}${S.events[i]?`<span class="ev">${S.events[i]}</span>`:''}</div>`;
- return `<div class="row sb2" style="margin-bottom:14px"><b style="font-size:16px">${d.toLocaleString('en-US',{month:'long',year:'numeric'})}</b><div class="seg"><button class="on">Month</button><button>Week</button></div></div><div class="card" style="overflow:hidden"><div class="cal">${h}</div></div>`;
-};
+/* ============ calendar ============ */
+V.calendar=()=>{const y=ST.calY,m=ST.calM,first=new Date(y,m,1).getDay(),days=new Date(y,m+1,0).getDate(),td=todayISO();
+ const items={};const add=(d,o)=>{if(!d)return;(items[d]=items[d]||[]).push(o)};
+ DB.events.forEach(e=>add(e.date,{t:(e.time?e.time+' ':'')+e.title,click:`openForm('events','${e.id}')`}));
+ Object.entries(DB.pm).forEach(([pid,p])=>p.tasks.forEach(t=>{if(!t.done)add(t.due,{t:t.t,click:`location.hash='project/${pid}'`,c:'t'})}));
+ DB.calls.forEach(c=>{if(c.status!=='Done')add(c.when,{t:'Service: '+c.issue,click:`openForm('calls','${c.id}')`,c:'s'})});
+ DB.invoices.forEach(i=>{if(i.status!=='Paid')add(i.due,{t:'Due: '+i.name+' '+money(i.amt),click:`location.hash='billing'`,c:'b'})});
+ let cells=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].map(d=>H`<div class="hd">${d}</div>`);for(let i=0;i<first;i++)cells.push(H`<div class="oth"></div>`);
+ for(let d=1;d<=days;d++){const ds=`${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+  cells.push(H`<div class="day ${ds===td?'td':''}" onclick="if(event.target===this||event.target.classList.contains('dn'))openForm('events',null,{date:'${ds}'})"><span class="dn">${d}</span>${(items[ds]||[]).slice(0,4).map(o=>H`<span class="ev ${o.c||''}" onclick="${raw(esc(o.click))}">${o.t}</span>`)}${(items[ds]||[]).length>4?H`<span class="mut sm">+${items[ds].length-4} more</span>`:''}</div>`)}
+ const name=new Date(y,m,1).toLocaleString('en-US',{month:'long',year:'numeric'});
+ return H`<div class="row sb2" style="margin-bottom:14px"><div class="row"><button class="btn ic" onclick="calMove(-1)" aria-label="Previous month">${ic('left')}</button><b style="font-size:17px;min-width:150px;text-align:center">${name}</b><button class="btn ic" onclick="calMove(1)" aria-label="Next month">${ic('chev')}</button><button class="btn" onclick="calToday()">Today</button></div>${btn('New event','openForm(\'events\')','p','plus')}</div>
+ <div class="card" style="overflow:hidden"><div class="cal">${cells}</div></div><div class="mut sm" style="margin-top:10px">Shows events, project to-dos, service calls and invoices due. Click a day to add an event.</div>`};
+function calMove(n){ST.calM+=n;if(ST.calM>11){ST.calM=0;ST.calY++}if(ST.calM<0){ST.calM=11;ST.calY--}go()}
+function calToday(){ST.calY=new Date().getFullYear();ST.calM=new Date().getMonth();go()}
 
-const board=(items,stages,type,route)=>`<div class="board">${stages.map(s=>{const list=items.filter(o=>o.stage===s);return `<div class="col" data-stage="${s}" data-type="${type}"><div class="colh"><span><i class="dot" style="background:${stageColor[s]}"></i>${s} <small>${list.length}</small></span><small>${money(sum(list,o=>o.val))}</small></div>${list.map(o=>`<div class="kc" draggable="true" data-id="${o.id}" data-type="${type}" onclick="${type==='projects'?`location.hash='project/${o.id}'`:`openCard('${type}','${o.id}')`}"><h4>${o.name}</h4><div class="sub">${o.id} · ${o.acct}</div><div class="v">${money(o.val)}<span>${s}</span></div></div>`).join('')||'<div class="empty" style="padding:22px;font-size:12px">Drop here</div>'}</div>`}).join('')}</div>`;
+/* ============ opportunities + quotes ============ */
+const oppCard=o=>H`<div class="kc frow" draggable="true" data-ent="opps" data-id="${o.id}" data-id2="${o.id}" onclick="openOpp(this.dataset.id)"><h4>${o.name}</h4><div class="sub">${o.id} · ${acctName(o.acctId)}</div><div class="v">${money(oppValue(o))}<span>${o.close?'Close '+fmtD(o.close):''}</span></div></div>`;
+const boardH=(ent,items,stages,valFn,card)=>H`<div class="board">${stages.map(s=>{const l=items.filter(o=>o.stage===s);return H`<div class="col" data-stage="${s}"><div class="colh"><span><i class="dot" style="background:${colors[s]}"></i>${s} <small>${l.length}</small></span><small>${money(sum(l,valFn))}</small></div>${l.length?l.map(card):H`<div class="empty sm">Drop here</div>`}</div>`})}</div>`;
+V.opportunities=()=>{const t=ST.oppTab;
+ return H`<div class="row sb2" style="margin-bottom:14px"><div class="row">${seg(['Board','List','Quotes'],t,'setOppTab')}${sq('Search')}</div><div class="row">${btn('New quote','newQuoteForm()','','plus')}${btn('New opportunity','openForm(\'opps\')','p','plus')}</div></div>
+ ${t==='Board'?(DB.opps.length?boardH('opps',DB.opps,['New','Quoting','On Hold','Won','Lost'],oppValue,oppCard):empty('No opportunities yet. Add your first lead.',btn('New opportunity','openForm(\'opps\')','p','plus'))):''}
+ ${t==='List'?H`<div class="card">${DB.opps.length?table(['Opportunity','Account','Stage','Value','Est. close'],DB.opps.map(o=>tr([H`<b>${o.name}</b><div class="mut sm">${o.id}</div>`,acctName(o.acctId),tag(o.stage),money(oppValue(o)),fmtD(o.close)],[3],`openOpp('${o.id}')`)).map(r=>H`${r}`),[3]):empty('No opportunities yet.')}</div>`:''}
+ ${t==='Quotes'?H`<div class="card">${DB.quotes.length?table(['Quote','Opportunity','Account','Total','Created','Stage'],DB.quotes.map(q=>tr([H`<b>${q.name}</b><div class="mut sm">${q.id} · v${q.v}</div>`,oppName(q.oppId),acctName(q.acctId),money(qCalc(q).total),fmtD(q.created),tag(q.stage)],[3],`location.hash='quote/${q.id}'`)),[3]):empty('No quotes yet. Open an opportunity and choose New quote.',btn('New quote','newQuoteForm()','p','plus'))}</div>`:''}`};
+function setOppTab(v){ST.oppTab=v;go()}
+function openOpp(id){const o=by('opps',id);if(!o)return;const qs=DB.quotes.filter(q=>q.oppId===id),pr=DB.projects.find(p=>p.oppId===id);
+ openDrawer(H`<div class="row sb2" style="margin-bottom:6px"><span class="mut">${o.id}</span><button class="btn ic" onclick="closeDrawer()" aria-label="Close">${ic('x')}</button></div>
+ <h2 class="dh">${o.name}</h2><div class="mut" style="margin-bottom:14px">${acctName(o.acctId)}</div><div class="row" style="margin-bottom:16px">${tag(o.stage)}<b>${money(oppValue(o))}</b></div>
+ <div class="kv"><span>Estimated close</span><b>${fmtD(o.close)}</b></div><div class="kv"><span>Probability</span><b>${o.prob||0}%</b></div><div class="kv"><span>Lead source</span><b>${o.source||'—'}</b></div>${o.notes?H`<p style="margin:12px 0;color:var(--ink-2)">${o.notes}</p>`:''}
+ <div class="h2" style="margin-top:20px">Quotes</div>${qs.length?qs.map(q=>H`<div class="li" style="cursor:pointer" onclick="closeDrawer();location.hash='quote/${q.id}'"><span><b>${q.name}</b> <small class="mut">${q.id} v${q.v}</small></span><span>${money(qCalc(q).total)} ${tag(q.stage)}</span></div>`):H`<div class="mut sm">No quotes yet.</div>`}
+ <div class="row" style="margin-top:20px">${btn('New quote',`newQuote('${id}')`,'p','plus')}${btn('Edit',`openForm('opps','${id}')`,'','edit')}${pr?btn('Open project',`closeDrawer();location.hash='project/${pr.id}'`):btn('Create project',`closeDrawer();oppToProject('${id}')`)}</div>`)}
+function newQuote(oppId){const o=by('opps',oppId);if(!o)return;const q={id:nextId('Q'),v:1,name:o.name,oppId:o.id,acctId:o.acctId,stage:'Draft',items:[],adjust:0,scope:'',payments:JSON.parse(JSON.stringify(DB.settings.payDefault||defPay())),created:todayISO()};
+ DB.quotes.push(q);if(o.stage==='New'){o.stage='Quoting'}ST.activeQuote=q.id;save();closeDrawer();location.hash='quote/'+q.id;toast('Quote '+q.id+' created')}
+function newQuoteForm(){if(!DB.opps.length){toast('Create an opportunity first');return openForm('opps')}
+ openDrawer(H`<div class="row sb2" style="margin-bottom:18px"><b style="font-size:17px">New quote</b><button class="btn ic" onclick="closeDrawer()" aria-label="Close">${ic('x')}</button></div><div class="fld"><label>Opportunity</label><select id="nqo">${DB.opps.map(o=>H`<option value="${o.id}">${o.name} · ${acctName(o.acctId)}</option>`)}</select></div>${btn('Create quote',"newQuote($('#nqo').value)",'p')}`)}
 
-view.opportunities=()=>`<div class="row sb2" style="margin-bottom:14px"><div class="row"><div class="seg"><button class="on">All</button><button>Mine</button><button>Shared</button></div>${sq('Search opportunities')}</div><div class="row"><button class="pill">Type: <b>All</b></button><button class="pill">Stage: <b>All</b></button></div></div>${board(S.opps,['New','Quoting','On Hold','Won'],'opps')}`;
-view.projects=()=>`<div class="row sb2" style="margin-bottom:14px"><div class="row"><div class="seg"><button class="on">Board</button><button>List</button></div>${sq('Search projects')}</div><div class="row"><button class="pill">Stage: <b>All</b></button><button class="pill">Type: <b>All</b></button></div></div>${board(S.projects,['New','In Progress','Completed'],'projects')}`;
+/* ============ projects list ============ */
+V.projects=()=>{const t=ST.projView;
+ const card=p=>H`<div class="kc frow" draggable="true" data-ent="projects" data-id="${p.id}" onclick="location.hash='project/'+this.dataset.id"><h4>${p.name}</h4><div class="sub">${p.id} · ${acctName(p.acctId)}</div><div class="v">${money(p.value)}<span>${p.doneOn?'Done '+fmtD(p.doneOn):(()=>{const pm=PM(p.id);return pm.tasks.length?pm.tasks.filter(x=>x.done).length+'/'+pm.tasks.length+' tasks':''})()}</span></div></div>`;
+ return H`<div class="row sb2" style="margin-bottom:14px"><div class="row">${seg(['Board','List'],t,'setProjView')}${sq('Search projects')}</div>${btn('New project','openForm(\'projects\')','p','plus')}</div>
+ ${!DB.projects.length?empty('No projects yet. Win an opportunity or add one directly.',btn('New project','openForm(\'projects\')','p','plus')):t==='Board'?boardH('projects',DB.projects,['New','In Progress','On Hold','Completed'],p=>p.value,card):H`<div class="card">${table(['Project','Account','Stage','Value','Tasks'],DB.projects.map(p=>{const pm=PM(p.id);return tr([H`<b>${p.name}</b><div class="mut sm">${p.id}</div>`,acctName(p.acctId),tag(p.stage),money(p.value),pm.tasks.filter(x=>x.done).length+'/'+pm.tasks.length],[3],`location.hash='project/${p.id}'`)}),[3])}</div>`}`};
+function setProjView(v){ST.projView=v;go()}
 
-view.service=()=>`<div class="kpis">${kpi('Pending contracts',0)}${kpi('Active',2)}${kpi('Past due',0)}${kpi('Acceptance rate','0%')}</div>
-<div class="card"><div class="pad" style="padding-bottom:6px"><div class="h2" style="margin:0">Open service calls</div></div>${table(['Call','Account','Issue','Priority','When','Status'],S.calls.map(c=>tr([c.id,c.acct,c.issue,c.pri,c.when,tag(c.status)])))}</div>`;
+/* ============ service ============ */
+V.service=()=>{const t=ST.svcTab,act=DB.contracts.filter(c=>c.status==='Active');
+ return H`<div class="kpis">${kpi('Pending contracts',DB.contracts.filter(c=>c.status==='Pending').length)}${kpi('Active contracts',act.length,money(sum(act,c=>c.amt))+' per year')}${kpi('Open calls',DB.calls.filter(c=>c.status==='Open').length)}${kpi('Scheduled',DB.calls.filter(c=>c.status==='Scheduled').length)}</div>
+ <div class="row sb2" style="margin-bottom:14px">${seg(['Calls','Contracts'],t,'setSvcTab')}${t==='Calls'?btn('Schedule service','openForm(\'calls\')','p','plus'):btn('New contract','openForm(\'contracts\')','p','plus')}</div>
+ <div class="card">${t==='Calls'?(DB.calls.length?table(['Call','Account','Issue','Priority','Date','Tech','Status'],DB.calls.map(c=>tr([c.id,acctName(c.acctId),H`<b>${c.issue}</b>`,c.pri,fmtD(c.when),c.tech||'—',tag(c.status)],[],`openForm('calls','${c.id}')`))):empty('No service calls.',btn('Schedule service','openForm(\'calls\')','p','plus'))):(DB.contracts.length?table(['Plan','Account','Start','End','Per year','Status'],DB.contracts.map(c=>tr([H`<b>${c.name}</b>`,acctName(c.acctId),fmtD(c.start),fmtD(c.end),money(c.amt),tag(c.status)],[4],`openForm('contracts','${c.id}')`)),[4]):empty('No service contracts.',btn('New contract','openForm(\'contracts\')','p','plus')))}</div>`};
+function setSvcTab(v){ST.svcTab=v;go()}
 
-view.procurement=()=>{const t=a=>sum(S.pos.filter(p=>p.status===a),p=>p.amt);
- return `<div class="kpis">${kpi('Draft',money(0))}${kpi('Ordered',money(t('Ordered')))}${kpi('Partially received',money(t('Partially received')))}${kpi('Received',money(t('Received')))}</div>
- <div class="card">${table(['PO','Vendor','Date','Amount','Status'],S.pos.map(p=>tr([`<b>${p.id}</b>`,p.vendor,p.date,money(p.amt),tag(p.status)],[3])),[3])}</div>`};
+/* ============ procurement ============ */
+const poTotal=p=>sum(p.lines||[],l=>l.qty*l.cost);
+V.procurement=()=>{const t=s=>sum(DB.pos.filter(p=>p.status===s),poTotal);
+ return H`<div class="kpis">${['Draft','Ordered','Partially received','Received'].map(s=>kpi(s,money(t(s)),DB.pos.filter(p=>p.status===s).length+' POs'))}</div>
+ <div class="row sb2" style="margin-bottom:14px">${sq('Search purchase orders')}${btn('New purchase order','openForm(\'pos\',null,null,po=>openPO(po.id))','p','plus')}</div>
+ <div class="card">${DB.pos.length?table(['PO','Vendor','Project','Date','Amount','Status'],DB.pos.map(p=>tr([H`<b>${p.id}</b>`,p.vendor,p.projectId?projName(p.projectId):'—',fmtD(p.date),money(poTotal(p)),tag(p.status)],[4],`openPO('${p.id}')`)).map(r=>r),[4]):empty('No purchase orders. Create one here or from a quote.')}</div>`};
+function openPO(id){const p=by('pos',id);if(!p)return;p.lines=p.lines||[];
+ openDrawer(H`<div class="row sb2" style="margin-bottom:6px"><span class="mut">${p.id}</span><button class="btn ic" onclick="closeDrawer()" aria-label="Close">${ic('x')}</button></div><h2 class="dh">${p.vendor}</h2><div class="mut" style="margin-bottom:12px">${p.projectId?projName(p.projectId):'No project'} · ${fmtD(p.date)}</div><div class="row" style="margin-bottom:14px">${tag(p.status)}<b>${money2(poTotal(p))}</b></div>
+ ${p.lines.length?H`<div class="tw"><table><thead><tr><th>Item</th><th class="r">Qty</th><th class="r">Cost</th><th class="r">Recv</th><th></th></tr></thead><tbody>${p.lines.map((l,i)=>H`<tr><td><b>${l.name}</b><div class="mut sm">${l.sku}</div></td><td class="r"><input class="qin" type="number" min="0" value="${l.qty}" onchange="poLine('${id}',${i},this.value)"></td><td class="r">${money2(l.cost)}</td><td class="r">${l.recv||0}</td><td><button class="btn ic sm0" onclick="poDel('${id}',${i})" aria-label="Remove line">${ic('x')}</button></td></tr>`)}</tbody></table></div>`:H`<div class="mut sm">No items yet.</div>`}
+ <div class="row" style="margin-top:16px">${btn('Add product',`productPicker('Add to ${id}',sku=>poAdd('${id}',sku),true)`,'','plus')}${btn('Edit',`openForm('pos','${id}')`,'','edit')}</div>
+ <div class="row" style="margin-top:10px">${p.status==='Draft'?btn('Mark ordered',`poStatus('${id}','Ordered')`,'p'):''}${p.status!=='Received'&&p.lines.length?btn('Receive all into inventory',`receivePO('${id}')`,'p'):''}${btn('Print',`window.print()`,'','print')}</div>`)}
+function poLine(id,i,v){const p=by('pos',id);p.lines[i].qty=Math.max(0,num(v));save();openPO(id)}
+function poDel(id,i){const p=by('pos',id);p.lines.splice(i,1);save();openPO(id)}
+function poAdd(id,sku){const p=by('pos',id),c=DB.catalog.find(x=>x.sku===sku);if(!c)return;const ex=p.lines.find(l=>l.sku===sku);if(ex)ex.qty++;else p.lines.push({sku:c.sku,name:c.name,qty:1,cost:c.cost,recv:0});save();toast('Added '+c.name);return true}
+function poStatus(id,s){const p=by('pos',id);p.status=s;save();openPO(id);go()}
+function receivePO(id){const p=by('pos',id);p.lines.forEach(l=>{const n=l.qty-(l.recv||0);if(n<=0)return;let s=DB.stock.find(x=>x.sku===l.sku);if(!s){s={id:nextId('STK'),sku:l.sku,name:l.name,loc:'Warehouse',qty:0,min:0,cost:l.cost};DB.stock.push(s)}s.qty+=n;s.cost=l.cost;l.recv=l.qty});
+ p.status='Received';save();toast('Received into inventory');openPO(id);go()}
+/* product picker */
+let PICK=null;
+function productPicker(title,fn,stay){PICK={fn,stay};openDrawer(H`<div class="row sb2" style="margin-bottom:14px"><b style="font-size:17px">${title}</b><button class="btn ic" onclick="closeDrawer()" aria-label="Close">${ic('x')}</button></div><label class="search" style="margin-bottom:12px">${ic('search')}<input id="pkq" placeholder="Search name, SKU or brand" oninput="pickDraw()"></label><div id="pkl"></div>`);pickDraw()}
+function pickDraw(){const q=($('#pkq').value||'').toLowerCase();const l=DB.catalog.filter(p=>(p.name+' '+p.sku+' '+(p.brand||'')).toLowerCase().includes(q)).slice(0,40);
+ $('#pkl').innerHTML=(l.length?l.map(p=>H`<div class="li"><div class="row" style="flex-wrap:nowrap">${pimg(p)}<div><b>${p.name}</b><div class="mut sm">${p.brand||''} ${p.sku} · ${money2(priceOf(p))}</div></div></div><button class="btn" data-sku="${p.sku}" onclick="pickGo(this.dataset.sku)">Add</button></div>`):DB.catalog.length?H`<div class="empty">No matches</div>`:H`<div class="empty">Your catalog is empty. Import a Snap One price file or add products in Catalog.</div>`).s;hydrateImgs()}
+function pickGo(sku){if(PICK&&PICK.fn(sku)!==false&&!PICK.stay)closeDrawer()}
 
-view.inventory=()=>`<div class="kpis">${kpi('On-hand value',money(sum(S.stock,s=>s.qty*s.cost)))}${kpi('Items below minimum',S.stock.filter(s=>s.qty<s.min).length)}${kpi('Locations',2)}</div>
-<div class="card">${table(['SKU','Item','Location','On hand','Min','Status'],S.stock.map(s=>tr([s.sku,`<b>${s.name}</b>`,s.loc,s.qty,s.min,s.qty<s.min?'<span class="tag" style="color:var(--bad)">Reorder</span>':'<span class="tag">OK</span>'],[3,4])),[3,4])}</div>`;
+/* ============ inventory ============ */
+V.inventory=()=>{const low=DB.stock.filter(s=>s.qty<s.min);
+ return H`<div class="kpis">${kpi('On-hand value',money(sum(DB.stock,s=>s.qty*s.cost)))}${kpi('Below minimum',low.length)}${kpi('Items',DB.stock.length)}${kpi('Locations',new Set(DB.stock.map(s=>s.loc)).size)}</div>
+ <div class="row sb2" style="margin-bottom:14px">${sq('Search inventory')}<div class="row">${low.length?btn('Create PO for low stock','reorderPO()','','proc'):''}${btn('Add item','openForm(\'stock\')','p','plus')}</div></div>
+ <div class="card">${DB.stock.length?table(['SKU','Item','Location','On hand','Min','Value','Status',''],DB.stock.map(s=>H`<tr class="frow"><td>${s.sku}</td><td><b>${s.name}</b></td><td>${s.loc}</td><td class="r"><button class="btn ic sm0" data-id="${s.id}" onclick="adj(this.dataset.id,-1)" aria-label="Decrease">−</button> <b style="display:inline-block;min-width:26px;text-align:center">${s.qty}</b> <button class="btn ic sm0" data-id="${s.id}" onclick="adj(this.dataset.id,1)" aria-label="Increase">+</button></td><td class="r">${s.min}</td><td class="r">${money(s.qty*s.cost)}</td><td>${s.qty<s.min?H`<span class="tag" style="color:var(--bad)">Reorder</span>`:H`<span class="tag">OK</span>`}</td><td><button class="btn ic sm0" onclick="openForm('stock','${s.id}')" aria-label="Edit">${ic('edit')}</button></td></tr>`),[3,4,5]):empty('Inventory is empty. Add items, or receive a purchase order.',btn('Add item','openForm(\'stock\')','p','plus'))}</div>`};
+function adj(id,n){const s=by('stock',id);s.qty=Math.max(0,s.qty+n);save();go()}
+function reorderPO(){const low=DB.stock.filter(s=>s.qty<s.min);const po={id:nextId('PO'),vendor:'Snap One',status:'Draft',date:todayISO(),projectId:'',lines:low.map(s=>({sku:s.sku,name:s.name,qty:Math.max(1,s.min*2-s.qty),cost:s.cost,recv:0}))};DB.pos.push(po);save();go();openPO(po.id)}
 
-view.accounts=()=>`<div class="row sb2" style="margin-bottom:14px">${sq('Search accounts')}<div class="row"><button class="pill">Type: <b>All</b></button><button class="pill">Status: <b>Active</b></button><button class="btn">Import / export</button></div></div>
-<div class="card">${table(['Name','Contact','Email','Type','Salesperson','Status'],S.accounts.map(a=>tr([`<b>${a.name}</b><div class="mut" style="font-size:12px">${a.id}</div>`,a.contact,`<span style="color:var(--accent)">${a.email}</span>`,a.type,a.rep,tag(a.status)],[],`onclick="openCard('accounts','${a.id}')"`)))}</div>`;
+/* ============ catalog + Snap One import ============ */
+const CAT={q:'',cat:'All',page:0};
+V.catalog=()=>{const sn=DB.snap,cats=['All',...new Set(DB.catalog.map(p=>p.cat||'General'))].sort((a,b)=>a==='All'?-1:b==='All'?1:a.localeCompare(b)),aq=by('quotes',ST.activeQuote);
+ return H`<div class="card pad" style="margin-bottom:16px"><div class="snap"><div style="flex:1;min-width:240px"><div class="row" style="gap:8px"><i class="${sn?'dotok':'dot'}"></i><b>Snap One pricing</b></div>
+ <div class="mut" style="font-size:13px;margin-top:4px">${sn?`Price file ${sn.file} imported ${sn.when}: ${sn.count} products${sn.changed?', '+sn.changed+' price changes':''}.`:'Log in at snapav.com, download your dealer price file (CSV), and import it here. Prices stay in your browser.'}</div></div>
+ ${btn('Import price file','importPrice()','p','up')}${btn('Add product','openForm(\'catalog\')','','plus')}${btn('Match photos to SKUs','bulkPhotos()','','cam')}${btn('Export','exportCatalog()','','dl')}</div></div>
+ <div class="row sb2" style="margin-bottom:12px"><label class="search">${ic('search')}<input id="cq" placeholder="Search ${DB.catalog.length.toLocaleString()} products by name, SKU or brand" value="${CAT.q}" oninput="CAT.q=this.value;CAT.page=0;catRes()"></label>
+ <div class="row"><select class="pill" id="cc" onchange="CAT.cat=this.value;CAT.page=0;catRes()" aria-label="Category">${cats.map(c=>H`<option ${c===CAT.cat?raw('selected'):''}>${c}</option>`)}</select><span class="mut sm">Adding to: ${aq?H`<b>${aq.id} ${aq.name}</b>`:'no quote selected'}</span> ${btn('Change','chooseQuote()','')}</div></div>
+ <div class="card" id="catres"></div>`};
+AFTER.catalog=()=>catRes();
+function catRes(){const q=CAT.q.toLowerCase(),l=DB.catalog.filter(p=>(CAT.cat==='All'||(p.cat||'General')===CAT.cat)&&(!q||(p.name+' '+p.sku+' '+(p.brand||'')).toLowerCase().includes(q)));
+ const pages=Math.max(1,Math.ceil(l.length/50));if(CAT.page>=pages)CAT.page=pages-1;const sl=l.slice(CAT.page*50,CAT.page*50+50);
+ $('#catres').innerHTML=(!DB.catalog.length?empty('Catalog is empty. Import your Snap One price file or add a product.'):!l.length?empty('No matching products.'):H`${table(['Product','SKU','Category','Cost','Sell price','Labor h',''],sl.map(p=>H`<tr><td><div class="row" style="flex-wrap:nowrap">${pimg(p)}<div><b>${p.name}</b><div class="mut sm">${p.brand||''}</div></div></div></td><td>${p.sku}</td><td>${p.cat||'General'}</td><td class="r">${money2(p.cost)}</td><td class="r"><b>${money2(priceOf(p))}</b></td><td class="r">${p.hrs||0}</td><td class="r nw"><button class="btn sm0" data-sku="${p.sku}" onclick="addToQuote(this.dataset.sku)">Add to quote</button> <button class="btn ic sm0" data-id="${p.id}" onclick="openForm('catalog',this.dataset.id)" aria-label="Edit">${ic('edit')}</button> <a class="btn ic sm0" target="_blank" rel="noopener" href="${p.url||'https://www.google.com/search?q=site:snapav.com+'+encodeURIComponent(p.sku)}" aria-label="Find on snapav.com" title="Find on snapav.com">${ic('link')}</a></td></tr>`),[3,4,5,6])}<div class="row sb2 pad" style="padding:12px 16px"><span class="mut sm">${l.length.toLocaleString()} products</span><div class="row"><button class="btn sm0" ${CAT.page?'':raw('disabled')} onclick="CAT.page--;catRes()">Previous</button><span class="mut sm">Page ${CAT.page+1} of ${pages}</span><button class="btn sm0" ${CAT.page<pages-1?'':raw('disabled')} onclick="CAT.page++;catRes()">Next</button></div></div>`).s;hydrateImgs()}
+function chooseQuote(then){const qs=DB.quotes.filter(q=>q.stage!=='Approved'&&q.stage!=='Declined');if(!qs.length){toast('Create a quote first');location.hash='opportunities';return}
+ openDrawer(H`<div class="row sb2" style="margin-bottom:14px"><b style="font-size:17px">Choose a quote</b><button class="btn ic" onclick="closeDrawer()" aria-label="Close">${ic('x')}</button></div>${qs.map(q=>H`<div class="li" style="cursor:pointer" data-id="${q.id}" onclick="ST.activeQuote=this.dataset.id;closeDrawer();toast('Adding to '+this.dataset.id);${then?'addToQuote(window._pend)':'go()'}"><span><b>${q.name}</b> <small class="mut">${q.id} · ${acctName(q.acctId)}</small></span>${tag(q.stage)}</div>`)}`)}
+function addToQuote(sku){const p=DB.catalog.find(x=>x.sku===sku);if(!p)return;let q=by('quotes',ST.activeQuote);if(!q){window._pend=sku;return chooseQuote(true)}
+ const ex=q.items.find(i=>i.sku===sku&&i.loc===(q.lastLoc||'General'));if(ex)ex.qty++;else q.items.push({loc:q.lastLoc||'General',name:p.name,sku:p.sku,qty:1,labor:+p.hrs||0,cost:p.cost,price:priceOf(p),optional:false});save();toast('Added to '+q.id);return true}
+const HDR={sku:/^(sku|part|part ?(no|number|#)|model|item ?(no|number|#)?|material|product ?(code|id))$/,name:/desc|name|title/,brand:/brand|manuf|vendor/,cat:/categ|class|group|type/,msrp:/msrp|retail|list|map/,cost:/dealer|cost|net|your|partner|wholesale|price/};
+function importPrice(){pickFile(file=>{const rd=new FileReader();rd.onload=()=>{const rows=parseCSV(String(rd.result));if(rows.length<2)return toast('No rows found. Export the price file as CSV and try again.');
+ const h=rows[0].map(x=>x.toLowerCase().trim()),f=(re,skip)=>h.findIndex((x,i)=>re.test(x)&&!(skip||[]).includes(i));
+ const m={sku:f(HDR.sku)};m.msrp=f(HDR.msrp);m.cost=f(HDR.cost,[m.msrp]);m.name=f(HDR.name,[m.sku]);m.brand=f(HDR.brand);m.cat=f(HDR.cat);
+ PEND={rows,h,file:file.name,m};if(m.sku<0||m.cost<0||m.name<0)return mapDrawer();runImport()};rd.readAsText(file)},'.csv,.txt,.tsv,text/csv')}
+let PEND=null;
+function mapDrawer(){const{h,m}=PEND,opt=sel=>H`<option value="-1">(none)</option>${h.map((x,i)=>H`<option value="${i}" ${i===sel?raw('selected'):''}>${PEND.rows[0][i]}</option>`)}`;
+ openDrawer(H`<div class="row sb2" style="margin-bottom:10px"><b style="font-size:17px">Match your columns</b><button class="btn ic" onclick="closeDrawer()" aria-label="Close">${ic('x')}</button></div><p class="mut" style="margin-bottom:14px">I could not tell which columns hold the SKU, name and cost. Pick them below.</p>
+ ${[['sku','SKU / part number'],['name','Description'],['cost','Your dealer cost'],['msrp','MSRP (optional)'],['brand','Brand (optional)'],['cat','Category (optional)']].map(([k,l])=>H`<div class="fld"><label>${l}</label><select id="m_${k}">${opt(m[k])}</select></div>`)}${btn('Import','mapGo()','p')}`)}
+function mapGo(){['sku','name','cost','msrp','brand','cat'].forEach(k=>PEND.m[k]=+$('#m_'+k).value);if(PEND.m.sku<0||PEND.m.cost<0)return toast('SKU and cost are required');closeDrawer();runImport()}
+function runImport(){const{rows,file,m}=PEND;let nw=0,up=0,ch=0;const idx=new Map(DB.catalog.map(p=>[p.sku.toLowerCase(),p]));
+ rows.slice(1).forEach(r=>{const sku=(r[m.sku]||'').trim(),cost=num(r[m.cost]);if(!sku||!(cost>=0)||r[m.cost]==='')return;
+  const o={name:m.name>=0?(r[m.name]||sku).trim():sku,cost};if(m.brand>=0&&r[m.brand])o.brand=r[m.brand].trim();if(m.cat>=0&&r[m.cat])o.cat=r[m.cat].trim();if(m.msrp>=0&&r[m.msrp])o.msrp=num(r[m.msrp]);
+  const ex=idx.get(sku.toLowerCase());if(ex){if(Math.abs(ex.cost-cost)>0.004)ch++;Object.assign(ex,o);up++}else{const p=Object.assign({id:nextId('C'),sku,brand:'Snap One',cat:'General',msrp:cost*2,hrs:0},o);DB.catalog.push(p);idx.set(sku.toLowerCase(),p);nw++}});
+ DB.snap={file,count:nw+up,when:new Date().toLocaleDateString(),changed:ch};save();go();toast(`${nw} new, ${up} updated, ${ch} price changes`,3500)}
+function exportCatalog(){download('catalog.csv',toCSV(['SKU','Name','Brand','Category','Dealer cost','MSRP','Labor hours'],DB.catalog.map(p=>[p.sku,p.name,p.brand,p.cat,p.cost,p.msrp,p.hrs])),'text/csv')}
 
-view.billing=()=>{const paid=sum(S.invoices.filter(i=>i.status==='Paid'),i=>i.amt),due=sum(S.invoices.filter(i=>i.status==='Sent'),i=>i.amt);
- const mo=[3,4,6,5,8,7,9,14,10,0,0,0],mx=14;
- return `<div class="kpis">${kpi('Collected YTD',money(paid+14468))}${kpi('Invoices due',money(due))}${kpi('Not yet invoiced',money(sum(S.invoices.filter(i=>i.status==='Not invoiced'),i=>i.amt)))}</div>
- <div class="card pad" style="margin-bottom:16px"><div class="h2">Monthly payments, 2026 ($k)</div><div class="bars">${mo.map((v,i)=>`<div class="bar ${i<9?'':'alt'}"><i style="height:${Math.max(v/mx*100,2)}%"></i></div>`).join('')}</div><div class="bl">${['J','F','M','A','M','J','J','A','S','O','N','D'].map(x=>`<span>${x}</span>`).join('')}</div></div>
- <div class="card"><div class="pad" style="padding-bottom:6px"><div class="row sb2"><div class="seg"><button class="on">Milestones</button><button>Invoices</button></div></div></div>${table(['Milestone','Account','Project','Due','Amount','Status'],S.invoices.map(i=>tr([`<b>${i.ms}</b>`,i.acct,i.proj,i.due,money2(i.amt),tag(i.status)],[4])),[4])}</div>`};
+/* ============ accounts ============ */
+V.accounts=()=>H`<div class="row sb2" style="margin-bottom:14px">${sq('Search accounts')}<div class="row">${btn('Import CSV','importAccounts()','','up')}${btn('Export','exportAccounts()','','dl')}${btn('Add account','openForm(\'accounts\')','p','plus')}</div></div>
+ <div class="card">${DB.accounts.length?table(['Name','Contact','Email','Phone','Type','Status'],DB.accounts.map(a=>H`<tr class="frow" tabindex="0" onclick="openAccount('${a.id}')"><td><b>${a.name}</b><div class="mut sm">${a.id}</div></td><td>${a.contact||'—'}</td><td><span style="color:var(--accent)">${a.email||''}</span></td><td>${a.phone||''}</td><td>${a.type}</td><td>${tag(a.status)}</td></tr>`)):empty('No accounts yet. Add a client to get started.',btn('Add account','openForm(\'accounts\')','p','plus'))}</div>`;
+function openAccount(id){const a=by('accounts',id);if(!a)return;const os=DB.opps.filter(o=>o.acctId===id),ps=DB.projects.filter(p=>p.acctId===id),inv=DB.invoices.filter(i=>{const p=by('projects',i.projectId);return p&&p.acctId===id&&i.status!=='Paid'});
+ openDrawer(H`<div class="row sb2" style="margin-bottom:6px"><span class="mut">${a.id}</span><button class="btn ic" onclick="closeDrawer()" aria-label="Close">${ic('x')}</button></div><h2 class="dh">${a.name}</h2><div class="mut" style="margin-bottom:14px">${a.type} ${tag(a.status)}</div>
+ ${[['Contact',a.contact],['Email',a.email],['Phone',a.phone],['Address',a.address],['Salesperson',a.rep]].map(([k,v])=>H`<div class="kv"><span>${k}</span><b>${v||'—'}</b></div>`)}${a.taxExempt?H`<div class="kv"><span>Tax</span><b>Exempt</b></div>`:''}
+ <div class="h2" style="margin-top:20px">Opportunities</div>${os.length?os.map(o=>H`<div class="li" style="cursor:pointer" onclick="openOpp('${o.id}')"><span>${o.name}</span>${tag(o.stage)}</div>`):H`<div class="mut sm">None</div>`}
+ <div class="h2" style="margin-top:16px">Projects</div>${ps.length?ps.map(p=>H`<div class="li" style="cursor:pointer" onclick="closeDrawer();location.hash='project/${p.id}'"><span>${p.name}</span>${tag(p.stage)}</div>`):H`<div class="mut sm">None</div>`}
+ ${inv.length?H`<div class="h2" style="margin-top:16px">Unpaid invoices</div>${inv.map(i=>H`<div class="li"><span>${i.name}</span><b>${money(i.amt)}</b></div>`)}`:''}
+ <div class="row" style="margin-top:20px">${btn('New opportunity',`openForm('opps',null,{acctId:'${id}'})`,'p','plus')}${btn('Edit',`openForm('accounts','${id}')`,'','edit')}${btn('Service call',`openForm('calls',null,{acctId:'${id}'})`)}</div>`)}
+function exportAccounts(){download('accounts.csv',toCSV(['Name','Type','Contact','Email','Phone','Address','Salesperson','Status'],DB.accounts.map(a=>[a.name,a.type,a.contact,a.email,a.phone,a.address,a.rep,a.status])),'text/csv')}
+function importAccounts(){pickFile(file=>{const rd=new FileReader();rd.onload=()=>{const rows=parseCSV(String(rd.result));if(rows.length<2)return toast('No rows found');const h=rows[0].map(x=>x.toLowerCase().trim()),i=re=>h.findIndex(x=>re.test(x));
+ const ix={name:i(/^(name|account|company)/),type:i(/type/),contact:i(/contact/),email:i(/mail/),phone:i(/phone|mobile/),address:i(/address/),rep:i(/sales|rep/)};if(ix.name<0)return toast('Need a Name column');let n=0;
+ rows.slice(1).forEach(r=>{const name=(r[ix.name]||'').trim();if(!name)return;DB.accounts.push({id:nextId('A'),name,type:(ix.type>=0&&r[ix.type])||'Client',contact:ix.contact>=0?r[ix.contact]:'',email:ix.email>=0?r[ix.email]:'',phone:ix.phone>=0?r[ix.phone]:'',address:ix.address>=0?r[ix.address]:'',rep:ix.rep>=0?r[ix.rep]:'',status:'Active',created:todayISO()});n++});save();go();toast(n+' accounts imported')};rd.readAsText(file)},'.csv,text/csv')}
 
-view.time=()=>`<div class="row sb2" style="margin-bottom:14px">${sq('Search time entries')}<button class="btn p" onclick="toast('Time entry added');">Add time entry</button></div>
-<div class="card">${table(['Resource','Type','Date','Start','End','Hours'],S.time.map(t=>tr([`<b>${t.who}</b>`,t.type,t.date,t.start,t.end,t.hrs.toFixed(2)],[5])),[5])}</div>
-<div class="row" style="margin-top:14px;color:var(--ink-2)"><span class="tag">Total hours ${sum(S.time,t=>t.hrs).toFixed(2)}</span><span class="tag">Total cost ${money2(sum(S.time,t=>t.cost))}</span></div>`;
+/* ============ billing + invoices ============ */
+const invStatus=i=>i.status==='Sent'&&i.due&&i.due<todayISO()?'Overdue':i.status;
+V.billing=()=>{const y=String(new Date().getFullYear()),paid=DB.invoices.filter(i=>i.status==='Paid'),py=paid.filter(i=>(i.paidOn||'').startsWith(y)),sent=DB.invoices.filter(i=>i.status==='Sent'),od=sent.filter(i=>invStatus(i)==='Overdue');
+ const mo=Array.from({length:12},(_,m)=>sum(py.filter(i=>+i.paidOn.slice(5,7)===m+1),i=>i.amt)),mx=Math.max(...mo,1);
+ return H`<div class="kpis">${kpi('Collected this year',money(sum(py,i=>i.amt)))}${kpi('Awaiting payment',money(sum(sent,i=>i.amt)),sent.length+' invoices')}${kpi('Overdue',money(sum(od,i=>i.amt)),od.length?od.length+' invoices':'')}${kpi('Not yet invoiced',money(sum(DB.invoices.filter(i=>['Not invoiced','Draft'].includes(i.status)),i=>i.amt)))}</div>
+ <div class="card pad" style="margin-bottom:16px"><div class="h2">Payments collected by month</div><div class="bars">${mo.map((v,i)=>H`<div class="bar ${v?'':'alt'}" title="${money(v)}"><i style="height:${Math.max(v/mx*100,2)}%"></i></div>`)}</div><div class="bl">${['J','F','M','A','M','J','J','A','S','O','N','D'].map(x=>H`<span>${x}</span>`)}</div></div>
+ <div class="row sb2" style="margin-bottom:14px">${sq('Search invoices and milestones')}${btn('New invoice','openForm(\'invoices\')','p','plus')}</div>
+ <div class="card">${DB.invoices.length?table(['Invoice','Milestone','Project','Client','Due','Amount','Status'],DB.invoices.map(i=>{const p=by('projects',i.projectId);return H`<tr class="frow" tabindex="0" onclick="openInvoice('${i.id}')"><td><b>${i.id}</b></td><td>${i.name}</td><td>${p?p.name:'—'}</td><td>${p?acctName(p.acctId):'—'}</td><td>${fmtD(i.due)}</td><td class="r">${money2(i.amt)}</td><td>${tag(invStatus(i))}</td></tr>`}),[5]):empty('No invoices yet. Convert a quote to a project to create its payment milestones.',btn('New invoice','openForm(\'invoices\')','p','plus'))}</div>`};
+function openInvoice(id){const i=by('invoices',id);if(!i)return;const p=by('projects',i.projectId);
+ openDrawer(H`<div class="row sb2" style="margin-bottom:6px"><span class="mut">${i.id}</span><button class="btn ic" onclick="closeDrawer()" aria-label="Close">${ic('x')}</button></div><h2 class="dh">${i.name}</h2><div class="mut" style="margin-bottom:14px">${p?p.name+' · '+acctName(p.acctId):'No project'}</div>
+ <div class="row" style="margin-bottom:14px">${tag(invStatus(i))}<b style="font-size:20px">${money2(i.amt)}</b></div><div class="kv"><span>Due</span><b>${fmtD(i.due)}</b></div>${i.paidOn?H`<div class="kv"><span>Paid on</span><b>${fmtD(i.paidOn)}</b></div>`:''}${i.notes?H`<p style="margin:12px 0;color:var(--ink-2)">${i.notes}</p>`:''}
+ <div class="row" style="margin-top:20px">${i.status!=='Paid'?btn('Mark paid',`invSet('${id}','Paid')`,'p','check'):btn('Mark unpaid',`invSet('${id}','Sent')`)}${i.status==='Not invoiced'||i.status==='Draft'?btn('Mark sent',`invSet('${id}','Sent')`):''}${btn('Print invoice',`closeDrawer();location.hash='invoice/${id}'`,'','print')}${btn('Edit',`openForm('invoices','${id}')`,'','edit')}</div>`)}
+function invSet(id,s){const i=by('invoices',id);i.status=s;HOOKS.invoices(i);if(s==='Sent'&&!i.due)i.due=addDays(14);logAct(i.projectId,'Invoice '+i.id+' marked '+s.toLowerCase());save();closeDrawer();go();toast('Invoice '+s.toLowerCase())}
+V.invoice=id=>{const i=by('invoices',id);if(!i)return empty('Invoice not found.');const p=by('projects',i.projectId),a=p&&by('accounts',p.acctId),c=co();
+ return H`<div class="row noprint" style="margin-bottom:14px"><a class="btn" href="#billing">${ic('left')}Back</a>${btn('Print or save as PDF','printDoc(\'Invoice '+i.id+'\')','p','print')}${a&&a.email?H`<a class="btn" href="${'mailto:'+a.email+'?subject='+encodeURIComponent('Invoice '+i.id+' from '+(c.name||'us'))+'&body='+encodeURIComponent('Hello '+(a.contact||a.name)+',\n\nInvoice '+i.id+' for '+money2(i.amt)+' is attached. Due '+fmtD(i.due)+'.\n\nThank you,\n'+me())}">${ic('mail')}Email</a>`:''}</div>
+ <div class="card prop"><div class="hero"><div class="row sb2"><div><div class="brandmark">${c.logoText||'A'}</div></div><div style="text-align:right"><h2 style="margin:0">INVOICE</h2><div class="mut">${i.id}</div></div></div></div>
+ <div class="pad2"><div class="row sb2" style="align-items:flex-start"><div><b>${c.name||'Your company'}</b><div class="mut">${c.address||''}</div><div class="mut">${c.email||''} ${c.phone||''}</div></div><div style="text-align:right"><div class="mut">Bill to</div><b>${a?a.name:'—'}</b><div class="mut">${a&&a.address||''}</div></div></div>
+ <table style="margin:28px 0"><thead><tr><th>Description</th><th class="r">Amount</th></tr></thead><tbody><tr><td>${i.name}${p?H`<div class="mut sm">Project: ${p.name}</div>`:''}</td><td class="r">${money2(i.amt)}</td></tr></tbody></table>
+ <div class="row sb2" style="font-size:20px"><b>Total due</b><b>${money2(i.amt)}</b></div><div class="mut" style="margin-top:6px">Due ${fmtD(i.due)} · Status: ${invStatus(i)}</div>${i.notes?H`<p style="margin-top:18px">${i.notes}</p>`:''}</div></div>`};
+function printDoc(title){const t=document.title;document.title=title;window.print();setTimeout(()=>document.title=t,500)}
 
-view.reports=()=>{const src=[['Referral',42],['Former client',28],['Website',18],['Builder',12]];
- return `<div class="grid3"><div class="card pad"><div class="h2">Quoted sales</div><div style="font-size:40px;font-weight:600;letter-spacing:-.03em">${money(sum(S.quotes,q=>q.total))}</div><div class="mut">Average sale ${money(sum(S.quotes,q=>q.total)/S.quotes.length)} · 56% margin</div></div>
- <div class="card pad"><div class="h2">Lead source</div>${src.map(s=>`<div style="margin-bottom:12px"><div class="row sb2" style="margin-bottom:5px"><span>${s[0]}</span><span class="mut">${s[1]}%</span></div><div class="prog"><i style="width:${s[1]}%"></i></div></div>`).join('')}</div>
- <div class="card pad"><div class="h2">Win rate</div><div style="font-size:40px;font-weight:600;letter-spacing:-.03em">${Math.round(S.opps.filter(o=>o.stage==='Won').length/S.opps.length*100)}%</div><div class="mut">of opportunities this year</div></div></div>`};
+/* ============ time ============ */
+V.time=()=>{const l=[...DB.time].sort((a,b)=>(b.date||'').localeCompare(a.date||''));
+ return H`<div class="kpis">${kpi('Total hours',sum(l,t=>t.hours).toFixed(2))}${kpi('Labor cost',money(sum(l,t=>t.cost)))}${kpi('Entries',l.length)}${kpi('This week',sum(l.filter(t=>t.date>=addDays(-6)),t=>t.hours).toFixed(2)+' h')}</div>
+ <div class="row sb2" style="margin-bottom:14px">${sq('Search time entries')}${btn('Add time entry','openForm(\'time\',null,{date:todayISO(),who:me()})','p','plus')}</div>
+ <div class="card">${l.length?table(['Resource','Project','Date','Hours','Cost','Notes'],l.map(t=>tr([H`<b>${t.who}</b>`,t.projectId?projName(t.projectId):'—',fmtD(t.date),(+t.hours).toFixed(2),money2(t.cost),t.note||''],[3,4],`openForm('time','${t.id}')`)).map(r=>r),[3,4]):empty('No time logged yet.',btn('Add time entry','openForm(\'time\',null,{date:todayISO(),who:me()})','p','plus'))}</div>`};
 
-view.todos=()=>`<div class="row sb2" style="margin-bottom:14px"><div class="search"><input id="nt" placeholder="Add a to do and press Enter" style="min-width:260px"></div></div><div class="card">${S.todos.map((t,i)=>`<label class="chk ${t.done?'done':''}"><input type="checkbox" ${t.done?'checked':''} onchange="S.todos[${i}].done=this.checked;save();go()"><span style="flex:1">${t.t}</span><span class="mut" style="font-size:12px">${t.due}</span></label>`).join('')}</div>`;
+/* ============ field (mobile) ============ */
+V.field=()=>{const act=DB.projects.filter(p=>p.stage!=='Completed');let pid=ST.fieldPid&&by('projects',ST.fieldPid)?ST.fieldPid:(act.find(p=>p.stage==='In Progress')||act[0]||{}).id;
+ if(!pid)return empty('No active projects. Create a project to use the field view.',btn('New project','openForm(\'projects\')','p','plus'));ST.fieldPid=pid;const p=by('projects',pid),pm=PM(pid),clk=DB.meta.clock,t=pm.tasks.filter(x=>!x.done);
+ const addr=p.address||acctAddr(p.acctId)||p.name;
+ return H`<div style="max-width:560px;margin:0 auto"><div class="fld"><label>Job</label><select style="max-width:100%" onchange="ST.fieldPid=this.value;go()">${act.map(x=>H`<option value="${x.id}" ${x.id===pid?raw('selected'):''}>${x.name} · ${acctName(x.acctId)}</option>`)}</select></div>
+ <div class="card fieldcard"><h2 class="dh">${p.name}</h2><div class="mut" style="margin:2px 0 14px">${acctName(p.acctId)}${addr?' · '+addr:''}</div><a class="btn big" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(addr)}">${ic('pin')}Navigate</a></div>
+ <div class="card fieldcard"><button class="btn ${clk?'':'p'} big" onclick="toggleClock()">${clk?'Clock out · started '+new Date(clk.start).toLocaleTimeString([],{hour:'numeric',minute:'2-digit'}):'Clock in'}</button></div>
+ <div class="card" style="overflow:hidden;margin-bottom:12px"><div class="grp">Open tasks</div>${t.length?t.map(x=>H`<label class="chk" style="padding:16px"><input type="checkbox" data-p="${pid}" data-i="${pm.tasks.indexOf(x)}" onchange="taskDone(this.dataset.p,+this.dataset.i,this.checked)"><span style="flex:1">${x.t}</span><small class="mut">${x.due?fmtD(x.due):''}</small></label>`):H`<div class="empty">All tasks complete</div>`}</div>
+ <div class="row" style="gap:10px"><button class="btn big" style="flex:1" onclick="fieldPhoto('${pid}')">${ic('cam')}Photo</button><button class="btn big" style="flex:1" onclick="fieldNote('${pid}')">${ic('edit')}Note</button></div><div style="margin-top:10px"><a class="btn big" href="#project/${pid}">Open project</a></div></div>`};
+const acctAddr=id=>{const a=by('accounts',id);return a&&a.address};
+function fieldPhoto(pid){pickFile(async fs=>{for(const f of fs)await addProjectFile(pid,f,'Photo');toast(fs.length+' photo(s) saved to project');go()},'image/*',true)}
+function fieldNote(pid){const n=prompt('Note for the project team');if(n&&n.trim()){PM(pid).chat.push({who:me(),m:n.trim(),on:new Date().toISOString()});logAct(pid,me()+' added a field note');save();toast('Note saved')}}
+function taskDone(pid,i,v){const t=PM(pid).tasks[i];if(!t)return;t.done=v;if(v)logAct(pid,me()+' completed '+t.t);save();go();if(v)toast('Task completed')}
+function toggleClock(){if(!DB.meta.clock){DB.meta.clock={start:new Date().toISOString(),pid:ST.fieldPid};save();toast('Clocked in')}else{const c=DB.meta.clock,h=Math.max(.05,(Date.now()-new Date(c.start))/36e5);DB.time.push({id:nextId('T'),who:me(),type:'Project',projectId:c.pid,date:todayISO(),hours:+h.toFixed(2),cost:+(h*DB.settings.laborCost).toFixed(2),note:'Clocked '+new Date(c.start).toLocaleTimeString([],{hour:'numeric',minute:'2-digit'})+' to '+new Date().toLocaleTimeString([],{hour:'numeric',minute:'2-digit'})});DB.meta.clock=null;save();toast('Time logged: '+h.toFixed(2)+' h')}go()}
 
-view.settings=()=>`<div class="sg"><nav>${['My profile','Company profile','Users & permissions','Payments','Integrations','Catalog','CRM','Quotes','Projects','Service','Inventory'].map((x,i)=>`<a href="#settings" class="${i?'':'on'}">${x}</a>`).join('')}</nav>
-<div class="card pad"><div class="h2">Profile</div><div class="fld"><label>First name</label><input value="Armando"></div><div class="fld"><label>Last name</label><input value="Gonzales"></div><div class="fld"><label>Phone</label><input placeholder="(555) 555-0123"></div><div class="fld"><label>Default dashboard</label><select><option>All opportunities</option><option>My opportunities</option></select></div><div class="fld"><label>Time zone</label><select><option>Mountain Time</option></select></div><button class="btn p" onclick="toast('Saved')">Save changes</button></div></div>`;
+/* ============ reports ============ */
+V.reports=()=>{const qs=DB.quotes.filter(q=>q.stage!=='Declined'),calc=qs.map(qCalc),qt=sum(calc,c=>c.total),avgM=calc.length?sum(calc,c=>c.margin)/calc.length:0;
+ const dec=DB.opps.filter(o=>['Won','Lost'].includes(o.stage)),won=DB.opps.filter(o=>o.stage==='Won'),rate=dec.length?Math.round(won.length/dec.length*100):0;
+ const src={};DB.opps.forEach(o=>{const k=o.source||'Unknown';src[k]=(src[k]||0)+oppValue(o)});const srcT=sum(Object.values(src),x=>x)||1;
+ const mons=Array.from({length:6},(_,i)=>{const d=new Date();d.setMonth(d.getMonth()-5+i);return d.toISOString().slice(0,7)});const rev=mons.map(m=>sum(DB.invoices.filter(i=>i.status==='Paid'&&(i.paidOn||'').startsWith(m)),i=>i.amt)),rmx=Math.max(...rev,1);
+ const topC={};won.forEach(o=>{topC[acctName(o.acctId)]=(topC[acctName(o.acctId)]||0)+oppValue(o)});const top=Object.entries(topC).sort((a,b)=>b[1]-a[1]).slice(0,5);
+ const prof=DB.projects.map(p=>{const inv=sum(DB.invoices.filter(i=>i.projectId===p.id&&i.status!=='Not invoiced'),i=>i.amt),paid=sum(DB.invoices.filter(i=>i.projectId===p.id&&i.status==='Paid'),i=>i.amt),po=sum(DB.pos.filter(x=>x.projectId===p.id),poTotal),lab=sum(DB.time.filter(t=>t.projectId===p.id),t=>t.cost);return{p,inv,paid,cost:po+lab,profit:(+p.value||0)-po-lab}});
+ return H`<div class="row sb2" style="margin-bottom:14px"><span class="mut">All figures come from your own records.</span>${btn('Export projects CSV','exportProfit()','','dl')}</div>
+ <div class="kpis">${kpi('Quoted sales',money(qt),qs.length+' quotes')}${kpi('Average sale',money(qs.length?qt/qs.length:0))}${kpi('Average margin',avgM.toFixed(1)+'%')}${kpi('Win rate',rate+'%',dec.length+' decided')}</div>
+ <div class="grid3"><div class="card pad"><div class="h2">Revenue collected, last 6 months</div><div class="bars">${rev.map(v=>H`<div class="bar ${v?'':'alt'}"><i style="height:${Math.max(v/rmx*100,2)}%"></i></div>`)}</div><div class="bl">${mons.map(m=>H`<span>${new Date(m+'-02').toLocaleString('en-US',{month:'short'})}<br><b style="color:var(--ink)">${money(rev[mons.indexOf(m)])}</b></span>`)}</div></div>
+ <div class="card pad"><div class="h2">Lead source, by value</div>${Object.keys(src).length?Object.entries(src).sort((a,b)=>b[1]-a[1]).map(([k,v])=>H`<div style="margin-bottom:12px"><div class="row sb2" style="margin-bottom:5px"><span>${k}</span><span class="mut">${money(v)} · ${Math.round(v/srcT*100)}%</span></div><div class="prog"><i style="width:${v/srcT*100}%"></i></div></div>`):empty('No data yet.')}</div>
+ <div class="card pad"><div class="h2">Top clients, won work</div>${top.length?top.map(([k,v])=>H`<div class="li"><span>${k}</span><b>${money(v)}</b></div>`):empty('No won opportunities yet.')}</div></div>
+ <div class="card" style="margin-top:16px"><div class="pad" style="padding-bottom:6px"><div class="h2" style="margin:0">Project profitability</div></div>${prof.length?table(['Project','Value','Invoiced','Paid','Costs (POs + labor)','Estimated profit'],prof.map(x=>tr([H`<b>${x.p.name}</b><div class="mut sm">${x.p.id}</div>`,money(x.p.value),money(x.inv),money(x.paid),money(x.cost),H`<b style="color:${x.profit>=0?'var(--ok)':'var(--bad)'}">${money(x.profit)}</b>`],[1,2,3,4,5],`location.hash='project/${x.p.id}'`)),[1,2,3,4,5]):empty('No projects yet.')}</div>`};
+function exportProfit(){download('project-profitability.csv',toCSV(['Project','Client','Stage','Value','Invoiced','Paid','PO cost','Labor cost'],DB.projects.map(p=>[p.name,acctName(p.acctId),p.stage,p.value,sum(DB.invoices.filter(i=>i.projectId===p.id&&i.status!=='Not invoiced'),i=>i.amt),sum(DB.invoices.filter(i=>i.projectId===p.id&&i.status==='Paid'),i=>i.amt),sum(DB.pos.filter(x=>x.projectId===p.id),poTotal),sum(DB.time.filter(t=>t.projectId===p.id),t=>t.cost)])),'text/csv')}
 
-/* ===== Catalog + Snap One price import ===== */
-const SAMPLE_CSV='SKU,Description,Brand,Category,Dealer Cost,MSRP\nUPS-2000R,Rackmount UPS 2000 VA,PowerGuard,Power,1070,2059\nSW-24P,Managed 24-Port PoE Switch,Linkwell,Networking,620,1190\nAP-WIFI6,Wi-Fi 6 Access Point,Linkwell,Networking,190,360\n';
-const price=p=>Math.round(p.cost*(1+S.markup/100));
-view.catalog=()=>{const sn=S.snap||{};const cats=['All',...new Set(S.catalog.map(p=>p.cat))];
- return `<div class="card pad" style="margin-bottom:16px"><div class="snap"><div style="flex:1;min-width:240px"><div class="row" style="gap:8px"><i class="${sn.on?'dotok':'dot'}"></i><b>Snap One pricing</b></div>
- <div class="mut" style="font-size:13px;margin-top:4px">${sn.on?`Price file loaded: ${sn.count} products · ${sn.file} · ${sn.when}`:'Download your dealer price file from your snapav.com login, then import it here. Prices stay in this browser.'}</div></div>
- <div class="fld" style="margin:0"><label>Default markup %</label><input id="mk" type="number" value="${S.markup}" style="width:110px"></div>
- <button class="btn p" onclick="importPrice()">${ic('up')} Import price file</button>
- <a class="btn" download="snap-price-sample.csv" href="data:text/csv;charset=utf-8,${encodeURIComponent(SAMPLE_CSV)}">Sample CSV</a></div></div>
- <div class="row sb2" style="margin-bottom:14px">${sq('Search by name, SKU or brand')}<div class="row">${cats.map((c,i)=>`<button class="pill ${i?'':'on'}" onclick="filterCat('${c}',this)">${c}</button>`).join('')}</div></div>
- <div class="prods" id="prods">${S.catalog.map(p=>`<div class="card prod" data-cat="${p.cat}"><div class="ph">${ic('box')}</div><b>${p.name}</b><div class="mut" style="font-size:12px">${p.brand} · ${p.sku}</div>
- <div class="row sb2" style="margin-top:10px"><span><span class="mut" style="font-size:12px">Cost ${money(p.cost)}</span><br><b>${money(price(p))}</b></span><button class="btn" style="height:30px" onclick="addToQuote('${p.sku}')">Add to quote</button></div>
- <a class="lnk" style="font-size:12px;display:inline-block;margin-top:8px" target="_blank" rel="noopener" href="https://www.google.com/search?q=site:snapav.com+${encodeURIComponent(p.sku)}">Find on snapav.com ↗</a></div>`).join('')}</div>`};
-window.filterCat=(c,b)=>{document.querySelectorAll('.row .pill').forEach(x=>x.classList.remove('on'));b.classList.add('on');document.querySelectorAll('#prods .prod').forEach(el=>el.style.display=(c==='All'||el.dataset.cat===c)?'':'none')};
-function parseCSV(t){const rows=[];let r=[],c='',q=false;for(let i=0;i<t.length;i++){const ch=t[i];if(q){if(ch=='"'){if(t[i+1]=='"'){c+='"';i++}else q=false}else c+=ch}else if(ch=='"')q=true;else if(ch==','){r.push(c);c=''}else if(ch=='\n'||ch=='\r'){if(ch=='\r'&&t[i+1]=='\n')i++;r.push(c);c='';if(r.some(x=>x.trim()))rows.push(r);r=[]}else c+=ch}
- if(c||r.length){r.push(c);rows.push(r)}return rows}
-window.pickFile=(cb,accept)=>{const f=$('#fileIn');f.accept=accept||'';f.value='';f.onchange=()=>{if(f.files[0])cb(f.files[0])};f.click()};
-window.importPrice=()=>pickFile(file=>{const rd=new FileReader();rd.onload=()=>{
- const rows=parseCSV(String(rd.result));if(rows.length<2)return toast('No rows found. Use a CSV export.');
- const h=rows[0].map(x=>x.toLowerCase().trim());const find=(...re)=>h.findIndex(x=>re.some(r=>r.test(x)));
- const iS=find(/sku|part|model|item/),iN=find(/desc|name/),iB=find(/brand|manuf/),iC=find(/categ/),iM=find(/msrp|retail|list/),iK=find(/dealer|cost|net|your|partner/);
- if(iS<0||iK<0)return toast('Need SKU and cost columns');
- let n=0;rows.slice(1).forEach(r=>{const sku=(r[iS]||'').trim();const cost=parseFloat(String(r[iK]).replace(/[$,]/g,''));if(!sku||isNaN(cost))return;
-  const o={sku,name:iN>=0?r[iN]:sku,brand:iB>=0?r[iB]:'Snap One',cat:iC>=0&&r[iC]?r[iC]:'Imported',cost,msrp:iM>=0?parseFloat(String(r[iM]).replace(/[$,]/g,''))||cost*2:cost*2,hrs:1};
-  const ex=S.catalog.find(p=>p.sku===sku);if(ex)Object.assign(ex,o);else S.catalog.push(o);n++});
- S.snap={on:true,count:n,file:file.name,when:new Date().toLocaleDateString()};save();go();toast(n+' products imported')};rd.readAsText(file)},'.csv,text/csv');
-window.addToQuote=sku=>{const p=S.catalog.find(x=>x.sku===sku);if(!p)return;const ex=S.items.find(i=>i.sku===sku);
- if(ex)ex.qty++;else S.items.push({loc:'New items',name:p.name,sku:p.sku,qty:1,labor:p.hrs||1,cost:p.cost,price:price(p)});save();toast('Added to quote Q-183');if(location.hash.startsWith('#quote'))go()};
-window.openAdd=()=>{$('#drawer').innerHTML=`<div class="row sb2" style="margin-bottom:14px"><b style="font-size:16px">Add products</b><button class="btn ic" onclick="closeDrawer()">✕</button></div><label class="search" style="margin-bottom:12px">${ic('search')}<input id="addq" placeholder="Search catalog" oninput="drawAdd()"></label><div id="addl"></div>`;$('#ov').classList.add('on');$('#drawer').classList.add('on');drawAdd();$('#addq').focus()};
-window.drawAdd=()=>{const q=($('#addq').value||'').toLowerCase();$('#addl').innerHTML=S.catalog.filter(p=>(p.name+p.sku+p.brand).toLowerCase().includes(q)).slice(0,30).map(p=>`<div class="row sb2" style="padding:10px 0;border-bottom:1px solid var(--line-2)"><div><b>${p.name}</b><div class="mut" style="font-size:12px">${p.sku} · ${money(price(p))}</div></div><button class="btn" style="height:30px" onclick="addToQuote('${p.sku}')">Add</button></div>`).join('')||'<div class="empty">No matches</div>'};
+/* ============ to dos ============ */
+V.todos=()=>{const t=todayISO(),L=DB.todos,groups=[['Overdue',L.filter(x=>!x.done&&x.due&&x.due<t)],['Today',L.filter(x=>!x.done&&x.due===t)],['Upcoming',L.filter(x=>!x.done&&x.due>t)],['No date',L.filter(x=>!x.done&&!x.due)],['Done',L.filter(x=>x.done)]];
+ return H`<div class="row" style="margin-bottom:14px"><label class="search" style="flex:1;max-width:520px"><input id="nt" placeholder="Add a to do and press Enter" aria-label="New to do" onkeydown="if(event.key==='Enter'&&this.value.trim()){DB.todos.push({id:nextId('D'),t:this.value.trim(),due:'',done:false,created:todayISO()});save();go()}"></label>${btn('Add with details','openForm(\'todos\')','','plus')}</div>
+ ${L.length?groups.filter(g=>g[1].length).map(([n,l])=>H`<div class="card" style="margin-bottom:14px;overflow:hidden"><div class="grp">${n} · ${l.length}</div>${l.map(x=>H`<div class="chk ${x.done?'done':''}"><input type="checkbox" ${x.done?raw('checked'):''} data-id="${x.id}" onchange="todoDone(this.dataset.id,this.checked)" aria-label="Done"><span style="flex:1;cursor:pointer" data-id="${x.id}" onclick="openForm('todos',this.dataset.id)">${x.t}${x.projectId?H` <small class="mut">· ${projName(x.projectId)}</small>`:''}</span><small class="${x.due&&x.due<t&&!x.done?'bad':'mut'}">${x.due?fmtD(x.due):''}</small></div>`)}</div>`):empty('Nothing here yet. Add your first to do above.')}`};
+function todoDone(id,v){const x=by('todos',id);x.done=v;save();go()}
 
-/* ===== Quote editor (WeQuote-style actions) ===== */
-view.quote=(id)=>{
- const q=S.quotes.find(x=>x.id===id)||S.quotes[0];const rows=[];let loc='';
- S.items.forEach((it,i)=>{if(it.loc!==loc){loc=it.loc;rows.push(`<tr><td colspan="7" class="grp" style="padding:8px 16px">${loc}</td></tr>`)}
-  rows.push(`<tr style="cursor:default"><td><b>${it.name}</b><div class="mut" style="font-size:12px">${it.sku}</div></td><td><input class="qin" type="number" min="0" value="${it.qty}" data-i="${i}" data-k="qty"></td><td><input class="qin" type="number" min="0" step=".5" value="${it.labor}" data-i="${i}" data-k="labor"></td><td class="r mut">${money(it.cost*it.qty)}</td><td class="r"><input class="qin w" type="number" min="0" value="${it.price}" data-i="${i}" data-k="price"></td><td class="r"><b>${money(it.price*it.qty)}</b></td><td><button class="btn ic" style="height:28px;width:28px" onclick="S.items.splice(${i},1);save();go()" aria-label="Remove">✕</button></td></tr>`)});
- return `<div class="row" style="margin-bottom:14px"><a class="btn" href="#dashboard">← Back</a><span class="mut">${q.id} · v${q.v} · ${q.opp}</span>${tag(q.stage)}</div>
- <div class="row" style="margin-bottom:16px"><button class="btn p" onclick="openAdd()">+ Add products</button><a class="btn" href="#proposal/${q.id}">Preview client proposal</a><button class="btn" onclick="toProject('${q.id}')">Convert to project</button><button class="btn" onclick="makePO()">Create purchase order</button></div>
- <div class="tabs"><button class="on">Items & labor</button><button>Payment schedule</button><button>Scope of work</button><button>Files</button></div>
- <div class="qwrap"><div class="card" style="overflow:auto">${table(['Item','Qty','Labor h','Cost','Unit price','Total',''],rows,[3,4,5])}</div><div class="card pad sum" id="qsum"></div></div>`};
-function qsum(){const sub=sum(S.items,i=>i.price*i.qty),cost=sum(S.items,i=>i.cost*i.qty+i.labor*i.qty*40),tax=sub*0.065,tot=sub+tax,profit=sub-cost;const el=$('#qsum');if(!el)return;
- el.innerHTML=`<div class="h2">Summary</div><div><span>Subtotal</span><span>${money2(sub)}</span></div><div><span>Tax (6.5%)</span><span>${money2(tax)}</span></div><div class="t"><span>Total</span><span>${money2(tot)}</span></div><div style="margin-top:14px"><span>Total cost</span><span>${money2(cost)}</span></div><div class="g"><span>Profit</span><span>${money2(profit)}</span></div><div class="g"><span>Margin</span><span>${sub?(profit/sub*100).toFixed(1):0}%</span></div>`}
-window.toProject=id=>{const q=S.quotes.find(x=>x.id===id)||S.quotes[0];const pid='P-'+(122+S.projects.length);
- S.projects.unshift({id:pid,name:q.name,acct:q.opp,stage:'New',val:Math.round(sum(S.items,i=>i.price*i.qty))});
- const locs=[...new Set(S.items.map(i=>i.loc))];S.pm.tasks=locs.map(l=>({t:'Install: '+l,list:'From quote '+q.id,who:'Unassigned',due:'TBD',done:false})).concat(S.pm.tasks);
- save();toast('Project '+pid+' created with '+locs.length+' tasks');location.hash='project/'+pid};
-window.makePO=()=>{const id='PO-'+(213+S.pos.length);S.pos.unshift({id,vendor:'Snap One',status:'Ordered',amt:Math.round(sum(S.items,i=>i.cost*i.qty)),date:'Today'});save();toast(id+' created from quote items')};
+/* ============ settings ============ */
+function sv(path,val,rerender){const k=path.split('.');let o=DB.settings;for(let i=0;i<k.length-1;i++)o=o[k[i]];o[k[k.length-1]]=val;save();if(rerender)go()}
+const sfield=(l,path,v,type,extra)=>H`<div class="fld"><label>${l}</label><input type="${type||'text'}" value="${v}" ${type==='number'?raw('step="any"'):''} onchange="sv('${path}',${type==='number'?'num(this.value)':'this.value'}${extra?',true':''})"></div>`;
+const SET_TABS=['Company','Pricing & tax','Proposals','Data & backup','Install'];
+V.settings=()=>{const S=DB.settings,c=S.company,t=ST.setTab;let body;
+ if(t==='Company')body=H`<div class="h2">Company</div>${sfield('Company name','company.name',c.name)}${sfield('Logo letter(s)','company.logoText',c.logoText)}${sfield('Email','company.email',c.email,'email')}${sfield('Phone','company.phone',c.phone,'tel')}${sfield('Address','company.address',c.address)}${sfield('Website','company.website',c.website)}<div class="h2" style="margin-top:22px">You</div>${sfield('Your name (shown on messages and time entries)','user.name',S.user.name)}`;
+ else if(t==='Pricing & tax')body=H`<div class="h2">Pricing</div>${sfield('Default markup % over dealer cost','markup',S.markup,'number',1)}<div class="mut sm" style="margin-bottom:12px">Sell price = dealer cost × (1 + markup). Override per category below.</div>
+  ${[...new Set(DB.catalog.map(p=>p.cat||'General'))].sort().slice(0,40).map(cat=>H`<div class="row" style="margin-bottom:8px"><span style="width:180px">${cat}</span><input class="qin w" type="number" placeholder="${S.markup}" value="${(S.catMarkup||{})[cat]??''}" data-cat="${cat}" onchange="setCatMk(this.dataset.cat,this.value)" aria-label="Markup for ${cat}"><span class="mut">%</span></div>`)}
+  <div class="h2" style="margin-top:22px">Labor</div>${sfield('Labor rate billed per hour','laborRate',S.laborRate,'number',1)}${sfield('Labor cost to you per hour','laborCost',S.laborCost,'number',1)}
+  <div class="h2" style="margin-top:22px">Tax and currency</div>${sfield('Sales tax rate %','taxRate',S.taxRate,'number',1)}<label class="chk0"><input type="checkbox" ${S.taxLabor?raw('checked'):''} onchange="sv('taxLabor',this.checked,true)"> Charge tax on labor too</label>
+  <div class="fld" style="margin-top:12px"><label>Currency</label><select onchange="sv('currency',this.value,true)">${['USD','CAD','GBP','EUR','AUD'].map(x=>H`<option ${x===S.currency?raw('selected'):''}>${x}</option>`)}</select></div><label class="chk0"><input type="checkbox" ${S.showLinePrices?raw('checked'):''} onchange="sv('showLinePrices',this.checked)"> Show each line price on proposals</label>`;
+ else if(t==='Proposals')body=H`<div class="h2">Terms shown on every proposal</div><div class="fld"><textarea rows="7" style="max-width:100%" onchange="sv('terms',this.value)">${S.terms}</textarea></div><div class="h2" style="margin-top:22px">Default payment schedule</div>${(S.payDefault||defPay()).map((r,i)=>H`<div class="row" style="margin-bottom:8px"><input value="${r.name}" style="flex:1;max-width:260px" class="qin w" onchange="payDef(${i},'name',this.value)"><input class="qin" type="number" value="${r.pct}" onchange="payDef(${i},'pct',num(this.value))"><span class="mut">%</span></div>`)}${btn('Add payment','payDefAdd()','','plus')}`;
+ else if(t==='Data & backup')body=H`<div class="h2">Backup</div><p class="mut" style="margin-bottom:12px">Your data lives in this browser on this device. Download a backup regularly. To move your data to another device (for example your phone), download a backup here and restore it there. Project files are stored on this device only and are not included in the backup.</p><div class="row">${btn('Download backup (JSON)','backup()','p','dl')}${btn('Restore from backup','restore()','','up')}</div>
+  <div class="h2" style="margin-top:26px">Export to spreadsheet</div><div class="row">${[['accounts','Accounts'],['opps','Opportunities'],['quotes','Quotes'],['projects','Projects'],['invoices','Invoices'],['time','Time']].map(([k,l])=>btn(l,`exportColl('${k}')`,'','dl'))}</div>
+  <div class="h2" style="margin-top:26px">Sample data and reset</div><div class="row">${btn('Load sample data','loadDemo()')}${btn('Erase everything','eraseAll()','dng','trash')}</div><div class="mut sm" style="margin-top:8px">Sample data is fictional. Erase removes all records in this browser.</div>`;
+ else body=H`<div class="h2">Install on your phone or computer</div><ol class="ol"><li><b>iPhone:</b> open the site in Safari, tap Share, then Add to Home Screen.</li><li><b>Android:</b> open in Chrome, tap the menu, then Install app.</li><li><b>Computer:</b> in Chrome or Edge, click the install icon in the address bar.</li></ol><div class="h2" style="margin-top:22px">Hosting</div><p class="mut">This site is static files on GitHub Pages. To update it, upload the new files to the repository and commit. Your data is not affected by updates.</p><p class="mut" style="margin-top:10px">Version 3 · ${DB.meta.demo?'Sample data loaded':'Your data'}</p>`;
+ return H`<div class="sg"><nav>${SET_TABS.map(x=>H`<a href="javascript:void(0)" class="${x===t?'on':''}" data-v="${x}" onclick="ST.setTab=this.dataset.v;go()">${x}</a>`)}</nav><div class="card pad">${body}</div></div>`};
+const defPay=()=>[{name:'Deposit',pct:50},{name:'Rough-in complete',pct:25},{name:'Final',pct:25}];
+function payDef(i,k,v){DB.settings.payDefault=DB.settings.payDefault||defPay();DB.settings.payDefault[i][k]=v;save()}
+function payDefAdd(){DB.settings.payDefault=DB.settings.payDefault||defPay();DB.settings.payDefault.push({name:'Payment',pct:0});save();go()}
+function setCatMk(cat,v){DB.settings.catMarkup=DB.settings.catMarkup||{};if(v==='')delete DB.settings.catMarkup[cat];else DB.settings.catMarkup[cat]=num(v);save();toast('Saved')}
+function backup(){download('atlas-backup-'+todayISO()+'.json',JSON.stringify(DB,null,1),'application/json')}
+function restore(){pickFile(f=>{const rd=new FileReader();rd.onload=()=>{try{const d=JSON.parse(rd.result);if(!d||d.v!==3||!d.accounts)throw 0;if(!confirm('Replace everything in this browser with this backup?'))return;DB=d;migrate();persist();go();toast('Backup restored')}catch(e){toast('That file is not an Atlas backup')}};rd.readAsText(f)},'.json,application/json')}
+function exportColl(k){const rows=DB[k];if(!rows.length)return toast('Nothing to export');const heads=[...new Set(rows.flatMap(r=>Object.keys(r).filter(x=>typeof r[x]!=='object')))];download(k+'.csv',toCSV(heads,rows.map(r=>heads.map(h=>r[h]))),'text/csv')}
+function eraseAll(){const w=prompt('This deletes all records in this browser. Type DELETE to confirm.');if(w!=='DELETE')return;const t=DB.settings,u=DB.cloud;DB=blank();DB.settings=t;DB.cloud=u;DB.meta.welcomed=true;persist();location.hash='dashboard';go();toast('All records erased')}
 
-/* ===== Client proposal (interactive) ===== */
-const propOpts=new Set();
-view.proposal=(id)=>{const q=S.quotes.find(x=>x.id===id)||S.quotes[0];const opts=S.catalog.filter(p=>['CAM-4K','STRM-4K','DIM-SMART'].includes(p.sku));
- const locs=[...new Set(S.items.map(i=>i.loc))];
- const base=sum(S.items,i=>i.price*i.qty);
- return `<div class="row" style="margin-bottom:14px"><a class="btn" href="#quote/${q.id}">← Back to editor</a><span class="mut">This is what your client sees. Costs and margin are hidden.</span></div>
- <div class="card prop"><div class="hero"><div class="mut">Royalty AV · Proposal ${q.id}</div><h2>${q.name}</h2><div class="mut">Prepared for ${q.opp}</div></div>
- ${locs.map(l=>`<div class="grp">${l}</div>${S.items.filter(i=>i.loc===l).map(i=>`<div class="opt" style="justify-content:space-between"><span>${i.qty} × ${i.name}</span><b>${money(i.price*i.qty)}</b></div>`).join('')}`).join('')}
- <div class="grp">Optional upgrades</div>${opts.map(p=>`<label class="opt"><input type="checkbox" ${propOpts.has(p.sku)?'checked':''} onchange="togOpt('${p.sku}',this.checked)"><span style="flex:1">${p.name}</span><b>+${money(price(p))}</b></label>`).join('')}
- <div class="opt" style="justify-content:space-between;font-size:20px"><b>Total with tax</b><b id="ptot"></b></div>
- <div class="pad"><div class="fld"><label>Type your full name to approve</label><input id="sig" placeholder="Full name"></div><button class="btn p big" onclick="approve('${q.id}')">Approve proposal</button></div></div>`};
-function ptot(){const e=$('#ptot');if(!e)return;const base=sum(S.items,i=>i.price*i.qty)+sum([...propOpts].map(s=>S.catalog.find(p=>p.sku===s)).filter(Boolean),p=>price(p));e.textContent=money2(base*1.065)}
-window.togOpt=(s,on)=>{on?propOpts.add(s):propOpts.delete(s);ptot()};
-window.approve=id=>{const n=$('#sig').value.trim();if(!n)return toast('Type your name to approve');const q=S.quotes.find(x=>x.id===id);if(q)q.stage='Approved';S.pm.activity.unshift('Client approved proposal '+id);save();toast('Approved by '+n);setTimeout(()=>location.hash='quote/'+id,900)};
+/* ============ quote editor ============ */
+function curQuote(){return by('quotes',(location.hash.split('/')[1])||'')}
+V.quote=id=>{const q=by('quotes',id);if(!q)return empty('Quote not found.',btn('Back to quotes','ST.oppTab=\'Quotes\';location.hash=\'opportunities\'','p'));ST.activeQuote=id;
+ const c=qCalc(q),locs=[...new Set(q.items.map(i=>i.loc))],pr=by('projects',q.projectId),locOpts=[...new Set(q.items.map(i=>i.loc).concat(['General','Living room','Theater','Kitchen','Primary suite','Rack','Utility','Outdoor','Office']))];
+ let rows=[];locs.forEach(l=>{const its=q.items.map((it,i)=>({it,i})).filter(x=>x.it.loc===l);
+  rows.push(H`<tr><td colspan="9" class="grp" style="padding:8px 16px">${l} <span class="mut" style="text-transform:none;font-weight:400">· ${money(sum(its,x=>x.it.price*x.it.qty))}</span></td></tr>`);
+  its.forEach(({it,i})=>rows.push(H`<tr class="${it.optional?'optrow':''}"><td><div class="row" style="flex-wrap:nowrap;align-items:flex-start">${pimgBySku(it.sku,'sm')}<div style="flex:1"><input class="qin t" value="${it.name}" onchange="qSet(${i},'name',this.value)" aria-label="Item name"><div class="mut sm" style="padding-left:2px">${it.sku||'Custom item'}</div></div></div></td>
+  <td><input class="qin w" list="locs" value="${it.loc}" onchange="qSet(${i},'loc',this.value,1)" aria-label="Room"></td>
+  <td><input class="qin" type="number" min="0" step="any" value="${it.qty}" oninput="qSet(${i},'qty',this.value)" aria-label="Quantity"></td>
+  <td><input class="qin" type="number" min="0" step="any" value="${it.labor}" oninput="qSet(${i},'labor',this.value)" aria-label="Labor hours"></td>
+  <td><input class="qin w" type="number" min="0" step="any" value="${it.cost}" oninput="qSet(${i},'cost',this.value)" aria-label="Unit cost"></td>
+  <td><input class="qin w" type="number" min="0" step="any" value="${it.price}" oninput="qSet(${i},'price',this.value)" aria-label="Unit price"></td>
+  <td class="r nw"><b id="qt${i}">${money2(it.price*it.qty)}</b></td><td><label class="mut sm nw"><input type="checkbox" ${it.optional?raw('checked'):''} onchange="qSet(${i},'optional',this.checked,1)"> Optional</label></td>
+  <td><button class="btn ic sm0" onclick="qDel(${i})" aria-label="Remove item">${ic('x')}</button></td></tr>`))});
+ const tabs=['Items','Payment schedule','Scope & notes'],tab=ST.qTab;
+ return H`<datalist id="locs">${locOpts.map(l=>H`<option value="${l}">`)}</datalist>
+ <div class="row sb2" style="margin-bottom:12px"><div class="row"><a class="btn" href="#opportunities" onclick="ST.oppTab='Quotes'">${ic('left')}Quotes</a><span class="mut">${q.id} · v${q.v} · ${oppName(q.oppId)} · ${acctName(q.acctId)}</span></div><div class="row"><select class="pill" onchange="qField('stage',this.value)" aria-label="Quote status">${['Draft','Presented','Approved','Declined'].map(s=>H`<option ${s===q.stage?raw('selected'):''}>${s}</option>`)}</select></div></div>
+ <div class="fld"><input class="qname" value="${q.name}" onchange="qField('name',this.value)" aria-label="Quote name"></div>
+ <div class="row" style="margin-bottom:16px">${btn('Add products','productPicker(\'Add products\',addQ,true)','p','plus')}${btn('Custom line','qCustom()','','plus')}<a class="btn" href="#proposal/${q.id}">${ic('file')}Client proposal</a>${pr?btn('Open project',`location.hash='project/${pr.id}'`,'','proj'):btn('Convert to project',`convertQuote('${q.id}')`,'','proj')}${btn('Create PO',`quotePO('${q.id}')`,'','proc')}${btn('New version',`quoteVersion('${q.id}')`,'','copy')}<button class="btn dng ic" onclick="quoteDel('${q.id}')" aria-label="Delete quote" title="Delete quote">${ic('trash')}</button></div>
+ <div class="tabs">${tabs.map(t=>H`<button class="${t===tab?'on':''}" data-v="${t}" onclick="ST.qTab=this.dataset.v;go()">${t}</button>`)}</div>
+ <div class="qwrap"><div>${tab==='Items'?(q.items.length?H`<div class="card"><div class="tw"><table class="qt"><thead><tr><th>Item</th><th>Room</th><th class="r">Qty</th><th class="r">Labor h</th><th class="r">Unit cost</th><th class="r">Unit price</th><th class="r">Total</th><th></th><th></th></tr></thead><tbody>${rows}</tbody></table></div></div>`:H`<div class="card">${empty('No items yet. Add products from your catalog, or add a custom line.',btn('Add products','productPicker(\'Add products\',addQ,true)','p','plus'))}</div>`):''}
+ ${tab==='Payment schedule'?paySched(q,c):''}${tab==='Scope & notes'?H`<div class="card pad"><div class="fld"><label>Scope of work (shown to the client)</label><textarea rows="8" style="max-width:100%" onchange="qField('scope',this.value)">${q.scope||''}</textarea></div><div class="fld"><label>Internal notes (never shown to the client)</label><textarea rows="4" style="max-width:100%" onchange="qField('notes',this.value)">${q.notes||''}</textarea></div></div>`:''}</div>
+ <div class="card pad sum" id="qsum">${qsumH(q)}</div></div>`};
+const qsumH=q=>{const c=qCalc(q);return H`<div class="h2">Summary</div><div><span>Products</span><span>${money2(c.prod)}</span></div><div><span>Labor · ${c.hrs.toFixed(1)} h</span><span>${money2(c.lab)}</span></div><div><span>Adjustment</span><span><input class="qin w" type="number" step="any" value="${q.adjust||0}" oninput="qField('adjust',num(this.value),0,1)" aria-label="Adjustment"></span></div><div><span>Tax</span><span>${money2(c.tax)}</span></div><div class="t"><span>Total</span><span>${money2(c.total)}</span></div>
+ <div style="margin-top:14px"><span>Total cost</span><span>${money2(c.cost)}</span></div><div class="${c.profit>=0?'g':'bad'}"><span>Profit</span><span>${money2(c.profit)}</span></div><div class="${c.profit>=0?'g':'bad'}"><span>Margin</span><span>${c.margin.toFixed(1)}%</span></div>${c.opt?H`<div class="mut sm" style="margin-top:8px"><span>Optional, not included</span><span>${money2(c.opt)}</span></div>`:''}`};
+function paySched(q,c){const pays=q.payments||[],tot=sum(pays,p=>p.pct);
+ return H`<div class="card pad"><div class="h2">Payment schedule <span class="${Math.round(tot)===100?'mut':'bad'}" style="font-weight:500">${tot}% of 100%</span></div>${pays.map((p,i)=>H`<div class="row" style="margin-bottom:8px"><input class="qin w" style="width:200px;text-align:left" value="${p.name}" onchange="payQ(${i},'name',this.value)" aria-label="Payment name"><input class="qin" type="number" value="${p.pct}" oninput="payQ(${i},'pct',num(this.value))" aria-label="Percent"><span class="mut">%</span><span style="min-width:100px">${money2(c.total*p.pct/100)}</span><button class="btn ic sm0" onclick="payDelQ(${i})" aria-label="Remove">${ic('x')}</button></div>`)}${btn('Add payment','payAddQ()','','plus')}<div class="mut sm" style="margin-top:12px">When you convert this quote to a project, each payment becomes an invoice milestone.</div></div>`}
+function qRefresh(){const q=curQuote();if(!q)return;const s=$('#qsum');if(s)s.innerHTML=qsumH(q).s;q.items.forEach((it,i)=>{const e=$('#qt'+i);if(e)e.textContent=money2(it.price*it.qty)})}
+function qSet(i,k,v,re){const q=curQuote(),it=q.items[i];if(!it)return;it[k]=(['qty','labor','cost','price'].includes(k))?Math.max(0,num(v)):v;if(k==='loc')q.lastLoc=v;save();re?go():qRefresh()}
+function qField(k,v,re,soft){const q=curQuote();q[k]=v;if(k==='stage'&&v==='Approved')approveSideEffects(q);save();if(soft)qRefresh();else if(re||k==='stage')go()}
+function qDel(i){const q=curQuote();q.items.splice(i,1);save();go()}
+function qCustom(){const q=curQuote();q.items.push({loc:q.lastLoc||'General',name:'Custom item',sku:'',qty:1,labor:0,cost:0,price:0,optional:false});save();go()}
+function addQ(sku){const q=curQuote();if(!q)return false;const p=DB.catalog.find(x=>x.sku===sku);if(!p)return false;const l=q.lastLoc||'General',ex=q.items.find(i=>i.sku===sku&&i.loc===l);if(ex)ex.qty++;else q.items.push({loc:l,name:p.name,sku:p.sku,qty:1,labor:+p.hrs||0,cost:p.cost,price:priceOf(p),optional:false});save();toast('Added '+p.name);go();return true}
+function payQ(i,k,v){curQuote().payments[i][k]=v;save();if(k==='pct')go()}
+function payAddQ(){const q=curQuote();q.payments=q.payments||[];q.payments.push({name:'Payment',pct:0});save();go()}
+function payDelQ(i){curQuote().payments.splice(i,1);save();go()}
+function approveSideEffects(q){const o=by('opps',q.oppId);if(o&&o.stage!=='Won'){o.stage='Won';HOOKS.opps(o)}}
+function quoteVersion(id){const q=by('quotes',id),n=JSON.parse(JSON.stringify(q));n.id=nextId('Q');n.v=q.v+1;n.stage='Draft';n.projectId=null;n.signedBy=null;n.signedAt=null;n.created=todayISO();n.items.forEach(i=>i.sel=false);DB.quotes.push(n);save();location.hash='quote/'+n.id;toast('Version '+n.v+' created')}
+function quoteDel(id){if(!confirm('Delete this quote?'))return;DB.quotes=DB.quotes.filter(q=>q.id!==id);save();location.hash='opportunities';toast('Quote deleted')}
+function convertQuote(id){const q=by('quotes',id);if(q.projectId&&by('projects',q.projectId)){location.hash='project/'+q.projectId;return}if(!q.items.length)return toast('Add items before converting');if(q.stage!=='Approved'&&!confirm('This quote is not approved yet. Convert it to a project anyway?'))return;
+ const c=qCalc(q),p={id:nextId('P'),name:q.name,acctId:q.acctId,oppId:q.oppId,quoteId:q.id,stage:'New',value:Math.round(c.total*100)/100,created:todayISO()};DB.projects.push(p);q.projectId=p.id;if(q.stage!=='Approved'){q.stage='Approved'}approveSideEffects(q);
+ const pm=PM(p.id);[...new Set(qItems(q).map(i=>i.loc))].forEach(l=>pm.tasks.push({id:Date.now()+Math.random(),t:'Install '+l,list:'From quote '+q.id,who:'',due:'',done:false}));
+ (q.payments||[]).forEach(pay=>DB.invoices.push({id:nextId('I'),projectId:p.id,name:pay.name,amt:Math.round(c.total*pay.pct)/100,due:'',status:'Not invoiced',created:todayISO()}));
+ logAct(p.id,'Project created from quote '+q.id);save();toast('Project '+p.id+' created with milestones and tasks');location.hash='project/'+p.id}
+function quotePO(id){const q=by('quotes',id),m={};qItems(q).filter(i=>i.sku).forEach(i=>{const x=m[i.sku]||(m[i.sku]={sku:i.sku,name:i.name,qty:0,cost:i.cost,recv:0});x.qty+=i.qty});const lines=Object.values(m);if(!lines.length)return toast('Add catalog products first');
+ const po={id:nextId('PO'),vendor:'Snap One',projectId:q.projectId||'',status:'Draft',date:todayISO(),lines};DB.pos.push(po);save();toast(po.id+' created from this quote');openPO(po.id)}
 
-/* ===== Project workspace (Basecamp-style) ===== */
-let pmTab='Overview',clientView=false;
-const pmTabs=['Overview','To-dos','Messages','Schedule','Files','Check-ins','Chat'];
-view.project=(id)=>{const p=S.projects.find(x=>x.id===id)||S.projects[0];const pm=S.pm;const done=pm.tasks.filter(t=>t.done).length;const tabs=pmTabs.filter(t=>!clientView||!['Check-ins','Chat'].includes(t));
- let body='';
- if(pmTab==='Overview'){const pts=[];for(let x=0;x<=100;x+=2){pts.push([x*3.2,120-100*Math.exp(-Math.pow((x-50)/24,2))])}const d='M'+pts.map(a=>a.join(',')).join(' L');const hx=pm.hill*3.2,hy=120-100*Math.exp(-Math.pow((pm.hill-50)/24,2));
-  body=`<div class="grid2"><div class="card pad"><div class="h2">Progress <span class="mut" style="font-weight:400">${pm.hill<50?'Figuring it out':'Making it happen'}</span></div><svg class="hill" viewBox="0 0 320 140"><path d="${d}" fill="none" stroke="var(--line)" stroke-width="2"/><line x1="160" y1="10" x2="160" y2="125" stroke="var(--line)" stroke-dasharray="3 4"/><circle cx="${hx}" cy="${hy}" r="7" fill="var(--accent)"/></svg><input type="range" min="0" max="100" value="${pm.hill}" style="width:100%;accent-color:var(--accent)" oninput="S.pm.hill=+this.value;save()" onchange="go()"></div>
-  <div class="card pad"><div class="h2">Tasks</div><div style="font-size:30px;font-weight:600">${done}/${pm.tasks.length}</div><div class="prog" style="margin:10px 0 14px"><i style="width:${pm.tasks.length?done/pm.tasks.length*100:0}%"></i></div><div class="mut" style="font-size:12px">Project value ${money(p.val)}</div></div></div>
-  <div class="card pad" style="margin-top:16px"><div class="h2">Latest activity</div>${pm.activity.map(a=>`<div style="padding:8px 0;border-bottom:1px solid var(--line-2)">${a}</div>`).join('')}</div>`}
- else if(pmTab==='To-dos'){const lists=[...new Set(pm.tasks.map(t=>t.list))];
-  body=`<div class="search" style="margin-bottom:14px"><input id="nt2" placeholder="Add a to-do and press Enter" style="min-width:260px"></div>`+lists.map(l=>`<div class="card" style="margin-bottom:14px;overflow:hidden"><div class="grp">${l}</div>${pm.tasks.map((t,i)=>({t,i})).filter(x=>x.t.list===l).map(({t,i})=>`<label class="chk ${t.done?'done':''}"><input type="checkbox" ${t.done?'checked':''} onchange="S.pm.tasks[${i}].done=this.checked;save();go()"><span style="flex:1">${t.t}</span><span class="mut" style="font-size:12px">${t.who} · ${t.due}</span></label>`).join('')}</div>`).join('')}
- else if(pmTab==='Messages'){body=`<div class="card pad" style="margin-bottom:14px"><div class="fld"><input id="pt" placeholder="Title" style="max-width:100%"></div><div class="fld"><input id="pb" placeholder="Write an update for the team…" style="max-width:100%"></div><button class="btn p" onclick="addPost()">Post</button></div><div class="card">${pm.posts.map(m=>`<div class="post"><b>${m.title}</b><div class="mut" style="font-size:12px;margin:2px 0 8px">${m.who} · ${m.when}</div>${m.body}<div class="mut" style="font-size:12px;margin-top:8px">${m.replies} replies</div></div>`).join('')}</div>`}
- else if(pmTab==='Schedule'){const ev=pm.tasks.filter(t=>t.due!=='TBD');body=`<div class="card">${table(['Date','What','Who','Status'],ev.map(t=>tr([t.due,`<b>${t.t}</b>`,t.who,t.done?tag('Completed'):tag('Open')])))}</div><div class="mut" style="margin-top:10px;font-size:13px">Dates come from your to-dos. Calendar subscription links are planned in the next build step.</div>`}
- else if(pmTab==='Files'){body=`<div class="drop" onclick="pickFile(f=>{S.pm.files.unshift({name:f.name,kind:f.type||'File',size:Math.round(f.size/1024)+' KB',by:'You'});save();go();toast('File added')})" style="margin-bottom:14px">Drop a file here or click to add</div><div class="card">${table(['Name','Type','Size','Added by'],pm.files.map(f=>tr([`<b>${f.name}</b>`,f.kind,f.size,f.by])))}</div>`}
- else if(pmTab==='Check-ins'){body=pm.checkins.map(c=>`<div class="card pad" style="margin-bottom:14px"><div class="h2">${c.q} <span class="tag">Daily, 4:00 PM</span></div>${c.ans.map(a=>`<div style="padding:8px 0;border-bottom:1px solid var(--line-2)"><b>${a.who}</b><div>${a.a}</div></div>`).join('')}<div class="search" style="margin-top:12px"><input id="ci" placeholder="Your answer, press Enter" style="min-width:240px"></div></div>`).join('')}
- else{body=`<div class="card"><div class="chat">${pm.chat.map(c=>`<div class="msg ${c.who==='You'?'me':''}"><small>${c.who}</small>${c.m}</div>`).join('')}</div><div class="pad" style="border-top:1px solid var(--line)"><div class="search"><input id="cm" placeholder="Message the team, press Enter" style="width:100%"></div></div></div>`}
- return `<div class="row sb2" style="margin-bottom:6px"><div><div class="mut">${p.id} · ${p.acct}</div></div><div class="row">${tag(p.stage)}<button class="btn" onclick="clientView=!clientView;go()">${clientView?'Exit client view':'Client view'}</button></div></div>
- ${clientView?'<div class="banner">Client view: your client sees to-dos, messages, schedule and files only. Chat, check-ins, costs and margin stay private.</div>':''}
- <div class="tabs scroll">${tabs.map(t=>`<button class="${t===pmTab?'on':''}" onclick="pmTab='${t}';go()">${t}</button>`).join('')}</div>${body}`};
-window.addPost=()=>{const t=$('#pt').value.trim(),b=$('#pb').value.trim();if(!t)return toast('Add a title');S.pm.posts.unshift({who:'You',when:'Just now',title:t,body:b,replies:0});S.pm.activity.unshift('You posted '+t);save();go()};
+/* ============ client proposal ============ */
+V.proposal=id=>{const q=by('quotes',id);if(!q)return empty('Quote not found.');const c=qCalc(q),a=by('accounts',q.acctId),S=DB.settings,cm=co(),locs=[...new Set(q.items.filter(i=>!i.optional).map(i=>i.loc))],opts=q.items.map((it,i)=>({it,i})).filter(x=>x.it.optional),signed=!!q.signedBy;
+ const hasPh=q.items.some(i=>{const p=DB.catalog.find(x=>x.sku===i.sku);return p&&(p.img||p.imgUrl)}),ph=(sku)=>hasPh?pimgBySku(sku,'xl'):'';
+ const labByLoc=l=>sum(q.items.filter(i=>i.loc===l&&!i.optional),i=>i.labor*i.qty)*S.laborRate;
+ const mail=a&&a.email?'mailto:'+a.email+'?subject='+encodeURIComponent('Proposal '+q.id+': '+q.name)+'&body='+encodeURIComponent('Hello '+(a.contact||a.name)+',\n\nPlease find our proposal "'+q.name+'" attached. The total is '+money2(c.total)+'.\n\nThank you,\n'+me()+'\n'+(cm.name||'')):'';
+ const line=(i,extra)=>H`<div class="pitem">${ph(i.sku)}<div class="pi-main"><b>${i.name}</b><div class="mut sm">${(DB.catalog.find(x=>x.sku===i.sku)||{}).brand||''} ${i.sku||''}</div></div><div class="pi-q">× ${i.qty}</div>${S.showLinePrices?H`<div class="pi-p">${extra||money2(i.price*i.qty)}</div>`:''}</div>`;
+ return H`<div class="row noprint" style="margin-bottom:14px;flex-wrap:wrap"><a class="btn" href="#quote/${q.id}">${ic('left')}Back to editor</a>${btn('Print or save as PDF',`printDoc('Proposal ${q.id} - ${esc(q.name)}')`,'p','print')}${btn('Download as web page',`exportProposal('${q.id}')`,'','dl')}${mail?H`<a class="btn" href="${mail}">${ic('mail')}Email client</a>`:''}<span class="mut sm">This is what your client sees. Costs and margin are hidden.</span></div>
+ <div class="card prop clean" id="proposalDoc"><div class="cover"><div class="row sb2" style="align-items:flex-start"><div class="row" style="gap:12px"><div class="brandmark">${cm.logoText||'A'}</div><div><b style="font-size:16px">${cm.name||'Your company'}</b><div class="mut sm">${[cm.phone,cm.email,cm.website].filter(Boolean).join(' · ')}</div></div></div><div class="mut sm" style="text-align:right">Proposal ${q.id}${q.v>1?' · v'+q.v:''}<br>${fmtD(q.created)}</div></div>
+ <div class="kicker">PROPOSAL FOR</div><h2>${q.name}</h2><div class="mut">${a?a.name:''}${a&&a.address?' · '+a.address:''}</div><div class="cover-total"><span class="mut sm">Total investment</span><b>${money2(c.total)}</b></div></div>
+ ${q.scope?H`<div class="pad2"><div class="kicker">SCOPE OF WORK</div><p style="white-space:pre-wrap;line-height:1.7">${q.scope}</p></div>`:''}
+ ${locs.length?locs.map(l=>H`<section class="room"><h3>${l}</h3>${q.items.filter(i=>i.loc===l&&!i.optional).map(i=>line(i))}${labByLoc(l)?H`<div class="pitem lab"><div class="pi-main"><b>Installation and programming</b></div><div class="pi-q"></div>${S.showLinePrices?H`<div class="pi-p">${money2(labByLoc(l))}</div>`:''}</div>`:''}</section>`):H`<div class="pad2 mut">No items yet.</div>`}
+ ${opts.length?H`<section class="room"><h3>Optional upgrades</h3><div class="mut sm" style="margin:-4px 0 10px" >Tick any you would like added to your total.</div>${opts.map(({it,i})=>H`<label class="pitem opt2"><input type="checkbox" ${it.sel?raw('checked'):''} ${signed?raw('disabled'):''} onchange="propSel(${i},this.checked)">${ph(it.sku)}<div class="pi-main"><b>${it.name}</b></div><div class="pi-q">× ${it.qty}</div><div class="pi-p">+${money2(it.price*it.qty+it.labor*it.qty*S.laborRate)}</div></label>`)}</section>`:''}
+ <div class="pad2 totals"><div class="kv"><span>Subtotal</span><b>${money2(c.sub)}</b></div><div class="kv"><span>Tax</span><b>${money2(c.tax)}</b></div><div class="kv grand"><span>Total</span><b>${money2(c.total)}</b></div></div>
+ ${(q.payments||[]).length?H`<div class="pad2" style="padding-top:0"><div class="kicker">PAYMENT SCHEDULE</div>${q.payments.map(p=>H`<div class="kv"><span>${p.name} <span class="mut">(${p.pct}%)</span></span><b>${money2(c.total*p.pct/100)}</b></div>`)}</div>`:''}
+ <div class="pad2" style="padding-top:0"><div class="kicker">TERMS</div><p class="mut sm" style="white-space:pre-wrap;line-height:1.6">${S.terms}</p></div>
+ <div class="pad2 signbox">${signed?H`<div class="banner" style="margin:0">Approved by ${q.signedBy} on ${fmtD(q.signedAt)}</div>`:H`<div class="fld noprint"><label>Type your full name to approve</label><input id="sig" placeholder="Full name" style="max-width:100%"></div><button class="btn p big noprint" onclick="approveQ('${q.id}')">Approve proposal</button><div class="sigline">Signature: ______________________________ Date: ______________</div>`}</div></div>`};
+async function exportProposal(id){const el=$('#proposalDoc');if(!el)return;const cl=el.cloneNode(true);$$('.noprint',cl).forEach(x=>x.remove());$$('input[type=checkbox]',cl).forEach(x=>{x.disabled=true});
+ for(const im of $$('img',cl)){const src=im.getAttribute('src')||'';if(src.startsWith('blob:')){try{const b=await (await fetch(src)).blob();im.src=await new Promise(r=>{const f=new FileReader();f.onload=()=>r(f.result);f.readAsDataURL(b)})}catch(e){}}}
+ const q=by('quotes',id),css=$('style').textContent;download('Proposal-'+q.id+'.html','<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Proposal '+esc(q.id+' '+q.name)+'</title><style>'+css+'.sigline{display:block}body{padding:20px}.prop{margin:0 auto}</style></head><body>'+cl.outerHTML+'</body></html>','text/html');toast('Downloaded. Attach it to an email, or open it and print to PDF.',3500)}
+function propSel(i,v){const q=curQuote();q.items[i].sel=v;save();go()}
+function approveQ(id){const n=($('#sig').value||'').trim();if(!n)return toast('Type your name to approve');const q=by('quotes',id);q.stage='Approved';q.signedBy=n;q.signedAt=todayISO();approveSideEffects(q);save();toast('Approved by '+n);go();if(!q.projectId&&confirm('Create the project, tasks and invoice milestones now?'))convertQuote(id)}
 
-/* ===== Field app (mobile-first) ===== */
-let clock=null;
-view.field=()=>{const p=S.projects.find(x=>x.stage==='In Progress')||S.projects[0];const t=S.pm.tasks.filter(x=>!x.done).slice(0,5);
- return `<div style="max-width:560px;margin:0 auto"><div class="card fieldcard"><div class="mut" style="font-size:12px">Today's job</div><h2 style="font-size:20px;margin:4px 0">${p.name}</h2><div class="mut" style="margin-bottom:14px">${p.acct}</div>
- <a class="btn big" target="_blank" rel="noopener" href="https://www.google.com/maps/search/${encodeURIComponent(p.acct)}">${ic('pin')} Navigate</a></div>
- <div class="card fieldcard"><button class="btn ${clock?'':'p'} big" onclick="toggleClock()">${clock?'Clock out · running since '+clock.toLocaleTimeString([],{hour:'numeric',minute:'2-digit'}):'Clock in'}</button></div>
- <div class="card" style="overflow:hidden;margin-bottom:12px"><div class="grp">My tasks</div>${t.map(x=>`<label class="chk" style="padding:16px"><input type="checkbox" onchange="S.pm.tasks.find(z=>z.t==='${x.t.replace(/'/g,"\\'")}').done=this.checked;S.pm.activity.unshift('${x.t.replace(/'/g,"\\'")} completed');save();toast('Task completed');go()"><span style="flex:1">${x.t}</span></label>`).join('')||'<div class="empty">All done</div>'}</div>
- <div class="row" style="gap:10px"><button class="btn big" style="flex:1" onclick="pickFile(f=>{S.pm.files.unshift({name:f.name,kind:'Photo',size:Math.round(f.size/1024)+' KB',by:'You'});save();toast('Photo saved to project')},'image/*')">${ic('cam')} Photo</button><a class="btn big" style="flex:1" href="#project/${p.id}">Open project</a></div></div>`};
-window.toggleClock=()=>{if(!clock){clock=new Date();toast('Clocked in')}else{const h=Math.max(.1,(Date.now()-clock)/36e5);S.time.unshift({who:'You',type:'Project',date:new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}),start:clock.toLocaleTimeString([],{hour:'numeric',minute:'2-digit'}),end:new Date().toLocaleTimeString([],{hour:'numeric',minute:'2-digit'}),hrs:+h.toFixed(2),cost:0});save();clock=null;toast('Time logged')}go()};
+/* ============ project workspace ============ */
+const PM_TABS=['Overview','To-dos','Messages','Schedule','Files','Check-ins','Chat','Money'];
+V.project=id=>{const p=by('projects',id);if(!p)return empty('Project not found.',btn('All projects','location.hash=\'projects\'','p'));const pm=PM(id),cv=ST.clientView,tabs=PM_TABS.filter(t=>!cv||!['Check-ins','Chat','Money'].includes(t));if(!tabs.includes(ST.pmTab))ST.pmTab='Overview';const t=ST.pmTab;let body;
+ if(t==='Overview')body=pmOverview(p,pm);else if(t==='To-dos')body=pmTodos(p,pm);else if(t==='Messages')body=pmMessages(p,pm);else if(t==='Schedule')body=pmSchedule(p,pm);else if(t==='Files')body=pmFiles(p,pm);else if(t==='Check-ins')body=pmCheckins(p,pm);else if(t==='Chat')body=pmChat(p,pm);else body=pmMoney(p,pm);
+ return H`<div class="row sb2" style="margin-bottom:6px"><div class="mut">${p.id} · ${acctName(p.acctId)}</div><div class="row">${tag(p.stage)}<button class="btn" onclick="ST.clientView=!ST.clientView;go()">${ST.clientView?'Exit client view':'Client view'}</button>${btn('Edit',`openForm('projects','${id}')`,'','edit')}</div></div>
+ ${cv?H`<div class="banner">Client view: showing to-dos, messages, schedule and files only. Chat, check-ins and money stay private.</div>`:''}<div class="tabs scroll">${tabs.map(x=>H`<button class="${x===t?'on':''}" data-v="${x}" onclick="ST.pmTab=this.dataset.v;go()">${x}</button>`)}</div>${body}`};
+function pmOverview(p,pm){const done=pm.tasks.filter(t=>t.done).length,hx=pm.hill*3.2,f=x=>120-100*Math.exp(-Math.pow((x-50)/24,2)),pts=[];for(let x=0;x<=100;x+=2)pts.push((x*3.2)+','+f(x));const q=by('quotes',p.quoteId);
+ return H`<div class="grid2"><div class="card pad"><div class="h2">Progress <span class="mut" style="font-weight:400">${pm.hill<50?'Figuring it out':'Making it happen'}</span></div><svg class="hill" viewBox="0 0 320 140"><path d="M${pts.join(' L')}" fill="none" stroke="var(--line)" stroke-width="2"/><line x1="160" y1="10" x2="160" y2="125" stroke="var(--line)" stroke-dasharray="3 4"/><circle cx="${hx}" cy="${f(pm.hill)}" r="7" fill="var(--accent)"/></svg><input type="range" min="0" max="100" value="${pm.hill}" style="width:100%;accent-color:var(--accent)" aria-label="Progress on the hill" onchange="PM('${p.id}').hill=+this.value;save();go()"></div>
+ <div class="card pad"><div class="h2">Details</div><div class="kv"><span>Client</span><b>${acctName(p.acctId)}</b></div><div class="kv"><span>Job site</span><b>${p.address||'—'}</b></div><div class="kv"><span>Start</span><b>${fmtD(p.start)}</b></div><div class="kv"><span>Tasks</span><b>${done}/${pm.tasks.length}</b></div>${q&&!ST.clientView?H`<div class="kv"><span>Quote</span><b><a class="lnk" href="#quote/${q.id}">${q.id}</a></b></div>`:''}${p.notes?H`<p style="margin-top:10px;color:var(--ink-2)">${p.notes}</p>`:''}</div></div>
+ <div class="card pad" style="margin-top:16px"><div class="h2">Latest activity</div>${pm.activity.length?pm.activity.slice(0,12).map(a=>H`<div class="li"><span>${a.t}</span><small class="mut">${fmtD((a.on||'').slice(0,10))}</small></div>`):H`<div class="mut sm">Nothing yet. Activity appears as the team works.</div>`}</div>`}
+function pmTodos(p,pm){const lists=[...new Set(pm.tasks.map(t=>t.list||'To-dos'))];
+ return H`<div class="row" style="margin-bottom:14px"><label class="search" style="flex:1;max-width:520px"><input placeholder="Add a to-do and press Enter" aria-label="New to-do" onkeydown="if(event.key==='Enter'&&this.value.trim()){PM('${p.id}').tasks.push({id:Date.now(),t:this.value.trim(),list:'To-dos',who:'',due:'',done:false});save();go()}"></label></div>
+ ${lists.length?lists.map(l=>H`<div class="card" style="margin-bottom:14px;overflow:hidden"><div class="grp">${l}</div>${pm.tasks.map((t,i)=>({t,i})).filter(x=>(x.t.list||'To-dos')===l).map(({t,i})=>H`<div class="chk ${t.done?'done':''}"><input type="checkbox" ${t.done?raw('checked'):''} data-p="${p.id}" data-i="${i}" onchange="taskDone(this.dataset.p,+this.dataset.i,this.checked)" aria-label="Done"><span style="flex:1;cursor:pointer" data-p="${p.id}" data-i="${i}" onclick="taskForm(this.dataset.p,+this.dataset.i)">${t.t}</span><small class="mut">${t.who||''} ${t.due?'· '+fmtD(t.due):''}</small></div>`)}</div>`):empty('No to-dos yet.')}`}
+function taskForm(pid,i){const t=PM(pid).tasks[i];openDrawer(H`<form onsubmit="return saveTask(event,'${pid}',${i})"><div class="row sb2" style="margin-bottom:18px"><b style="font-size:17px">Edit to-do</b><button type="button" class="btn ic" onclick="closeDrawer()" aria-label="Close">${ic('x')}</button></div>
+ <div class="fld"><label>To-do</label><input name="t" value="${t.t}" required></div><div class="fld"><label>List</label><input name="list" value="${t.list||'To-dos'}"></div><div class="fld"><label>Assigned to</label><input name="who" value="${t.who||''}"></div><div class="fld"><label>Due date</label><input type="date" name="due" value="${t.due||''}"></div>
+ <div class="row"><button class="btn p" type="submit">Save</button><button type="button" class="btn dng" onclick="taskDel('${pid}',${i})">${ic('trash')}Delete</button></div></form>`)}
+function saveTask(e,pid,i){e.preventDefault();const f=new FormData(e.target),t=PM(pid).tasks[i];['t','list','who','due'].forEach(k=>t[k]=(f.get(k)||'').trim());save();closeDrawer();go();return false}
+function taskDel(pid,i){if(!confirm('Delete this to-do?'))return;PM(pid).tasks.splice(i,1);save();closeDrawer();go()}
+function pmMessages(p,pm){return H`<div class="card pad" style="margin-bottom:14px"><div class="fld"><input id="pt" placeholder="Title" style="max-width:100%"></div><div class="fld"><textarea id="pb" rows="3" placeholder="Write an update for the team or client" style="max-width:100%"></textarea></div><button class="btn p" onclick="addPost('${p.id}')">Post</button></div>
+ <div class="card">${pm.posts.length?pm.posts.map((m,i)=>H`<div class="post"><b>${m.title}</b><div class="mut sm" style="margin:2px 0 8px">${m.who} · ${fmtD((m.on||'').slice(0,10))}</div><div style="white-space:pre-wrap">${m.body}</div>${(m.replies||[]).map(r=>H`<div class="reply"><b>${r.who}</b> ${r.t}</div>`)}<input class="qin" style="width:100%;text-align:left;margin-top:10px" placeholder="Reply and press Enter" aria-label="Reply" onkeydown="if(event.key==='Enter'&&this.value.trim()){replyPost('${p.id}',${i},this.value.trim())}"></div>`):empty('No messages yet.')}</div>`}
+function addPost(pid){const t=$('#pt').value.trim(),b=$('#pb').value.trim();if(!t)return toast('Add a title');PM(pid).posts.unshift({who:me(),on:new Date().toISOString(),title:t,body:b,replies:[]});logAct(pid,me()+' posted "'+t+'"');save();go()}
+function replyPost(pid,i,t){const m=PM(pid).posts[i];m.replies=m.replies||[];m.replies.push({who:me(),t});save();go()}
+function pmSchedule(p,pm){const rows=[];pm.tasks.filter(t=>t.due).forEach(t=>rows.push({d:t.due,w:t.t,k:t.done?'Done':'Task',who:t.who}));DB.events.filter(e=>e.projectId===p.id).forEach(e=>rows.push({d:e.date,w:e.title,k:'Event',who:''}));DB.invoices.filter(i=>i.projectId===p.id&&i.due).forEach(i=>rows.push({d:i.due,w:i.name,k:'Payment due',who:''}));rows.sort((a,b)=>a.d.localeCompare(b.d));
+ return H`<div class="row sb2" style="margin-bottom:14px"><span class="mut sm">Dates come from to-dos, events and invoices.</span>${btn('Add event',`openForm('events',null,{projectId:'${p.id}'})`,'','plus')}</div><div class="card">${rows.length?table(['Date','What','Type','Who'],rows.filter(r=>!ST.clientView||r.k!=='Payment due').map(r=>tr([fmtD(r.d),H`<b>${r.w}</b>`,r.k==='Done'?tag('Done'):r.k,r.who||''])),[]):empty('Nothing scheduled. Give a to-do a due date or add an event.')}</div>`}
+function pmFiles(p,pm){return H`<div class="drop" onclick="pickFile(async fs=>{for(const f of fs)await addProjectFile('${p.id}',f);toast(fs.length+' file(s) added');go()},'',true)" style="margin-bottom:14px">${ic('up')} Add files (plans, photos, PDFs)</div><div class="mut sm" style="margin-bottom:10px">Files are stored on this device only.</div><div class="card">${pm.files.length?table(['Name','Type','Size','Added by','',''],pm.files.map((f,i)=>H`<tr><td><b>${f.name}</b></td><td>${f.kind}</td><td>${fsize(f.size)}</td><td>${f.by} · ${fmtD(f.on)}</td><td><button class="btn sm0" data-id="${f.id}" onclick="openFile(this.dataset.id)">Open</button></td><td><button class="btn ic sm0" onclick="fileDel('${p.id}',${i})" aria-label="Remove file">${ic('x')}</button></td></tr>`)):empty('No files yet.')}</div>`}
+function fileDel(pid,i){if(!confirm('Remove this file?'))return;const f=PM(pid).files.splice(i,1)[0];fdel(f.id);save();go()}
+function pmCheckins(p,pm){return H`<div class="row" style="margin-bottom:14px">${btn('Add a question',`addQuestion('${p.id}')`,'','plus')}</div>${pm.checkins.map((c,ci)=>H`<div class="card pad" style="margin-bottom:14px"><div class="h2">${c.q}</div>${c.ans.length?c.ans.slice(-8).map(a=>H`<div class="li" style="display:block"><b>${a.who}</b> <small class="mut">${fmtD((a.on||'').slice(0,10))}</small><div>${a.a}</div></div>`):H`<div class="mut sm">No answers yet.</div>`}<input class="qin" style="width:100%;text-align:left;margin-top:12px" placeholder="Your answer, press Enter" aria-label="Your answer" onkeydown="if(event.key==='Enter'&&this.value.trim()){PM('${p.id}').checkins[${ci}].ans.push({who:me(),a:this.value.trim(),on:new Date().toISOString()});save();go()}"></div>`)}`}
+function addQuestion(pid){const q=prompt('Question to ask the team');if(q&&q.trim()){PM(pid).checkins.push({id:Date.now(),q:q.trim(),ans:[]});save();go()}}
+function pmChat(p,pm){return H`<div class="card"><div class="chat" id="chatbox">${pm.chat.length?pm.chat.map(c=>H`<div class="msg ${c.who===me()?'me':''}"><small>${c.who}${c.on?' · '+new Date(c.on).toLocaleTimeString([],{hour:'numeric',minute:'2-digit'}):''}</small>${c.m}</div>`):H`<div class="mut sm">No messages yet.</div>`}</div><div class="pad" style="border-top:1px solid var(--line)"><label class="search"><input id="cm" placeholder="Message the team, press Enter" style="width:100%" aria-label="Message" onkeydown="if(event.key==='Enter'&&this.value.trim()){PM('${p.id}').chat.push({who:me(),m:this.value.trim(),on:new Date().toISOString()});save();go()}"></label></div></div>`}
+AFTER.project=()=>{const c=$('#chatbox');if(c)c.scrollTop=c.scrollHeight};
+function pmMoney(p,pm){const inv=DB.invoices.filter(i=>i.projectId===p.id),pos=DB.pos.filter(x=>x.projectId===p.id),tm=DB.time.filter(t=>t.projectId===p.id),cost=sum(pos,poTotal)+sum(tm,t=>t.cost),paid=sum(inv.filter(i=>i.status==='Paid'),i=>i.amt);
+ return H`<div class="kpis">${kpi('Project value',money(p.value))}${kpi('Paid',money(paid))}${kpi('Costs so far',money(cost),'POs + labor')}${kpi('Estimated profit',money((+p.value||0)-cost))}</div>
+ <div class="card" style="margin-bottom:16px"><div class="pad" style="padding-bottom:6px"><div class="row sb2"><div class="h2" style="margin:0">Payment milestones</div>${btn('Add',`openForm('invoices',null,{projectId:'${p.id}'})`,'','plus')}</div></div>${inv.length?table(['Milestone','Due','Amount','Status'],inv.map(i=>tr([H`<b>${i.name}</b>`,fmtD(i.due),money2(i.amt),tag(invStatus(i))],[2],`openInvoice('${i.id}')`)),[2]):empty('No milestones.')}</div>
+ <div class="grid3"><div class="card pad"><div class="h2">Purchase orders</div>${pos.length?pos.map(x=>H`<div class="li" style="cursor:pointer" onclick="openPO('${x.id}')"><span>${x.id} ${x.vendor}</span><b>${money(poTotal(x))}</b></div>`):H`<div class="mut sm">None</div>`}</div><div class="card pad"><div class="h2">Time logged</div><div style="font-size:26px;font-weight:600">${sum(tm,t=>t.hours).toFixed(1)} h</div><div class="mut sm">${money(sum(tm,t=>t.cost))} labor cost</div>${btn('Log time',`openForm('time',null,{projectId:'${p.id}',date:todayISO(),who:me()})`,'','plus')}</div></div>`}
 
-/* ---------- shell ---------- */
-$('#nav').innerHTML=routes.map(r=>`<a href="#${r[0]}" data-r="${r[0]}">${ic(r[2])}${r[1]}</a>`).join('');
-$('#menuBtn').innerHTML=ic('menu');
-function go(){
- const [r,arg]=(location.hash.slice(1)||'dashboard').split('/');
- const route=routes.find(x=>x[0]===r);
- const fn=view[r]||view.dashboard;
- const pj=S.projects.find(x=>x.id===arg);$('#title').textContent=r==='quote'?'Quote editor':r==='proposal'?'Client proposal':r==='project'?(pj?pj.name:'Project'):(route?route[1]:'Dashboard');
- document.title=$('#title').textContent+' · Atlas';
- $('#page').innerHTML=fn(arg);
- document.querySelectorAll('#nav a').forEach(a=>a.classList.toggle('on',a.dataset.r===({quote:'opportunities',proposal:'opportunities',project:'projects'}[r]||r)));
- $('#sb').classList.remove('on');
- bind();if(r==='quote')qsum();if(r==='proposal')ptot();$('#bnav').innerHTML=[['dashboard','Home','dash'],['opportunities','Pipeline','opp'],['projects','Projects','proj'],['catalog','Catalog','cat'],['field','Field','pin']].map(x=>`<a href="#${x[0]}" class="${(({quote:'opportunities',proposal:'opportunities',project:'projects'}[r]||r)===x[0])?'on':''}">${ic(x[2])}${x[1]}</a>`).join('');
-}
-function bind(){
- document.querySelectorAll('.kc').forEach(c=>{c.ondragstart=e=>{e.dataTransfer.setData('text/plain',c.dataset.type+'|'+c.dataset.id)}});
- document.querySelectorAll('.col').forEach(col=>{
-  col.ondragover=e=>{e.preventDefault();col.classList.add('over')};
-  col.ondragleave=()=>col.classList.remove('over');
-  col.ondrop=e=>{e.preventDefault();const [t,id]=e.dataTransfer.getData('text/plain').split('|');const it=S[t].find(x=>x.id===id);if(it){it.stage=col.dataset.stage;save();go();toast(`Moved to ${it.stage}`)}};
- });
- document.querySelectorAll('.qin').forEach(i=>i.oninput=()=>{S.items[i.dataset.i][i.dataset.k]=parseFloat(i.value)||0;save();qsum();});
- const nt2=$('#nt2');if(nt2)nt2.onkeydown=e=>{if(e.key==='Enter'&&nt2.value.trim()){S.pm.tasks.unshift({t:nt2.value.trim(),list:'To-dos',who:'Unassigned',due:'TBD',done:false});save();go()}};
- const cm=$('#cm');if(cm)cm.onkeydown=e=>{if(e.key==='Enter'&&cm.value.trim()){S.pm.chat.push({who:'You',m:cm.value.trim()});save();go()}};
- const ci=$('#ci');if(ci)ci.onkeydown=e=>{if(e.key==='Enter'&&ci.value.trim()){S.pm.checkins[0].ans.push({who:'You',a:ci.value.trim()});save();go()}};
- const mk=$('#mk');if(mk)mk.onchange=()=>{S.markup=parseFloat(mk.value)||0;save();go();toast('Markup set to '+S.markup+'%')};
- const nt=$('#nt');if(nt)nt.onkeydown=e=>{if(e.key==='Enter'&&nt.value.trim()){S.todos.unshift({t:nt.value.trim(),due:'Today',done:false});save();go()}};
- document.querySelectorAll('[data-filter]').forEach(inp=>inp.oninput=()=>{const v=inp.value.toLowerCase();document.querySelectorAll('tbody tr,.kc,.prod').forEach(el=>el.style.display=el.textContent.toLowerCase().includes(v)?'':'none')});
-}
-window.openCard=(type,id)=>{
- const it=S[type].find(x=>x.id===id);if(!it)return;
- $('#drawer').innerHTML=`<div class="row sb2" style="margin-bottom:18px"><span class="mut">${it.id}</span><button class="btn ic" onclick="closeDrawer()">✕</button></div><h2 style="font-size:20px;letter-spacing:-.02em;margin-bottom:6px">${it.name}</h2><div class="mut" style="margin-bottom:20px">${it.acct||it.contact||''}</div>
- ${Object.entries(it).filter(([k])=>!['id','name'].includes(k)).map(([k,v])=>`<div class="row sb2" style="padding:11px 0;border-bottom:1px solid var(--line-2)"><span class="mut" style="text-transform:capitalize">${k}</span><b>${typeof v==='number'?money(v):v}</b></div>`).join('')}
- ${type==='opps'?`<div class="row" style="margin-top:22px"><button class="btn p" onclick="location.hash='quote/Q-183';closeDrawer()">Open quote</button></div>`:''}`;
- $('#ov').classList.add('on');$('#drawer').classList.add('on');
-};
-window.closeDrawer=()=>{$('#ov').classList.remove('on');$('#drawer').classList.remove('on');$('#pal').classList.remove('on')};
-$('#ov').onclick=closeDrawer;
-$('#menuBtn').onclick=()=>$('#sb').classList.toggle('on');
-$('#newBtn').onclick=()=>{
- const r=(location.hash.slice(1)||'dashboard').split('/')[0];
- if(r==='opportunities'||r==='dashboard'){S.opps.unshift({id:'O-'+(35+S.opps.length),name:'New opportunity',acct:'Unassigned',stage:'New',val:0});save();location.hash='opportunities';go();toast('Opportunity created')}
- else if(r==='todos'){const n=$('#nt');n&&n.focus()}
- else toast('Creating records is wired up in the next build step');
-};
-/* command palette */
-const pal=$('#pal'),palIn=$('#palIn');
-function palRender(){const q=palIn.value.toLowerCase();$('#palList').innerHTML=routes.filter(r=>r[1].toLowerCase().includes(q)).map((r,i)=>`<a href="#${r[0]}" class="${i?'':'sel'}" onclick="closeDrawer()">${ic(r[2])}${r[1]}</a>`).join('')}
-function openPal(){pal.classList.add('on');$('#ov').classList.add('on');palIn.value='';palRender();palIn.focus()}
-$('#palBtn').onclick=openPal;palIn.oninput=palRender;
-palIn.onkeydown=e=>{if(e.key==='Enter'){const a=$('#palList a');if(a){location.hash=a.getAttribute('href');closeDrawer()}}};
-document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();openPal()}if(e.key==='Escape')closeDrawer()});
-/* theme */
-function theme(t){document.documentElement.dataset.theme=t;$('#themeIcon').innerHTML=ic(t==='dark'?'sun':'moon');$('#themeLbl').textContent=t==='dark'?'Light mode':'Dark mode';try{localStorage.setItem('atlas-theme',t)}catch(e){}}
-$('#themeBtn').onclick=()=>theme(document.documentElement.dataset.theme==='dark'?'light':'dark');
-let th='light';try{th=localStorage.getItem('atlas-theme')||th}catch(e){}
-theme(th);
-window.addEventListener('hashchange',go);go();
+/* ============ product photos ============ */
+const IMGC={};
+function shrink(file,max){max=max||700;return new Promise((res,rej)=>{const img=new Image(),u=URL.createObjectURL(file);img.onload=()=>{const s=Math.min(1,max/Math.max(img.width,img.height)),c=document.createElement('canvas');c.width=Math.max(1,Math.round(img.width*s));c.height=Math.max(1,Math.round(img.height*s));const x=c.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,c.width,c.height);x.drawImage(img,0,0,c.width,c.height);c.toBlob(b=>{URL.revokeObjectURL(u);b?res(b):rej(new Error('encode'))},'image/jpeg',.85)};img.onerror=()=>{URL.revokeObjectURL(u);rej(new Error('load'))};img.src=u})}
+const pimg=(p,cls)=>{if(!p)return H`<span class="pimg ${cls||''}">${ic('box')}</span>`;if(p.imgUrl)return H`<span class="pimg ${cls||''}"><img src="${p.imgUrl}" alt="" loading="lazy" referrerpolicy="no-referrer"></span>`;if(p.img)return H`<span class="pimg ${cls||''}"><img data-k="${p.img}" alt=""></span>`;return H`<span class="pimg ${cls||''}">${ic('box')}</span>`};
+const pimgBySku=(sku,cls)=>pimg(DB.catalog.find(c=>c.sku===sku),cls);
+async function hydrateImgs(){for(const el of $$('img[data-k]')){const k=el.dataset.k;if(IMGC[k]){el.src=IMGC[k];continue}try{const b=await fget(k);if(b){IMGC[k]=URL.createObjectURL(b);el.src=IMGC[k]}}catch(e){}}}
+async function setPhoto(p,file){const b=await shrink(file);const k='p'+p.id+'-'+Date.now();await fput(k,b);if(p.img){fdel(p.img);delete IMGC[p.img]}p.img=k;p.imgUrl='';save()}
+const photoCtl=id=>{const p=by('catalog',id);return H`<div class="fld"><label>Photo</label><div class="row">${pimg(p,'lg')}<div class="row"><button type="button" class="btn" onclick="prodPhotoUpload('${id}')">${ic('up')}Upload photo</button>${(p.img||p.imgUrl)?H`<button type="button" class="btn" onclick="prodPhotoRemove('${id}')">Remove</button>`:''}</div></div><div class="mut sm" style="margin-top:6px">Or paste a photo link in the field below. Uploaded photos stay on this device.</div></div>`};
+function prodPhotoUpload(id){pickFile(async f=>{const p=by('catalog',id);try{await setPhoto(p,f);toast('Photo saved');openForm('catalog',id);go()}catch(e){toast('Could not read that image')}},'image/*')}
+function prodPhotoRemove(id){const p=by('catalog',id);if(p.img){fdel(p.img);delete IMGC[p.img]}p.img='';p.imgUrl='';save();toast('Photo removed');openForm('catalog',id);go()}
+function bulkPhotos(){pickFile(async fs=>{let ok=0,miss=[];const idx=new Map(DB.catalog.map(p=>[p.sku.toLowerCase(),p]));
+ for(const f of fs){const base=f.name.replace(/\.[^.]+$/,'').toLowerCase().trim();const p=idx.get(base)||idx.get(base.replace(/[-_ ]\d+$/,''));if(!p){miss.push(f.name);continue}try{await setPhoto(p,f);ok++}catch(e){miss.push(f.name)}}
+ go();toast(ok+' photos matched by file name'+(miss.length?', '+miss.length+' not matched':''),4000)},'image/*',true)}
+
+/* ============ sample data ============ */
+function loadDemo(){if((DB.accounts.length||DB.opps.length)&&!confirm('Add sample data alongside your existing records?'))return;
+ const D=n=>addDays(n),mk=(c,o)=>{const r=Object.assign({id:nextId({accounts:'A',opps:'O',projects:'P',quotes:'Q',invoices:'I',pos:'PO',calls:'S',contracts:'SC',todos:'D',events:'E',time:'T',stock:'STK',catalog:'C'}[c]),created:todayISO()},o);DB[c].push(r);return r};
+ [['UPS-2000R','Rackmount UPS 2000 VA','PowerGuard','Power',1070,2059,1],['CTRL-CORE5','Core Home Controller','Nexa','Control',2080,4160,20],['SW-24P','Managed 24-Port PoE Switch','Linkwell','Networking',620,1190,3],['AP-WIFI6','Wi-Fi 6 Access Point','Linkwell','Networking',190,360,1.5],['CAT6-1K','Cat6 Cable, 1000 ft','WireWorks','Cable',210,390,4],['KEYPAD-6','6-Button Keypad','Lumen','Lighting',95,180,.5],['DIM-SMART','Smart Dimmer','Lumen','Lighting',88,165,.5],['SPK-CEIL6','6.5in In-Ceiling Speaker','Soundcraft','Audio',240,450,1],['AMP-8CH','8-Channel Amplifier','Soundcraft','Audio',980,1850,2],['STRM-4K','4K Media Streamer','Nexa','Video',310,590,1],['CAM-4K','4K Outdoor Camera','Sentry','Security',260,480,2],['HDMI-15','HDMI Cable, 15 ft','WireWorks','Cable',18,45,.25]]
+  .forEach(([sku,name,brand,cat,cost,msrp,hrs])=>{if(!DB.catalog.some(c=>c.sku===sku))mk('catalog',{sku,name,brand,cat,cost,msrp,hrs})});
+ const A=mk('accounts',{name:'Harper Residence',type:'Client',contact:'Jordan Harper',email:'jordan@example.com',phone:'555-0101',address:'12 Alpine Way, Park City, UT',rep:me(),status:'Active'}),
+  B=mk('accounts',{name:'Delgado Home',type:'Client',contact:'Maria Delgado',email:'maria@example.com',phone:'555-0102',address:'88 Canyon Rd, Salt Lake City, UT',rep:me(),status:'Active'}),
+  C=mk('accounts',{name:'Pine Ridge Builders',type:'Builder',contact:'Sam Lee',email:'sam@example.com',phone:'555-0103',address:'400 Ridge Ave, Heber City, UT',rep:me(),status:'Active'});
+ const o1=mk('opps',{name:'Whole-Home Audio',acctId:A.id,stage:'Won',budget:31000,close:D(-12),prob:100,source:'Referral',wonOn:D(-10)}),o2=mk('opps',{name:'Theater Room',acctId:A.id,stage:'New',budget:48000,close:D(20),prob:40,source:'Referral'}),
+  o3=mk('opps',{name:'Wi-Fi Upgrade',acctId:B.id,stage:'Quoting',budget:6400,close:D(5),prob:70,source:'Website'}),o4=mk('opps',{name:'Lighting Retrofit',acctId:C.id,stage:'On Hold',budget:23400,close:D(40),prob:30,source:'Builder'});
+ const mkq=(o,name,items,stage)=>mk('quotes',{v:1,name,oppId:o.id,acctId:o.acctId,stage,items,adjust:0,scope:'Supply and install the equipment listed, program the system, and train the owner.',payments:defPay(),notes:''});
+ const it=(loc,sku,qty,optional)=>{const p=DB.catalog.find(c=>c.sku===sku);return{loc,name:p.name,sku,qty,labor:p.hrs,cost:p.cost,price:priceOf(p),optional:!!optional}};
+ const q1=mkq(o1,'Whole-Home Audio',[it('Rack','AMP-8CH',1),it('Rack','CTRL-CORE5',1),it('Living room','SPK-CEIL6',6),it('Kitchen','SPK-CEIL6',4),it('Primary suite','SPK-CEIL6',2,true)],'Approved');
+ mkq(o3,'Wi-Fi Upgrade',[it('Utility','SW-24P',1),it('Utility','AP-WIFI6',4),it('Utility','CAT6-1K',1)],'Presented');
+ const p1=mk('projects',{name:'Whole-Home Audio',acctId:A.id,oppId:o1.id,quoteId:q1.id,stage:'In Progress',value:Math.round(qCalc(q1).total),start:D(-7),address:A.address});q1.projectId=p1.id;
+ const pm=PM(p1.id);pm.hill=62;pm.tasks=[{id:1,t:'Pull speaker wire, main floor',list:'Rough-in',who:me(),due:D(-2),done:true},{id:2,t:'Mount in-ceiling speakers',list:'Rough-in',who:me(),due:D(2),done:false},{id:3,t:'Install rack and amplifier',list:'Equipment',who:me(),due:D(4),done:false},{id:4,t:'Program controller',list:'Commissioning',who:me(),due:D(7),done:false},{id:5,t:'Client walkthrough',list:'Commissioning',who:me(),due:D(9),done:false}];
+ pm.posts=[{who:me(),on:new Date().toISOString(),title:'Rough-in plan this week',body:'Speaker wire first, then ceiling cut-ins. Builder says the ceiling stays open until Thursday.',replies:[]}];pm.activity=[{t:'Pulled speaker wire, main floor',on:new Date().toISOString()},{t:'Project created from quote '+q1.id,on:new Date().toISOString()}];
+ const tot=qCalc(q1).total;[['Deposit',50,'Paid',D(-8)],['Rough-in complete',25,'Sent',D(3)],['Final',25,'Not invoiced','']].forEach(([n,pct,st,due])=>mk('invoices',{projectId:p1.id,name:n,amt:Math.round(tot*pct)/100,due,status:st,paidOn:st==='Paid'?D(-6):null}));
+ mk('pos',{vendor:'Snap One',projectId:p1.id,status:'Ordered',date:D(-5),lines:[{sku:'AMP-8CH',name:'8-Channel Amplifier',qty:1,cost:980,recv:0},{sku:'SPK-CEIL6',name:'6.5in In-Ceiling Speaker',qty:12,cost:240,recv:0}]});
+ [['CAT6-1K','Cat6 Cable, 1000 ft','Warehouse',6,3,210],['AP-WIFI6','Wi-Fi 6 Access Point','Warehouse',2,4,190],['KEYPAD-6','6-Button Keypad','Van 1',9,4,95],['HDMI-15','HDMI Cable, 15 ft','Warehouse',1,5,18]].forEach(([sku,name,loc,qty,min,cost])=>mk('stock',{sku,name,loc,qty,min,cost}));
+ mk('calls',{acctId:B.id,issue:'Wi-Fi dead zone upstairs',pri:'Normal',status:'Scheduled',when:D(3),tech:me()});mk('calls',{acctId:A.id,issue:'Keypad not responding',pri:'High',status:'Open',when:'',tech:''});
+ mk('contracts',{acctId:A.id,name:'Annual care plan',status:'Active',start:D(-90),end:D(275),amt:1200});
+ mk('todos',{t:'Send revised quote to Delgado Home',due:todayISO(),done:false});mk('todos',{t:'Order access points (low stock)',due:D(1),done:false});mk('todos',{t:'Follow up with Pine Ridge on lighting',due:D(-1),done:false});
+ mk('events',{title:'Site visit: Theater Room',date:D(4),time:'10:00'});mk('time',{who:me(),projectId:p1.id,date:D(-2),hours:6.5,cost:6.5*DB.settings.laborCost,note:'Rough-in'});
+ DB.meta.demo=true;save();go();toast('Sample data loaded. You can erase it in Settings.')}
+
+/* ============ quick create + search ============ */
+const NEWMAP={opportunities:'opps',projects:'projects',accounts:'accounts',todos:'todos',catalog:'catalog',inventory:'stock',procurement:'pos',billing:'invoices',time:'time',service:'calls',calendar:'events',field:'time'};
+function quickNew(){const r=(location.hash.slice(1)||'dashboard').split('/')[0];if(NEWMAP[r])return openForm(NEWMAP[r],null,r==='time'||r==='field'?{date:todayISO(),who:me()}:null);
+ openDrawer(H`<div class="row sb2" style="margin-bottom:14px"><b style="font-size:17px">Create new</b><button class="btn ic" onclick="closeDrawer()" aria-label="Close">${ic('x')}</button></div>${[['Account','accounts'],['Opportunity','opps'],['Project','projects'],['To do','todos'],['Time entry','time'],['Event','events'],['Service call','calls']].map(([l,e])=>H`<div class="li" style="cursor:pointer" data-e="${e}" onclick="openForm(this.dataset.e)"><span>${l}</span>${ic('chev')}</div>`)}<div class="li" style="cursor:pointer" onclick="newQuoteForm()"><span>Quote</span>${ic('chev')}</div>`)}
+let palSel=0,palItems=[];
+function palBuild(){const q=$('#palIn').value.toLowerCase().trim();let l=routes.filter(r=>r[1].toLowerCase().includes(q)).map(r=>({t:r[1],s:'Go to',h:'#'+r[0],i:r[2]}));
+ if(q.length>1){const add=(arr,fn)=>arr.filter(x=>fn(x).t.toLowerCase().includes(q)||(fn(x).s||'').toLowerCase().includes(q)).slice(0,5).forEach(x=>l.push(fn(x)));
+  add(DB.accounts,a=>({t:a.name,s:'Account · '+a.id,h:'#accounts',act:`openAccount('${a.id}')`,i:'acc'}));add(DB.opps,o=>({t:o.name,s:'Opportunity · '+o.id,h:'#opportunities',act:`openOpp('${o.id}')`,i:'opp'}));add(DB.projects,p=>({t:p.name,s:'Project · '+p.id,h:'#project/'+p.id,i:'proj'}));add(DB.quotes,x=>({t:x.name,s:'Quote · '+x.id,h:'#quote/'+x.id,i:'file'}));add(DB.catalog,p=>({t:p.name,s:'Product · '+p.sku,h:'#catalog',i:'box'}))}
+ palItems=l;palSel=0;palDraw()}
+function palDraw(){$('#palList').innerHTML=palItems.length?palItems.map((x,i)=>`<a href="${esc(x.h)}" class="${i===palSel?'sel':''}" data-i="${i}">${ic(x.i||'search').s}<span style="flex:1">${esc(x.t)}</span><small class="mut">${esc(x.s)}</small></a>`).join(''):'<div class="empty">No results</div>'}
+function palGo(i){const x=palItems[i];if(!x)return;closeDrawer();if(x.act){location.hash=x.h.slice(1);setTimeout(()=>new Function(x.act)(),30)}else location.hash=x.h.slice(1)}
+function openPal(){$('#pal').classList.add('on');$('#ov').classList.add('on');$('#palIn').value='';palBuild();$('#palIn').focus()}
+
+/* ============ theme ============ */
+function theme(t){document.documentElement.dataset.theme=t;$('#themeIcon').innerHTML=ic(t==='dark'?'sun':'moon').s;$('#themeLbl').textContent=t==='dark'?'Light mode':'Dark mode';try{localStorage.setItem('atlas-theme',t)}catch(e){}}
+
+/* ============ boot ============ */
+function brand(){const c=co();$('#logo').textContent=(c.logoText||'A').slice(0,2);$('#brandName').textContent=c.name||'Atlas'}
+const _go=go;go=function(){_go();brand();hydrateImgs()};
+(function boot(){
+ loadDB();
+ $('#nav').innerHTML=routes.map(r=>`<a href="#${r[0]}" data-r="${r[0]}">${ic(r[2]).s}${r[1]}</a>`).join('');
+ $('#menuBtn').innerHTML=ic('menu').s;$('#menuBtn').onclick=()=>$('#sb').classList.toggle('on');
+ $('#ov').onclick=closeDrawer;$('#newBtn').onclick=quickNew;$('#palBtn').onclick=openPal;
+ $('#palIn').oninput=palBuild;
+ $('#palIn').onkeydown=e=>{if(e.key==='ArrowDown'){e.preventDefault();palSel=Math.min(palSel+1,palItems.length-1);palDraw()}else if(e.key==='ArrowUp'){e.preventDefault();palSel=Math.max(palSel-1,0);palDraw()}else if(e.key==='Enter')palGo(palSel)};
+ $('#palList').onclick=e=>{const a=e.target.closest('a');if(a){e.preventDefault();palGo(+a.dataset.i)}};
+ document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();openPal()}if(e.key==='Escape')closeDrawer()});
+ $('#themeBtn').onclick=()=>theme(document.documentElement.dataset.theme==='dark'?'light':'dark');
+ let th=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';try{th=localStorage.getItem('atlas-theme')||th}catch(e){}theme(th);
+ window.addEventListener('hashchange',()=>{closeDrawer();go();window.scrollTo(0,0)});
+ window.addEventListener('beforeunload',()=>{clearTimeout(saveT);persist()});
+ document.addEventListener('visibilitychange',()=>{if(document.hidden){clearTimeout(saveT);persist()}});
+ if(MEM)setTimeout(()=>toast('This browser is blocking storage. Your changes will not be kept after you close the tab.',6000),500);
+ go();
+ if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
+})();
+
 </script>
 </body>
 </html>
